@@ -1,0 +1,7 @@
+requests
+Flask-Session
+flask
+gunicorn
+psycopg2==2.6.2
+pygmail==0.0.5.4
+sendgrid==3.6.3

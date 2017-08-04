@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta name="viewport" content="user-scalable = no">
+    <title>Leaderboard | Kharagpur Winter of Code | KOSS</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/projects.css">
+    <!-- Bootstrap Core CSS -->
+    <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/static/css/modern-business.css" rel="stylesheet">
+    <!-- GitHub contribution graph CSS -->
+    <link rel="stylesheet" href="static/css/github-calendar.css"/>
+    <!-- Sweet alert -->
+    <script src="static/js/sweetalert-dev.js"></script>
+    <link rel="stylesheet" href="static/css/sweetalert.css">
+
+    <!-- Custom Fonts -->
+    <link href="/static/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="/static/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/static/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/static/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/static/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/static/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/static/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/static/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/static/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/static/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/static/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon/favicon-16x16.png">
+
+    <style type="text/css">
+        *{
+            box-sizing: border-box;
+        }
+        h1{
+            text-align: center;
+        }
+        #searchQuery {
+            width: 100%; /* Full-width */
+            font-size: 18px; /* Increase font-size */
+            color: #000000;
+            font-family: 'montserrat-regular', sans-serif;
+            padding: 12px 20px 12px 40px; /* Add some padding */
+            border: 1px solid #ddd; /* Add a grey border */
+            margin-bottom: 12px; /* Add some space below the input */
+            background-color: #d5e0e8;
+        }
+
+        #mainTable {
+            border-collapse: collapse; /* Collapse borders */
+            width: 100%; /* Full-width */
+            border: 1px solid #ddd; /* Add a grey border */
+            font-size: 18px; /* Increase font-size */
+        }
+
+        #mainTable th, #mainTable td {
+            text-align: left; /* Left-align text */
+            padding: 12px; /* Add padding */
+        }
+
+        #mainTable tr {
+            /* Add a bottom border to all table rows */
+            border-bottom: 1px solid #ddd; 
+        }
+
+        #mainTable tr.header {
+            /* Add a grey background color to the table header and on hover */
+            background-color: #003c6b;
+        }
+        #mainTable tr:hover {
+            background-color: #5799CB ;
+        }
+        ::-webkit-input-placeholder {
+           color: #030133;
+        }
+
+        :-moz-placeholder { /* Firefox 18- */
+           color: #030133;  
+        }
+
+        ::-moz-placeholder {  /* Firefox 19+ */
+           color: #030133;  
+        }
+
+        :-ms-input-placeholder {  
+           color: #030133;  
+        }
+
+    </style>
+
+</head>
+
+<body style="color:white;background-color:rgb(0, 5, 34); font-family: 'montserrat-regular', sans-serif; padding-top: 0px">
+
+    <div style="background: black;height: 80px;padding-left: 50px; padding-right: 50px;">
+        <div align="left">
+            <div style="float: left;">
+                <img src ="/static/img/kwoc_logo.png" style = "width:60px; height: 80px; padding-top: 10px; padding-bottom: 10px; display:inline;">
+            </div>
+            <div style="float: left;">
+                <p style="color: white; font-size: 18px; line-height: 80px; letter-spacing: 1px; ">KHARAGPUR WINTER OF CODE</p>
+            </div>
+        </div>
+        <div style="float: right;">
+            <a href="/" style="color: white; font-size: 18px; line-height: 80px;">HOME</a>
+        </div>
+    </div>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Marketing Icons Section -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 style="font-family: 'Lombok'; font-size: 50px; font-weight: bold; text-align: center;" class="page-header">TOP CONTRIBUTORS</h1>
+            </div>
+        </div>
+
+        {% if flag %}
+            <script type="text/javascript">
+            var msgcode = "{{ msgcode }}";
+            if (msgcode == 0) {
+                swal({
+                    title: "Oops!",
+                    text: "{{ msg }}",
+                    type: "error",
+                    confirmButtonText: "Get me back!",
+                    allowOutsideClick: "true"
+                });
+            }
+            if (msgcode == 1) {
+                swal({
+                        title: "Awesome!",
+                        text: "{{ msg }}",
+                        type: "success",
+                        confirmButtonText: "Yeah, On it!",
+                        allowOutsideClick: "true",
+                        html: "true"
+                    },
+                    function() {
+                        window.open("/resources", "_blank");
+                    });
+            }
+            </script>
+        {% endif %}
+
+        <input type="text" id="searchQuery" onkeyup="search()" placeholder="Search for names.." title="Type in a name">
+        <table id="mainTable">
+            <tr class="header">
+                <th style="width:40%;">GitHub Handle</th>
+                <th style="width:30%;">Name</th>
+                <th style="width:30%;"> Commits</th>
+            </tr>
+            {% for student in students_data %}
+                <tr data-href="/leaderboard/user/{{ student.git_handle}}">
+                    <td>{{student.git_handle}}</td>
+                    <td>{{student.firstName}} {{student.lastName}}</td>
+                    <td>{{student.commits}}</td>
+                </tr>
+            {% endfor %}
+
+        <!-- jQuery -->
+        <script src="/static/vendor/jquery/jquery.js"></script>
+        <!-- Bootstrap Core JavaScript -->
+        <script src="/static/vendor/bootstrap/js/bootstrap.min.js"></script>
+        <!-- Script for search function -->
+        <script>
+            function search() {
+              // Declare variables 
+              var input, filter, table, tr, td, i;
+              input = document.getElementById("searchQuery");
+              filter = input.value.toUpperCase();
+              table = document.getElementById("mainTable");
+              tr = table.getElementsByTagName("tr");
+
+              // Loop through all table rows, and hide those who don't match the search query
+              for (i = 0; i < tr.length; i++) {
+                td1 = tr[i].getElementsByTagName("td")[0];
+                td2 = tr[i].getElementsByTagName("td")[1];
+                if ((td) || (td2)) {
+                  if ((td1.innerHTML.toUpperCase().indexOf(filter) > -1) || (td2.innerHTML.toUpperCase().indexOf(filter) > -1))  {
+                    tr[i].style.display = "";
+                  } else {
+                    tr[i].style.display = "none";
+                  }
+                } 
+              }
+            }
+        </script>
+
+<!-- Script to make table clickable -->
+<!--         <script type="text/javascript">
+            $('tr[data-href]').on("click", function() {
+                document.location = $(this).data('href');
+            });
+        </script> -->
+
+    </div>
+</body>
+
+
+</html>

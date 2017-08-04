@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Users</title>
+    <link rel="stylesheet" href="/static/css/sweetalert.css">
+    <!-- GitHub contribution graph CSS -->
+    <link rel="stylesheet" href="/static/css/github-calendar.css" />
+    <!-- Bootstap core CSS -->
+    <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/static/css/user_loader.css">
+    <script type="text/javascript" src="/static/js/github-calendar.min.js"></script>
+    <style type="text/css">
+    body,span{
+        color: white;
+    }
+    h1 {
+        text-align: center;
+    }
+    
+    h2 {
+        text-align: center;
+    }
+    svg {
+        border: thick;
+        background: white;
+    }
+    </style>
+</head>
+
+<body>
+    <h1>{{handle}}</h1>
+    <section>
+        <div id="github-graph" class="github-graph">
+            <!-- Preloader Start -->
+            <!-- Link : https://codepen.io/freyrh/pen/wazzXR -->
+            <div class="loader">
+                <div class="wrap">
+                    <div class="overlay"></div>
+                    <div class="cogWheel one">
+                        <div class="cog one"></div>
+                        <div class="cog two"></div>
+                        <div class="cog three"></div>
+                        <div class="cog four"></div>
+                        <div class="cog five"></div>
+                        <div class="center"></div>
+                    </div>
+                    <div class="cogWheel two">
+                        <div class="cog one"></div>
+                        <div class="cog two"></div>
+                        <div class="cog three"></div>
+                        <div class="cog four"></div>
+                        <div class="cog five"></div>
+                        <div class="center"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Preloader end -->
+        </div>
+    </section>
+    <script type="text/javascript">
+    GitHubCalendar(".github-graph", "{{handle}}");
+    </script>
+    <!-- jQuery -->
+    <script src="/static/vendor/jquery/jquery.js"></script>
+</body>
+
+</html>
