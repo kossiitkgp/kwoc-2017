@@ -2,17 +2,23 @@ import json
 import os
 import requests
 f=open("students.txt","r")
-repos=[]
-openissues=0
-closedissues=0
-openprs=0
-closedprs=0
-itercount=0
+# repos=[]
+# openissues=0
+# closedissues=0
+# openprs=0
+# closedprs=0
+# itercount=0
+all={}
 # os.system("git pull --rebase origin master")
 while (1):
             name=f.readline()
             if not name: break
             name=name.strip()
+            all[name]={}
+            all[name]["PR_no"]=0
+            all[name]["PR_urls"]=[]
+            all[name]["Commit_no"]=0
+            all[name]["commit_urls"]=[]
             url = "https://api.github.com/graphql"
             headers = {"Authorization": "Basic "+str(os.environ['OUATH_KEY'])}
             repo_cur=issue_cur=pr_cur="first: 100"
@@ -23,7 +29,7 @@ while (1):
                           pullRequests("+str(pr_cur)+"){\
                             edges{\
                                 node{\
-                                    state createdAt commits(first:100){\
+                                    state url createdAt commits(first:100){\
                                         edges{\
                                             node{\
                                                 commit{\
@@ -53,10 +59,15 @@ while (1):
 
                 if next_pr!="errored":
                     for pr in data_dict['data']['user']['pullRequests']['edges']:
-                        if pr['node']['state']=='MERGED':
-                            closedprs+=1
-                        elif pr['node']['state']=='OPEN':
-                            openprs+=1
+                        try:
+                            if pr['node']['state']=='MERGED':
+                                all[name]["PR_no"]+=1
+                                all[name]["PR_urls"].append(pr['node']['url'])
+                                for commit in pr['node']['commits']['edges']:
+                                    if commit['node']['commit']['author']['user']['login']==name:
+                                        all[name]["Commit_no"]+=1
+                                        all[name]["commit_urls"].append(commit['node']['commit']['commitUrl'])
+                        except: pass
                         if next_pr!=None and data_dict['data']['user']['pullRequests']['pageInfo']['hasNextPage']!=False:
                             pr_cur='first: 100 after:"'+str(next_pr)+'" '
                         else:
@@ -66,8 +77,9 @@ while (1):
                 itercount+=1
 
                     
-
-
+import os
+os.system("clear && clear")
+print all
 # repos=set(repos)
 # print repos
 
