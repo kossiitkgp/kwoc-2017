@@ -2,6 +2,14 @@ import json
 import os
 import requests
 f=open("students.txt","r")
+p=open("projects.txt","r")
+projects=[]
+while(1):
+    this_link = p.readline()
+    if not this_link: break
+    this_link = this_link.split('/')
+    this_link = this_link[3]+'/'+(this_link[4].split('.git'))[0]
+    projects.append(this_link)
 # repos=[]
 # openissues=0
 # closedissues=0
@@ -26,10 +34,10 @@ while (1):
                 query = json.dumps({\
                     "query": "query{\
                         user(login: \""+name +"\"){\
-                          pullRequests("+str(pr_cur)+"){\
+                          pullRequests("+str(pr_cur)+" states:MERGED){\
                             edges{\
                                 node{\
-                                    state url createdAt commits(first:100){\
+                                    url createdAt commits(first:100){\
                                         edges{\
                                             node{\
                                                 commit{\
@@ -60,13 +68,17 @@ while (1):
                 if next_pr!="errored":
                     for pr in data_dict['data']['user']['pullRequests']['edges']:
                         try:
-                            if pr['node']['state']=='MERGED':
-                                all[name]["PR_no"]+=1
-                                all[name]["PR_urls"].append(pr['node']['url'])
-                                for commit in pr['node']['commits']['edges']:
-                                    if commit['node']['commit']['author']['user']['login']==name:
-                                        all[name]["Commit_no"]+=1
-                                        all[name]["commit_urls"].append(commit['node']['commit']['commitUrl'])
+                            if pr['node']['createdAt'][:7]=='2017-09':
+                                urlhere = pr['node']['url']
+                                urlhere = urlhere.split('/')
+                                urlhere = urlhere[3]+'/'+(urlhere[4].split('.git'))[0]
+                                if urlhere in projects:
+                                    all[name]["PR_no"]+=1
+                                    all[name]["PR_urls"].append(pr['node']['url'])
+                                    for commit in pr['node']['commits']['edges']:
+                                        if commit['node']['commit']['author']['user']['login']==name:
+                                            all[name]["Commit_no"]+=1
+                                            all[name]["commit_urls"].append(commit['node']['commit']['commitUrl'])
                         except: pass
                         if next_pr!=None and data_dict['data']['user']['pullRequests']['pageInfo']['hasNextPage']!=False:
                             pr_cur='first: 100 after:"'+str(next_pr)+'" '
@@ -79,6 +91,7 @@ while (1):
                     
 import os
 os.system("clear && clear")
+print "All PRs and commits this September:"
 print all
 # repos=set(repos)
 # print repos
