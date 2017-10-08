@@ -1,0 +1,51 @@
+/*!
+ *  style-ie.ccs is Only for IE Browsers
+ */
+
+/**************************************
+    ! Only Cursor 
+***************************************/
+
+/*  scroll down   */
+.scroll-to-down { cursor: url("images/arrow-down.cur"), default;}
+.scroll-to-down-white { cursor: url("images/arrow-down-white.cur"), default;}
+
+/*  Work */
+figure:hover img { cursor: url("images/icon-zoom-white.cur"), pointer;}
+.work-with-title figure:hover img { cursor: url("images/icon-zoom-white.cur"), default;}
+
+/*  home shop   */
+.home-product:hover img { cursor: url("images/icon-zoom-white.cur"), default;}
+
+/*  popup gallery, lightbox gallery, image popup  */
+.popup-gallery img, .lightbox-gallery img, .image-popup-no-margins img, .image-popup-vertical-fit img { cursor: url("images/icon-zoom.cur"), default;}
+
+/*  magnific popup close  */
+.mfp-zoom-out-cur, .mfp-zoom-out-cur .mfp-image-holder .mfp-close, .mfp-image-holder, .mfp-iframe-holder { cursor: url("images/icon-zoom-out.cur"), default;}
+
+/*  zoom gallery  */
+.zoom-gallery img { cursor: url("images/icon-zoom2.cur"), default;}
+zoom-in.mfp-zoom { cursor: url("images/icon-zoom.cur"), default;}
+
+/*  magnific popup content   */
+.mfp-auto-cursor .mfp-content { cursor: url("images/icon-zoom-out.cur"), default;}
+
+/*owl carousel*/
+.owl-carousel .owl-item{ cursor: url("images/icon-move.cur"), default;}
+.owl-carousel.light-pagination .owl-item{ cursor: url("images/icon-move-light.cur"), default;}
+
+/* search and cart */
+.top-cart a.shopping-cart { padding-bottom: 30px;}
+#top-search { padding-bottom: 0;}
+.search-cart-header i { padding-bottom: 30px;}
+.search-cart-header .subtitle { padding-bottom: 30px;}
+
+.shrink-nav .search-cart-header .subtitle { padding-bottom: 30px;  right: 0; }
+.shrink-nav .search-cart-header i { padding-bottom: 0px; }
+.sticky-nav { display: block; height: 57px;}
+nav .container { display: block;}
+
+
+
+
+

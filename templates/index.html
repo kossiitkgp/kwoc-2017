@@ -1,499 +1,817 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <title>KWoC | Kharagpur Winter of Code</title>
+        <meta name="description" content="H-Code - A premium portfolio template from ThemeZaa">
+        <meta name="keywords" content="">
+        <meta charset="utf-8">
+        <meta name="author" content="ThemeZaa">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1" />
+        <!-- favicon -->
+        <link rel="shortcut icon" href="images/favicon.png">
+        <link rel="apple-touch-icon" href="images/apple-touch-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+        <!-- animation -->
+        <link rel="stylesheet" href="css/animate.css" />
+        <!-- bootstrap -->
+        <link rel="stylesheet" href="css/bootstrap.css" />
+        <!-- et line icon -->
+        <link rel="stylesheet" href="css/et-line-icons.css" />
+        <!-- font-awesome icon -->
+        <link rel="stylesheet" href="css/font-awesome.min.css" />
+        <!-- revolution slider -->
+        <link rel="stylesheet" href="css/extralayers.css" />
+        <link rel="stylesheet" href="css/settings.css" />
+        <!-- magnific popup -->
+        <link rel="stylesheet" href="css/magnific-popup.css" />
+        <!-- owl carousel -->
+        <link rel="stylesheet" href="css/owl.carousel.css" />
+        <link rel="stylesheet" href="css/owl.transitions.css" />
+        <link rel="stylesheet" href="css/full-slider.css" />
+        <!-- text animation -->
+        <link rel="stylesheet" href="css/text-effect.css" />
+        <!-- common -->
+        <link rel="stylesheet" href="css/style.css" />
+        <!-- responsive -->
+        <link rel="stylesheet" href="css/responsive.css" />
+        <link rel="stylesheet" href="css/semantic.css" />
+        <!--[if IE]>
+            <link rel="stylesheet" href="css/style-ie.css" />
+        <![endif]-->
+        <!--[if IE]>
+            <script src="js/html5shiv.js"></script>
+        <![endif]-->
 
-<head>
-<meta name="viewport" content="user-scalable = no">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>KWoC | Kharagpur Winter of Code | KOSS</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom Fonts -->
-    <link href="/static/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <!-- Theme CSS -->
-    <link href="/static/css/grayscale.min.css" rel="stylesheet">
-    <!-- Timeline CSS -->
-    <link rel="stylesheet" type="text/css" href="/static/css/timeline.css">
-    <!--Styling countdown timer -->
-    <link rel="stylesheet" type="text/css" href="/static/css/back-to-top.css">
-    <!-- Main CSS -->
-    <link rel="stylesheet" type="text/css" href="/static/css/main.css">
-    <!-- Adding favicons -->
-    <link rel="apple-touch-icon" sizes="57x57" href="/static/favicon/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="/static/favicon/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/static/favicon/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="/static/favicon/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/static/favicon/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="/static/favicon/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="/static/favicon/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/static/favicon/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/static/favicon/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="/static/favicon/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="/static/favicon/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon/favicon-16x16.png">
-    <link rel="manifest" href="/manifest.json">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
-    <!--Favicons-->
-
-    <script src="static/js/sweetalert-dev.js"></script>
-    <link rel="stylesheet" href="static/css/sweetalert.css">
-
-</head>
-
-<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-                    Menu <i class="fa fa-bars"></i>
-                </button>
-                <a class="navbar-brand page-scroll" href="#page-top">
-                    <img src="/static/img/kwoc_logo.png" style="width:60px; height: 60px; display:inline;"> <span class="light"> </span> KHARAGPUR WINTER OF CODE
-                </a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
-                <ul class="nav navbar-nav" style="margin-top: 20px ">
-                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
-                    <li class="hidden">
-                        <a href="#page-top"></a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#about">About</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#timeline">Timeline</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#formid">Apply</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
-
-    <!-- Intro Header -->
-    <header class="intro">
-        <div class="intro-body">
+    </head>
+    <body>
+        <!-- navigation panel -->
+        <nav class="navbar navbar-default navbar-fixed-top nav-transparent overlay-nav sticky-nav nav-white nav-border-bottom" role="navigation">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-8 col-md-offset-2">
-                        <a href="http://kossiitkgp.in" target="_blank"><img src="/static/img/koss-logo.png" style="width:100px; height: 100px;"></a>
-                        <p class="brand-heading" style="font-family: 'Lombok';">KWOC</p>
-                        <p class="intro-text">A one month long program for introduction to Open Source.
-                            <br>Organised by Kharagpur Open Source Society.</p>
-                        
-
-
-
+                    <!-- logo -->
+                    <div class="col-md-2 pull-left"><a class="logo-light" href="index.html"><img alt="" src="images/kwoc_logo.png" class="logo" style="height: 60px;" /></a><a class="logo-dark" href="index.html"><img alt="" src="images/kwoc_logo.png" class="logo" style="height: 60px;" /></a></div>
+                    <!-- end logo -->
+                    <!-- toggle navigation -->
+                    <div class="navbar-header col-sm-8 col-xs-2 pull-right">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
                     </div>
+                    <!-- toggle navigation end -->
+                    <!-- main menu -->
+                    <div class="col-md-8 accordion-menu text-right">
+                        <div class="navbar-collapse collapse">
+                            <ul id="accordion" class="nav navbar-nav navbar-right panel-group">
+                                <!-- menu item -->
+                                <li class="dropdown panel">
+                                    <a href=".https://kossiitkgp.in/kwoc_2017/" target="_blank">Home</a>
+                                </li>
+                                <!-- end menu item -->
+                                <!-- menu item -->
+                                <li class="dropdown panel">
+                                    <a href="#" target="_blank">Organizations</a>
+                                </li>
+                                <!-- end menu item -->
+                                <!-- menu item -->
+                                <li class="dropdown panel">
+                                    <a href="./leaderboard/index.html" target="_blank">LeaderBoard</a>
+                                </li>
+                                <!-- end menu item -->
+                                <!-- menu item -->
+                                <li class="dropdown panel">
+                                    <a href="#" target="_blank">Apply</a>
+                                </li>
+                                <!-- end menu item -->
+                                <!-- menu item -->
+                                <li class="dropdown panel">
+                                    <a href="#" target="_blank">Sponsor Us</a>
+                                </li>
+                                <!-- end menu item -->
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- end main menu -->
                 </div>
-                <style>
-			        .proj
-			        {
-			            color: black;
-			            border: solid; 
-			            border-color: white; 
-			            margin: auto; 
-			            background-color: white; 
-			            text-align: center; 
-			            display: inline-block;
-			            height: 70px;
-			            width: 280px;
-			            border-radius: 10px;
-			        }
-			        .proj:hover
-			        {
-			            background-color:rgb(0, 5, 34);
-			            color: white;
-						border: solid;
-						border-color: white;	
-					}		        }
-			    </style>
-                <div style="text-align: center;" >
-	                <div class="proj" onclick="window.open('/projects', '_blank')">
-	                		<p style="text-align: center; vertical-align: middle; line-height: 70px"><i class="fa fa-fw fa-github"></i> Projects</p>
-	                </div>
-	                <div class="proj" onclick="window.open('/leaderboard', '_blank')">
-	                		<p style="text-align: center; vertical-align: middle; line-height: 70px"><i class="fa fa-fw fa-male"></i> Leaderboard</p>
-	                </div>
-                </div>
-
-                        <p><br></p>
-
-                <a href="#about" class="btn btn-circle page-scroll">
-                            <i class="fa fa-angle-double-down animated"></i>
-                        </a>
-
-                <!-- <div id="counter" class="cf">
-                    <span class="days"> </span>
-                    <span class="hours"> </span>
-                    <span class="minutes"> </span>
-                    <span class="seconds"> </span>
-                    <span><em>days</em></span>
-                    <span><em>hours</em></span>
-                    <span><em>minutes</em></span>
-                    <span><em>seconds</em></span>
-                </div> -->
             </div>
-        </div>
-    </header>
-    {% if flag %}
-    <!--<script type="text/javascript">
-      console.log("In if")
-        alert('{{msg}}');
-        window.location.href="/";
-      </script> -->
-    <script type="text/javascript">
-        var msgcode = "{{ msgcode }}";
-        if (msgcode == 0) {
-            swal({
-                title: "Oops!",
-                text: "{{ msg }}",
-                type: "error",
-                confirmButtonText: "Get me back!",
-                allowOutsideClick: "true"
-            });
-        }
-        if (msgcode == 1) {
-            swal({
-                    title: "Awesome!",
-                    text: "{{ msg }}",
-                    type: "success",
-                    confirmButtonText: "Yeah, On it!",
-                    allowOutsideClick: "true",
-                    html: "true"
-                },
-                function() {
-                    window.open("/resources", "_blank");
-                });
-        }
-    </script>
-    {% endif %}
-    <!-- About Section -->
-    <section id="about" class="container content-section text-center">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
-                <h2 style="color: #FFF">About KWOC</h2>
-                <p style="color: #EEE"><b>Kharagpur Winter of Code</b> is a 5-week long <b>online</b> program<br> for the students of IIT Kharagpur, who are new to open source software development. The program will not only help students to get involved in open source, but
-                    will also prep them for many open source summer programs, <a style="color: #357fb7" href="https://en.wikipedia.org/wiki/Google_Summer_of_Code" target="_blank">Google Summer of Code</a> being one of them.</p>
-                <p style="color: #EEE"><a href="#formid" onclick="link_student()">Get involved as student</a> by registering below. The instructions will follow and we are with you.</p>
-                <p style="color: #EEE">Or do you want to <a href="#formid" onclick="link_project()">join as a mentor</a> in the program? Join by registering your project.</p>
-                <div class="btn" style="border: solid;" onclick="window.open('/resources', '_blank')">Checkout the resources</div>
-            </div>
-        </div>
-    </section>
-    <!-- Timeline Section -->
-    <section id="timeline" class="container content-section text-center">
-        <header class="intro" style="background: none;">
-            <div class="intro-body">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-8 col-md-offset-2">
-                            <br><br><br>
-                            <h1 class="brand-heading">Timeline</h1>
+        </nav>
+        <!-- end navigation panel -->
+            <div id="owl-demo" class="owl-carousel owl-theme light-pagination square-pagination dark-pagination-without-next-prev-arrow main-slider">
+                <div class="item owl-bg-img" style="background-image:url('images/intro-bg.jpg');">
+                    <div class="opacity-full bg-dark-gray" style="opacity: 0.5"></div>
+                    <div class="container full-screen position-relative">
+                        <div class="slider-typography text-center">
+                            <div class="slider-text-middle-main">
+                                <div class="slider-text-middle slider-text-middle6 padding-left-right-px wow fadeInUp">
+                                    <span class="slider-title-big6 white-text  font-weight-700 letter-spacing-3">KWoC</span>
+                                    <span class="white-text slider-text-middle text-uppercase letter-spacing-10 margin-three no-margin-bottom display-block xs-letter-spacing-6">Kharagpur Winter of Code</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </header>
-        <div class="row">
-            <div id="timeline">
-                <!-- Timeline Item, copy from here to create various boxes -->
-                <div class="timeline-item">
-                    <!--Icon inside the circle-->
-                    <div class="timeline-icon">
-                        <!-- Put the image for circle here -->
-                    </div>
-                    <!-- Content from timeline box and position (right or left)-->
-                    <div class="timeline-content right">
-                        <h2>DECEMBER 1</h2>
-                        <p>
-                            <b>PROJECTS ANNOUNCED</b> <br> Students begin hacking on the listed projects
-                        </p>
-                        <!-- <a href="#" class="btn">button</a> -->
-                    </div>
-                </div>
-
-                <!-- Timeline Item, copy from here to create various boxes -->
-                <div class="timeline-item">
-                    <!--Icon inside the circle-->
-                    <div class="timeline-icon">
-                        <!-- Put the image for circle here -->
-                    </div>
-                    <!-- Content from timeline box and position (right or left)-->
-                    <div class="timeline-content left">
-                        <h2>DECEMBER 8</h2>
-                        <p>
-                            <b>LEADERBOARD GOES LIVE</b><br> No new projects to be added
-                        </p>
-                        <!-- <a href="#" class="btn">button</a> -->
-                    </div>
-                </div>
-
-                <!-- Timeline Item, copy from here to create various boxes -->
-                <div class="timeline-item">
-                    <!--Icon inside the circle-->
-                    <div class="timeline-icon">
-                        <!-- Put the image for circle here -->
-                    </div>
-                    <!-- Content from timeline box and position (right or left)-->
-                    <div class="timeline-content right">
-                        <h2>DECEMBER 15</h2>
-                        <p>
-                            <b>MID-TERM Evaluation</b><br>Leaderboard re-created
-                        </p>
-                        <!--  <a href="#" class="btn">button</a> -->
-                    </div>
-                </div>
-
-
-                <!-- Timeline Item, copy from here to create various boxes -->
-                <div class="timeline-item">
-                    <!--Icon inside the circle-->
-                    <div class="timeline-icon">
-                        <!-- Put the image for circle here -->
-                    </div>
-                    <!-- Content from timeline box and position (right or left)-->
-                    <div class="timeline-content left">
-                        <h2>DECEMBER 29</h2>
-                        <p>
-                            <b>PENCILS DOWN DATE</b><br>Students begin writing report, Adding tests/documentation and Making style fixes
-                        </p>
-                        <!--  <a href="#" class="btn">button</a> -->
-                    </div>
-                </div>
-
-
-                <!-- Timeline Item, copy from here to create various boxes -->
-                <div class="timeline-item">
-                    <!--Icon inside the circle-->
-                    <div class="timeline-icon">
-                        <!-- Put the image for circle here -->
-                    </div>
-                    <!-- Content from timeline box and position (right or left)-->
-                    <div class="timeline-content right">
-                        <h2>January 6</h2>
-                        <p>
-                            <b>REPORT SUBMISSION</b><br>Leaderboard freezed
-                        </p>
-                        <!--    <a href="#" class="btn">button</a> -->
+        <!-- about section -->
+        <section class="no-padding-bottom wow fadeIn">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-10 text-center center-col">
+                        <span class="margin-five no-margin-top display-block letter-spacing-2">SEASON II</span>
+                        <h1>ABOUT KWoC</h1>
+                        <p class="text-med width-90 center-col margin-seven no-margin-bottom"> Kharagpur Winter of Code is a 5-week long online program for the students , who are new to open source software development. The program not only helps students to get involved in open source, but also preps them for many open source summer programs, Google Summer of Code being one of them.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <div class="form" id="formid">
-    	<h3 style="text-align: center; vertical-align: middle;">Registrations closed. We hope to see you next year!</h3>
-    </div>
-
-    <!--Form division-->
-    <!-- <div class="form" id="formid">
-        <br><br><br>
-        <ul class="tab-group">
-            <li class="tab active" id="li_student"><a href="#li_student" onclick=link_student()>Register as Student </a></li>
-            <li class="tab" id="li_project"><a href="#li_project" onclick=link_project()>Register your project </a></li>
-        </ul>
-
-        <div id="student">
-            <h1>Register as Student!</h1>
-
-            <form action="/" method="post">
-
-                <div class="top-row">
-                    <div class="field-wrap">
-                        <input type="text" name="fname" id="fname" placeholder="First Name" autocomplete="off" required>
-                    </div>
-
-                    <div class="field-wrap">
-                        <input type="text" name="lname" id="lname" placeholder="Last Name" autocomplete="off" required>
+            <div class="container-fluid margin-five no-margin-bottom">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12 bg-fast-yellow padding-three text-center">
+                    <a class="ui red tag label">Machine learning</a>&nbsp<a class="ui orange tag label">Android</a>&nbsp<a class="ui yellow tag label">Computer Vision</a>&nbsp<a class="ui olive tag label">Gaming</a>&nbsp<a class="ui green tag label">Backend</a><a class="ui purple tag label">Natural Language Processing</a><br><br><a class="ui teal tag label">Scrapping</a>&nbsp<a class="ui blue tag label">Cognition</a>&nbsp<a class="ui violet tag label">Front End</a>&nbsp&nbsp<a class="ui pink tag label">Deep Learning</a>&nbsp<a class="ui brown tag label">Operating System</a>&nbsp<a class="ui grey tag label">DBMS</a>&nbsp<a class="ui yellow tag label">OOP</a><br><br><a class="ui black tag label">Networking</a>&nbsp<a class="ui white tag label">Compilers</a>&nbsp<a class="ui red tag label">Security</a>&nbsp<a class="ui orange tag label">Data Mining</a>&nbsp<a class="ui olive tag label">Simulations</a>&nbsp<a class="ui green tag label">Artificial Intelligence</a>
+                        <!-- <span class="text-small text-uppercase font-weight-600 black-text letter-spacing-2">PYTHON &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; C &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; JAVASCRIPT &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PHP &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ANDROID</span> -->
                     </div>
                 </div>
-
-                <div class="field-wrap">
-                    <input type="text" name="rollno" id="rollno" placeholder="Roll number (Fill 'nan' if not from iit kgp)" autocomplete="off" required>
-                </div>
-
-                <div class="field-wrap">
-                    <input type="email" name="emailid" id="emailid" placeholder="Email Address" autocomplete="off" required>
-                </div>
-
-                <div class="field-wrap">
-                    <input type="text" name="githubhandle" id="githubhandle" placeholder="Github Username" autocomplete="off" required>
-                </div>
-                <input type="submit" class="button button-block" id="student-submit" value="Submit">
-            </form>
-
-        </div>
-
-        <div id="project" style="display:none;">
-            <h1>Host your project!</h1>
-
-            <form action="/" method="post">
-
-                <div class="top-row">
-                    <div class="field-wrap">
-                        <input type="text" name="fname" id="fname" placeholder="First Name" autocomplete="off" required>
-                    </div>
-
-                    <div class="field-wrap">
-                        <input type="text" name="lname" id="lname" placeholder="Last Name" autocomplete="off" required>
-                    </div>
-                </div>
-
-                <div class="field-wrap">
-                    <input type="email" name="emailid" id="emailid" placeholder="Email Address" autocomplete="off" required>
-                </div>
-
-                <div class="field-wrap">
-                    <input type="text" name="pname" id="pname" placeholder="Project name" autocomplete="off" required>
-                </div>
-
-                <div class="field-wrap">
-                    <input type="text" name="plink" id="plink" placeholder="Project link" autocomplete="off" required>
-                </div>
-                <div class="field-wrap">
-                    <textarea name="pdesc" id="pdesc" style="height: 200px;" placeholder="Project Description"></textarea>
-                </div>
-
-
-                <input type="submit" class="button button-block" value="Submit">
-
-            </form>
-
-        </div>
-
-    </div>
-
-    </div> -->
-    <!--/form -->
-    <!-- Map Section -->
-
-
-
-    <!-- Footer -->
-    <footer>
-        <div class="container text-center" id="contact">
-
-            <div class="social">
-                <a href="https://www.facebook.com/kossiitkgp/?fref=ts" class="" target="_blank"><img src="/static/img/fb.png" style="postion:absolute; width:120px;"></a>
-                <a href="mailto:kossiitkgp@gmail.com" class="" target="_blank"><img src="/static/img/mail.png" style="postion:absolute; width:100px;"></a>
-                <a href="https://github.com/kossiitkgp" class="" target="_blank"><img src="/static/img/git.png" style="position:relative; left:1%; border-radius:50%;  width:100px; height:100px;"></span>
-                </a>
-                <!--
-  		<a href="https://plus.google.com/+OndřejBárta-Otaku" class="link google-plus" target="_parent"><img src = ""></span></a> -->
             </div>
-
-            <p>&lt/&gt with ♥ by <a href="http://kossiitkgp.in" target="_blank">Kharagpur Open Source Society</a></p>
-
-        </div>
-    </footer>
-
-
-    <!-- jQuery -->
-    <script src="/static/vendor/jquery/jquery.js"></script>
-
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="/static/vendor/bootstrap/js/bootstrap.min.js"></script>
-
-
-    <!-- Theme JavaScript -->
-    <script src="/static/js/grayscale.min.js"></script>
-
-    <!-- Timer -->
-    <!-- Remove timer since countdown is over -->
-    <!--<script type="text/javascript" src="/static/js/timer.js"></script> -->
-    <!-- Popup Submit form -->
-
-    <script type="text/javascript" src="/static/js/jquery.leanModal.min.js"></script>
-
-    <!-- Plugin JavaScript -->
-    <script src="/static/js/jquery.min.js"></script>
-
-    <script>
-        function link_student() {
-            document.getElementById("li_student").className = "tab active";
-            document.getElementById("li_project").className = "tab";
-            document.getElementById("student").style.display = "block";
-            document.getElementById("project").style.display = "none";
-        }
-
-        function link_project() {
-            document.getElementById("li_project").className = "tab active";
-            document.getElementById("li_student").className = "tab";
-            document.getElementById("project").style.display = "block";
-            document.getElementById("student").style.display = "none";
-        }
-    </script>
-    <script type="text/javascript" src="/static/js/snowstorm.js"></script>
-    <script type="text/javascript">
-        snowStorm.autoStart = true;
-        snowStorm.followMouse = true;
-        snowStorm.snowStick = true;
-        snowStorm.useMeltEffect = true;
-        snowStorm.usePositionFixed = true; // blue-ish snow!?
-        snowStorm.flakesMaxActive = 96; // show more snow on screen at once
-        snowStorm.useTwinkleEffect = true; // let the snow flicker in and out of view
-        snowStorm.freezeOnBlur = false;
-    </script>
-    <script type="text/javascript" src="/static/js/smoothscroll.js"></script>
-    <script type="text/javascript" src="/static/js/form.js"></script>
-    <script>
-        (function(i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r;
-            i[r] = i[r] || function() {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date();
-            a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0];
-            a.async = 1;
-            a.src = g;
-            m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-
-        ga('create', 'UA-87323543-1', 'auto');
-        ga('send', 'pageview');
-    </script>
-    <script type="text/javascript" src="static/js/back-to-top.js"></script>
-    <script type="text/javascript">
-        $('#student-submit').click(function() {
-
-            if (($.trim($('#fname').val()) == '') || ($.trim($('#lname').val()) == '') || ($.trim($('#rollno').val()) == '') || ($.trim($('#emailid').val()) == '')) {} else {
-                if ($.trim($('#githubhandle').val()) == '') {
-                    swal({
-                            title: "GitHub account mandatory",
-                            text: "Create a github account and use the username here",
-                            type: "error",
-                            confirmButtonText: "Learn more",
-                            allowOutsideClick: "true",
-                            html: "true"
-                        },
-                        function() {
-                            window.open("http://blog.kossiitkgp.in/2016/11/20/quick-guide-to-git-and-github-part-1/", "_blank");
-                        });
-                }
+        </section>
+        <!-- end about section -->
+        <!-- features section -->
+        <section id="features" class="features wow fadeIn">
+            <div class="container">
+                <div class="row">
+                    <!-- section title -->
+                    <div class="col-md-12 text-center">
+                        <h3 class="section-title">Why KWoC?</h3>
+                    </div>
+                    <!-- end section title -->
+                </div>
+                <div class="row">
+                    <div class="col-md-4 col-sm-12">
+                        <!-- features item -->
+                        <div class="features-section col-md-12 col-sm-6 no-padding wow fadeInUp">
+                            <div class="col-md-3 col-sm-2 col-xs-2 no-padding"><i class="icon-upload medium-icon"></i></div>
+                            <div class="col-md-9 col-sm-9 col-xs-9 no-padding text-left f-right">
+                                <h5>Intro to Open Source</h5>
+                                <div class="separator-line bg-yellow"></div>
+                                <p>KWoC provides a great opportunity to get acquainted with Github along with Git commands and contribute to open source effeciently.</p>
+                            </div>
+                        </div>
+                        <!-- end features item -->
+                        <!-- features item -->
+                        <!-- <div class="features-section no-margin col-md-12 col-sm-6 no-padding wow fadeInUp">
+                            <div class="col-md-3 col-sm-2 col-xs-2 no-padding"><i class="icon-upload medium-icon"></i></div>
+                            <div class="col-md-9 col-sm-9 col-xs-9 no-padding text-left f-right">
+                                <h5>True Responsiveness</h5>
+                                <div class="separator-line bg-yellow"></div>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the standard dummy text.</p>
+                            </div>
+                        </div> -->
+                        <!-- end features item -->
+                    </div>
+                    <div class="col-md-4 col-sm-12">
+                        <!-- features item -->
+                        <div class="features-section col-md-12 col-sm-6 no-padding wow fadeInUp">
+                            <div class="col-md-3 col-sm-2 col-xs-2 no-padding"><i class="icon-desktop medium-icon"></i></div>
+                            <div class="col-md-9 col-sm-9 col-xs-9 no-padding text-left f-right">
+                                <h5>Brush up your coding skills</h5>
+                                <div class="separator-line bg-yellow"></div>
+                                <p>If you love coding and want to learn about software development then KWoC helps you to get a glimpse of it and give you a head start.</p>
+                            </div>
+                        </div>
+                        <!-- end features item -->
+                        <!-- features item -->
+                        <!-- <div class="features-section col-md-12 col-sm-6 no-padding wow fadeInUp">
+                            <div class="col-md-3 col-sm-2 col-xs-2 no-padding"><i class="icon-scissors medium-icon"></i></div>
+                            <div class="col-md-9 col-sm-9 col-xs-9 no-padding text-left f-right">
+                                <h5>Lightbox photo Gallery</h5>
+                                <div class="separator-line bg-yellow"></div>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the standard dummy text.</p>
+                            </div>
+                        </div> -->
+                        <!-- end features item -->
+                    </div>
+                    <div class="col-md-4 col-sm-12">
+                        <!-- features item -->
+                        <div class="features-section col-md-12 col-sm-6 no-padding wow fadeInUp">
+                            <div class="col-md-3 col-sm-2 col-xs-2 no-padding"><i class="icon-trophy medium-icon"></i></div>
+                            <div class="col-md-9 col-sm-9 col-xs-9 no-padding text-left f-right">
+                                <h5>Prepare for GSoC</h5>
+                                <div class="separator-line bg-yellow"></div>
+                                <p>With KWoC, you get to know how to select a project, interact with Mentors and learn all other things that prepares you in the best way for the next GSoC.</p>
+                            </div>
+                        </div>
+                        <!-- end features item -->
+                        <!-- features item -->
+                        <!-- <div class="features-section col-md-12 col-sm-6 no-padding wow fadeInUp">
+                            <div class="col-md-3 col-sm-2 col-xs-2 no-padding"><i class="icon-tools medium-icon"></i></div>
+                            <div class="col-md-9 col-sm-9 col-xs-9 no-padding text-left f-right">
+                                <h5>Skills and Accordians</h5>
+                                <div class="separator-line bg-yellow"></div>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the standard dummy text.</p>
+                            </div>
+                        </div> -->
+                        <!-- end features item -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end features section -->
+        <!-- Timeline Section-->
+        <a name="timeline"></a>
+        <style>
+          .cd-timeline-start {
+            background: #fff none repeat scroll 0 0;
+            border: 3px solid #e5e5e5;
+            clear: both;
+            display: block;
+            margin: 0 auto 10px;
+            padding: 15px;
+            position: relative;
+            text-align: center;
+            width: 250px;
+            z-index: 1;
+          }
+          .cd-final {
+              margin-bottom: 0;
+          }
+          .cd-timeline-start-caption, .cd-timeline-start-date {
+              font-family: Lato,Arial,Helvetica,sans-serif;
+          }
+          .cd-timeline-start-caption {
+              color: #4b4e53;
+              font-size: 20px;
+              padding-bottom: 10px;
+              padding-top: 10px;
+          }
+          .cd-timeline-start-date {
+              margin-bottom: 5px;
+          }
+          .cd-container {
+              margin: 0 auto;
+              max-width: 1170px;
+              width: 90%;
+          }
+          .cd-container::after {
+              clear: both;
+              content: "";
+              display: table;
+          }
+          #cd-timeline {
+            margin-bottom: 2em;
+            margin-top: 8em;
+            padding: 0;
+            position: relative;
+          }
+          #cd-timeline::before {
+            background: #e5e5e5 none repeat scroll 0 0;
+            content: "";
+            height: 100%;
+            left: 18px;
+            position: absolute;
+            top: 0;
+            width: 4px;
+          }
+          .cd-timeline-block::after, .cd-timeline-content::after {
+            clear: both;
+            content: "";
+          }
+          .cd-timeline-block {
+            margin: 2em 0;
+            position: relative;
+          }
+          .cd-timeline-block::after {
+            display: table;
+          }
+          .cd-timeline-block:first-child {
+            margin-top: 0;
+          }
+          .cd-timeline-block:last-child {
+            margin-bottom: 0;
+          }
+          @media only screen and (min-width: 991px) {
+            .cd-timeline-block {
+              margin: 4em 0;
             }
+            .cd-timeline-block:first-child {
+              margin-top: 0;
+            }
+            .cd-timeline-block:last-child {
+              margin-bottom: 0;
+            }
+            #cd-timeline {
+              margin-bottom: 3em;
+              margin-top: 8em;
+            }
+            #cd-timeline::before {
+              left: 50%;
+              margin-left: -2px;
+            }
+          }
+          .cd-timeline-content {
+            background: #f3f3f3 none repeat scroll 0 0;
+            margin-left: 60px;
+            padding: 20px;
+            position: relative;
+          }
+          .cd-timeline-content::after {
+            display: table;
+          }
+          .cd-timeline-content h2 {
+            font-size: 20px;
+            line-height: 28px;
+            margin-bottom: 10px;
+            margin-top: 0;
+          }
+          .cd-timeline-content .cd-date, .cd-timeline-content .cd-read-more {
+            display: inline-block;
+          }
+          .cd-timeline-content .cd-read-more {
+            background: #acb7c0 none repeat scroll 0 0;
+            border-radius: 0.25em;
+            color: #fff;
+            float: right;
+            padding: 0.8em 1em;
+          }
+          .no-touch .cd-timeline-content .cd-read-more:hover {
+            background-color: #bac4cb;
+          }
+          .cd-timeline-content .cd-date {
+            float: left;
+          }
+          .cd-date-month, .cd-date-year {
+            display: block;
+            font-family: Lato,Arial,Helvetica,sans-serif;
+            font-weight: 400;
+          }
+          .cd-date-year {
+            font-size: 20px;
+          }
+          .cd-date-month {
+            font-size: 14px;
+          }
+          .cd-timeline-content::before {
+            -moz-border-bottom-colors: none;
+            -moz-border-left-colors: none;
+            -moz-border-right-colors: none;
+            -moz-border-top-colors: none;
+            border-color: transparent #f3f3f3 transparent transparent;
+            border-image: none;
+            border-style: solid;
+            border-width: 7px;
+            content: "";
+            height: 0;
+            position: absolute;
+            right: 100%;
+            top: 16px;
+            width: 0;
+          }
+          h2.portfolio-timeline-title {
+            margin: 10px 0 0;
+          }
+        @media only screen and (min-width: 991px) {
+          .cd-timeline-content {
+            margin-left: 0;
+            padding: 1.6em;
+            width: 45%;
+          }
+          .cd-timeline-content::before {
+            border-color: transparent transparent transparent #f3f3f3;
+            left: 100%;
+            top: 24px;
+          }
+          .cd-timeline-content .cd-read-more {
+            float: left;
+          }
+          .cd-timeline-block:nth-child(2n) .cd-timeline-content, .cd-timeline-block:nth-child(2n) .cd-timeline-content .cd-read-more {
+            float: right;
+          }
+          .cd-timeline-content .cd-date {
+            left: 122%;
+            position: absolute;
+            top: 6px;
+            width: 100%;
+          }
+          .cd-timeline-block:nth-child(2n) .cd-timeline-content::before {
+            border-color: transparent #f3f3f3 transparent transparent;
+            left: auto;
+            right: 100%;
+            top: 24px;
+          }
+          .cd-timeline-block:nth-child(2n) .cd-timeline-content .cd-date {
+            left: auto;
+            right: 122%;
+            text-align: right;
+          }
+        }
+        .cd-timeline-img {
+            border-radius: 50%;
+            height: 40px;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 40px;
+        }
+        .cd-timeline-img img {
+            display: block;
+            height: 24px;
+            left: 50%;
+            margin-left: -12px;
+            margin-top: -12px;
+            position: relative;
+            top: 50%;
+            width: 24px;
+        }
+        .cd-timeline-img.cd-picture {
+            background: #dfdfdf none repeat scroll 0 0;
+            color: #fff;
+            font-size: 24px;
+            padding-top: 16px;
+            text-align: center;
+        }
+        .cd-timeline-img.cd-movie {
+            background: #c03b44 none repeat scroll 0 0;
+        }
+        .cd-timeline-img.cd-location {
+            background: #f0ca45 none repeat scroll 0 0;
+        }
+        @media only screen and (min-width: 991px) {
+          .cd-timeline-img {
+              backface-visibility: hidden;
+              height: 60px;
+              left: 50%;
+              margin-left: -36px;
+              transform: translateZ(0px);
+              width: 60px;
+            }
+        }
+        @media (max-width: 991px) {
+          .cd-timeline-start {
+            margin: 0
+          }
+          .cd-timeline-img.cd-picture {
+              font-size: 18px;
+              padding-top: 8px;
+              left: -15px;
+          }
+          .cd-date {
+              background: #fff none repeat scroll 0 0;
+              margin-bottom: -5px;
+              margin-left: -20px;
+              margin-top: 15px;
+              padding: 15px;
+          }
+          .cd-date-month, .cd-date-year {
+              display: inline-block;
+              font-size: 14px;
+          }
+          .cd-date-year {
+              margin-bottom: 0;
+              margin-right: 10px;
+          }
+        }
+        </style>
 
-        });
-    </script>
-</body>
+          <!-- section title -->
+          <div class="col-md-12 text-center">
+              <h3 class="timeline-title">Timeline</h3>
+          </div>
+          <!-- end section title -->
 
+        <section id="cd-timeline" class="cd-container mb-100 wow fadeIn">
+
+          <div class="container">
+            <div class="cd-timeline-start">
+              <div class="cd-timeline-start-caption">KWOC STARTS</div>
+              <div class="cd-timeline-start-date">NOVEMBER 2017</div>
+            </div>
+            <div class="cd-timeline-block">
+              <div class="cd-timeline-img cd-picture">
+                <span aria-hidden="true" class="fa fa-git"></span>
+              </div> <!-- cd-timeline-img -->
+
+              <div class="cd-timeline-content">
+                <h2>LOREM IPSUM DOLOR SIT AMET</h2>
+                <div>Iste voluptatibus minus veritatis, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut</div>
+                <span class="cd-date"><span class="cd-date-year">2011</span><span class="cd-date-month">NOV 11</span></span>
+              </div> <!-- cd-timeline-content -->
+            </div> <!-- cd-timeline-block -->
+
+            <div class="cd-timeline-block">
+              <div class="cd-timeline-img cd-picture">
+                <span aria-hidden="true" class="fa fa-desktop"></span>
+              </div> <!-- cd-timeline-img -->
+
+              <div class="cd-timeline-content">
+                <h2>HIC QUASI PLACEAT IURE TEMPORA</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde?</p>
+                <span class="cd-date"><span class="cd-date-year">2012</span><span class="cd-date-month">DEC 31</span></span>
+              </div> <!-- cd-timeline-content -->
+            </div> <!-- cd-timeline-block -->
+
+            <div class="cd-timeline-block">
+              <div class="cd-timeline-img cd-picture">
+                <span aria-hidden="true" class="fa  fa-flag-o"></span>
+              </div> <!-- cd-timeline-img -->
+
+              <div class="cd-timeline-content">
+                <h2>DOLOREM IPSAM QUAE RERUM QUIS</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, obcaecati, quisquam id molestias eaque asperiores voluptatibus cupiditate error assumenda delectus odit similique earum voluptatem doloremque dolorem ipsam quae rerum quis. Odit, itaque, deserunt corporis vero ipsum nisi eius odio natus ullam provident pariatur temporibus quia eos repellat consequuntur perferendis enim amet quae quasi repudiandae sed quod veniam dolore possimus rem voluptatum eveniet eligendi quis fugiat aliquam sunt similique aut adipisci.</p>
+                <span class="cd-date"><span class="cd-date-year">2013</span><span class="cd-date-month">JUL 21</span></span>
+              </div> <!-- cd-timeline-content -->
+            </div> <!-- cd-timeline-block -->
+
+            <div class="cd-timeline-block">
+              <div class="cd-timeline-img cd-picture">
+                <span aria-hidden="true" class="fa fa-mail-forward"></span>
+              </div> <!-- cd-timeline-img -->
+
+              <div class="cd-timeline-content">
+                <h2>ISTE VOLUPTATIBUS MINUS VERITATIS</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.</p>
+                <span class="cd-date"><span class="cd-date-year">2014</span><span class="cd-date-month">OCT 15</span></span>
+              </div> <!-- cd-timeline-content -->
+            </div> <!-- cd-timeline-block -->
+
+            <div class="cd-timeline-block">
+              <div class="cd-timeline-img cd-picture">
+                <span aria-hidden="true" class="fa fa-paper-plane"></span>
+              </div> <!-- cd-timeline-img -->
+
+              <div class="cd-timeline-content">
+                <h2>CONSECTETUR ADIPISICING ELIT</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum.</p>
+                <span class="cd-date"><span class="cd-date-year">2015</span><span class="cd-date-month">MAY 10</span></span>
+              </div> <!-- cd-timeline-content -->
+            </div> <!-- cd-timeline-block -->
+
+            <div class="cd-timeline-start cd-final">
+              <div class="cd-timeline-start-caption">KWOC ENDS</div>
+            </div>
+          </section>
+          <!-- counter section -->
+          <section id="counter" class="fix-background" >
+              <div class="opacity-full bg-dark-gray" ></div>
+              <div class="container position-relative">
+                  <div class="row">
+                      <!-- counter item -->
+                      <div class="col-md-3 col-sm-6 bottom-margin text-center counter-section wow fadeInUp sm-margin-bottom-ten" data-wow-duration="300ms">
+                          <i class="icon-profile-male medium-icon"></i>
+                          <span id="anim-number-pizza" class="counter-number white-text main-font font-weight-600"></span>
+                          <span class="counter-title light-gray-text">Participants</span>
+                      </div>
+                      <!-- end counter item -->
+                      <!-- counter item -->
+                      <div class="col-md-3 col-sm-6 bottom-margin text-center counter-section wow fadeInUp sm-margin-bottom-ten" data-wow-duration="600ms">
+                          <i class="icon-documents medium-icon"></i>
+                          <span id="anim-number-client" class="counter-number white-text main-font font-weight-600"></span>
+                          <span class="counter-title light-gray-text">Projects</span>
+                      </div>
+                      <!-- end counter item -->
+                      <!-- counter item -->
+                      <div class="col-md-3 col-sm-6 bottom-margin-small text-center counter-section wow fadeInUp xs-margin-bottom-ten" data-wow-duration="900ms">
+                          <i class="icon-anchor medium-icon"></i>
+                          <span id="anim-number-projects" class="counter-number white-text main-font font-weight-600"></span>
+                          <span class="counter-title light-gray-text">Mentors</span>
+                      </div>
+                       <div class="col-md-3 col-sm-3 sm-display-none col-xs-12 wow fadeIn">
+                          <h3 style="color: white;">Statistics: KWoC 2016</h3>
+                          <div class="separator-line bg-yellow no-margin-lr" ></div>
+                          <p style="color: white;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the standard dummy text.</p>
+                      </div>
+                      <!-- end counter item -->
+
+                  </div>
+              </div>
+            </div>
+        </section>
+        <!-- end counter section -->
+        <!-- work process section -->
+        <section id="work-process" class="work-process wow fadeIn">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-3 sm-display-none col-xs-12 wow fadeIn">
+                        <h5>Steps</h5>
+                        <div class="separator-line bg-yellow no-margin-lr"></div>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the standard dummy text.</p>
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-4 text-center wow fadeIn" data-wow-duration="600ms"><i class="icon-documents extra-large-icon"></i><span class="display-block margin-ten work-process-title">1. Apply</span></div>
+                    <div class="col-md-3 col-sm-4 col-xs-4 text-center wow fadeIn" data-wow-duration="900ms"><i class="icon-edit extra-large-icon"></i><span class="display-block margin-ten work-process-title">2. Code</span></div>
+                    <div class="col-md-3 col-sm-4 col-xs-4 text-center wow fadeIn" data-wow-duration="1200ms"><i class="icon-upload extra-large-icon"></i><span class="display-block margin-ten work-process-title">3. Push</span></div>
+                </div>
+            </div>
+        </section>
+        <!-- end work process section -->
+        <!-- case study section -->
+        <section class="no-padding case-study bg-gray wow fadeIn">
+            <div class="container-fluid">
+                <div class="row">
+                    <div id="owl-demo-small" class="owl-carousel owl-theme dark-pagination  dark-pagination-without-next-prev-arrow">
+                        <!-- case study item -->
+                        <div class="item">
+                            <div class="col-lg-6 col-md-6 case-study-img cover-background" style="background-image:url('./images/kkk.jpg');"></div>
+                            <div class="col-lg-6 col-md-6 case-study-details">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                    <span class="about-number black-text font-weight-400 letter-spacing-2 xs-no-border xs-no-padding-left xs-display-none">01</span>
+                                </div>
+                                <div class="col-lg-8 col-md-9 col-sm-9 col-xs-12 about-text position-relative xs-text-center">
+                                    <p class="title-small text-uppercase letter-spacing-3 black-text font-weight-600 no-margin-bottom">Sayan Sinha</p>
+                                    <span class="case-study-work letter-spacing-3">Github Notifier |  Naarad</span>
+                                    <p class="width-90 xs-width-100">Lorem Ipsum is simply dummy text of the printing &amp; typesetting industry. Lorem Ipsum has been the industry's standard dummy. Lorem Ipsum is simply dummy text of the printing &amp; typesetting industry.</p>
+                                    <a href="single-project-page1.html" class="highlight-button-black-border btn btn-small no-margin-bottom sm-no-margin">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end case study item -->
+                        <!-- case study item -->
+                        <div class="item">
+                            <div class="col-lg-6 col-md-6 case-study-img cover-background" style="background-image:url('./images/kkk.jpg');"></div>
+                            <div class="col-lg-6 col-md-6 case-study-details">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                    <span class="about-number black-text font-weight-400 letter-spacing-2 xs-no-border xs-no-padding-left xs-display-none">02</span>
+                                </div>
+                                <div class="col-lg-8 col-md-9 col-sm-9 col-xs-12 about-text position-relative xs-text-center">
+                                    <p class="title-small text-uppercase letter-spacing-3 black-text font-weight-600 no-margin-bottom">Dhiraj Barnwal</p>
+                                    <span class="case-study-work letter-spacing-3">Hangman App  |  Mozilla</span>
+                                    <p class="width-90 xs-width-100">Lorem Ipsum is simply dummy text of the printing &amp; typesetting industry. Lorem Ipsum has been the industry's standard dummy. Lorem Ipsum is simply dummy text of the printing &amp; typesetting industry.</p>
+                                    <a href="single-project-page1.html" class="highlight-button-black-border btn btn-small no-margin-bottom sm-no-margin">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end case study item -->
+                        <!-- case study item -->
+                        <div class="item">
+                            <div class="col-lg-6 col-md-6 case-study-img cover-background" style="background-image:url('./images/kkk.jpg');"></div>
+                            <div class="col-lg-6 col-md-6 case-study-details">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                    <span class="about-number black-text font-weight-400 letter-spacing-2 xs-no-border xs-no-padding-left xs-display-none">03</span>
+                                </div>
+                                <div class="col-lg-8 col-md-9 col-sm-9 col-xs-12 about-text position-relative xs-text-center">
+                                    <p class="title-small text-uppercase letter-spacing-3 black-text font-weight-600 no-margin-bottom">Rahul Vernwal</p>
+                                    <span class="case-study-work letter-spacing-3">SSL bots  |  FB Messenger Bot</span>
+                                    <p class="width-90 xs-width-100">Lorem Ipsum is simply dummy text of the printing &amp; typesetting industry. Lorem Ipsum has been the industry's standard dummy. Lorem Ipsum is simply dummy text of the printing &amp; typesetting industry.</p>
+                                    <a href="single-project-page1.html" class="highlight-button-black-border btn btn-small no-margin-bottom sm-no-margin">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end case study item -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- case study section -->
+        <!-- new project section -->
+        <section id="new-project" class="new-project wow fadeIn">
+            <div class="container">
+                <div class="row center-col text-center">
+                    <h5 class="wow fadeInDown">We'd love to hear from you.</h5>
+                    <a class="btn highlight-button-black-border margin-four no-margin-bottom wow fadeInUp" href="contact-us.html">Apply Now</a>
+                    <a class="btn highlight-button-black-border margin-four no-margin-bottom wow fadeInUp" href="contact-us.html">Want to sponsor us?</a>
+                </div>
+            </div>
+        </section>
+        <!-- end new project section -->
+        <!-- footer -->
+        <footer>
+            <div class=" bg-white footer-top">
+                <div class="container">
+                    <div class="row margin-four">
+                        <!-- phone -->
+                        <a href ="#timeline"><div class="col-md-3 col-sm-4 text-center"><i class="icon-clock small-icon black-text"></i><h6 class="black-text margin-two no-margin-bottom">Timeline</h6></div></a>
+                        <!-- end phone -->
+                        <!-- address -->
+                        <div class="col-md-3 col-sm-4 text-center"><i class="icon-documents small-icon black-text"></i><h6 class="black-text margin-two no-margin-bottom"><a href="" style="color: black;">Manuals</a></h6></div>
+                        <!-- end address -->
+                        <!-- email -->
+                        <div class="col-md-3 col-sm-4 text-center"><i class="icon-chat small-icon black-text"></i><h6 class="black-text margin-two no-margin-bottom" style="color: black;"><a href="" style="color: black;">Social groups</a></h6></div>
+
+                        <a href="faq.html"<div class="col-md-3 col-sm-4 text-center"><i class="icon-caution small-icon black-text"></i><h6 class="margin-two no-margin-bottom"> <div class="black-text">FAQ</div></a></h6></div>
+                        <!-- end email -->
+                    </div>
+                </div>
+            </div>
+            <div class="container footer-middle">
+                <div class="row">
+                    <div class="col-md-3 col-sm-3 footer-link1 xs-display-none">
+                        <!-- headline -->
+                        <h5>About KOSS</h5>
+                        <!-- end headline -->
+                        <!-- text -->
+                        <p class="footer-text">We are a group of Open Source Enthusiasts who focus on something more preliminary and relevant, ”A Love for Coding”.</p>
+                        <!-- end text -->
+                    </div>
+                    <div class="col-md-2 col-sm-3 col-xs-4 footer-link2 col-md-offset-3">
+                        <!-- headline -->
+                        <h5>MAIN MENU</h5>
+                        <!-- end headline -->
+                        <!-- link -->
+                        <ul>
+                            <li><a href="about-us.html">link 1</a></li>
+                            <li><a href="about-us.html">link 2</a></li>
+                            <li><a href="about-us.html">link 3</a></li>
+                        </ul>
+                        <!-- end link -->
+                    </div>
+                    <div class="col-md-2 col-sm-3 col-xs-4  footer-link3">
+                        <!-- headline -->
+                        <h5>RESOURCES</h5>
+                        <!-- end headline -->
+                        <!-- link -->
+                        <ul>
+                            <li><a href="services.html">link 1</a></li>
+                            <li><a href="services.html">link 2</a></li>
+                            <li><a href="services.html">link 3</a></li>
+                        </ul>
+                        <!-- end link -->
+                    </div>
+                    <div class="col-md-2 col-sm-3 col-xs-4  footer-social">
+                        <!-- headline -->
+                        <h5>CONTACT US</h5>
+                        <!-- end headline -->
+                        <!-- link -->
+                        <ul>
+                            <li><a target="_blank" href="https://www.facebook.com/kossiitkgp/"><i class="fa fa-facebook fa-3x"></i></a></li>
+                            <li><a target="_blank" href="mailto:contact@kossiitkgp.in"><i class="fa fa-envelope fa-3x"></i></a></li>
+                            <li><a target="_blank" href="https://github.com/kossiitkgp"><i class="fa fa-github fa-3x"></i></a></li>
+                        </ul>
+                        <!-- end link -->
+                    </div>
+                </div>
+                <div class="wide-separator-line bg-mid-gray no-margin-lr margin-three no-margin-bottom"></div>
+                <div class="row margin-four no-margin-bottom">
+                    <div class="col-md-6 col-sm-12 sm-text-center sm-margin-bottom-four">
+                        <!-- link -->
+                        <ul class="list-inline footer-link text-uppercase">
+                            <li><a href="https://kossiitkgp.in">About</a></li>
+                            <li><a href="https://blog.kossiitkgp.in/">Blog</a></li>
+                            <!--li><a href="careers.html">Careers</a></li-->
+                            <li><a href="testimonials.html">Testimonials</a></li>
+                            <li><!--1a href="contact-us.html">Contact</a></li-->
+                        </ul>
+                        <!-- end link -->
+                    </div>
+                    <div class="col-md-6 col-sm-12 footer-social text-right sm-text-center">
+                        <!-- social media link -->
+                        <!--a target="_blank" href="https://www.facebook.com/kossiitkgp/"><i class="fa fa-facebook"></i></a-->
+                        <!--a target="_blank" href="https://twitter.com/"><i class="fa fa-twitter"></i></a-->
+                        <!--a target="_blank" href="mailto:kossiitkgp@gmail.com"><i class="fa fa-envelope"></i></a-->
+                        <!--a target="_blank" href="https://dribbble.com/"><i class="fa fa-dribbble"></i></a-->
+                        <!--a target="_blank" href="https://www.youtube.com/"><i class="fa fa-youtube"></i></a-->
+                        <!--a target="_blank" href="https://github.com/kossiitkgp"><i class="fa fa-github"></i></a-->
+                        <!-- end social media link -->
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid bg-dark-gray footer-bottom">
+                <div class="container">
+                    <div class="row margin-three">
+                        <!-- copyright -->
+                        <div class="col-md-6 col-sm-6 col-xs-12 copyright text-left letter-spacing-1 xs-text-center xs-margin-bottom-one">
+                            &copy; 2015 H-Code is proudly powered by ThemeZaa.
+                        </div>
+                        <!-- end copyright -->
+                        <!-- logo -->
+                        <div class="col-md-6 col-sm-6 col-xs-12 footer-logo text-right xs-text-center">
+                            <a href="index.html"><img src="images/logo-light-gray.png" alt="" /></a>
+                        </div>
+                        <!-- end logo -->
+                    </div>
+                </div>
+            </div>
+            <!-- scroll to top -->
+            <a href="javascript:;" class="scrollToTop"><i class="fa fa-angle-up"></i></a>
+            <!-- scroll to top End... -->
+        </footer>
+        <!-- end footer -->
+        <!-- javascript libraries -->
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/modernizr.js"></script>
+        <script type="text/javascript" src="js/bootstrap.js"></script>
+        <script type="text/javascript" src="js/bootstrap-hover-dropdown.js"></script>
+        <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+        <script type="text/javascript" src="js/skrollr.min.js"></script>
+        <script type="text/javascript" src="js/smooth-scroll.js"></script>
+        <!-- animation -->
+        <script type="text/javascript" src="js/wow.min.js"></script>
+        <!-- page scroll -->
+        <script type="text/javascript" src="js/page-scroll.js"></script>
+        <!-- easy piechart-->
+        <script type="text/javascript" src="js/jquery.easypiechart.js"></script>
+        <!-- parallax -->
+        <script type="text/javascript" src="js/jquery.parallax-1.1.3.js"></script>
+        <!--portfolio with shorting tab -->
+        <script type="text/javascript" src="js/jquery.isotope.min.js"></script>
+        <!-- owl slider  -->
+        <script type="text/javascript" src="js/owl.carousel.min.js"></script>
+        <!-- magnific popup  -->
+        <script type="text/javascript" src="js/jquery.magnific-popup.min.js"></script>
+        <script type="text/javascript" src="js/popup-gallery.js"></script>
+        <!-- text effect  -->
+        <script type="text/javascript" src="js/text-effect.js"></script>
+        <!-- revolution slider  -->
+        <script type="text/javascript" src="js/jquery.tools.min.js"></script>
+        <script type="text/javascript" src="js/jquery.revolution.js"></script>
+        <!-- counter  -->
+        <script type="text/javascript" src="js/counter.js"></script>
+        <!-- fit videos  -->
+        <script type="text/javascript" src="js/jquery.fitvids.js"></script>
+        <!-- imagesloaded  -->
+        <script type="text/javascript" src="js/imagesloaded.pkgd.min.js"></script>
+        <!-- setting -->
+        <script type="text/javascript" src="js/main.js"></script>
+    </body>
 </html>
