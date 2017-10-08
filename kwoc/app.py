@@ -25,7 +25,7 @@ try:
 except Exception as e:
     from urllib import parse as urlparse
 
-if "LOCAL_CHECK" in os.environ:
+if "RUNNING_PROD" in os.environ:
     urlparse.uses_netloc.append("postgres")
     url = urlparse.urlparse(os.environ["DATABASE_URL"])
     conn = psycopg2.connect(
@@ -37,7 +37,7 @@ if "LOCAL_CHECK" in os.environ:
     )
     cursor = conn.cursor()
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='../templates', static_folder='../static')
 sess = Session()
 
 
@@ -45,7 +45,7 @@ sess = Session()
 def student_register(request):
         flag = None
         global conn, cursor
-        if "LOCAL_CHECK" not in os.environ:
+        if "RUNNING_PROD" not in os.environ:
                 msg = "Database Connection cannot be set since you are running website locally"
                 msgcode = 0
                 return {
@@ -121,7 +121,7 @@ def student_register(request):
 def project_register(request):
     flag = None
     global conn, cursor
-    if "LOCAL_CHECK" not in os.environ:
+    if "RUNNING_PROD" not in os.environ:
         msg = "Database Connection cannot be set since you are running website locally"
         msgcode = 0
         flag = "True"
@@ -259,7 +259,7 @@ def add_message(git_handle):
 @app.route("/leaderboard")
 def leaderboard():
     global conn, cursor
-    if "LOCAL_CHECK" not in os.environ:
+    if "RUNNING_PROD" not in os.environ:
         msg = "Database Connection cannot be set since you are running website locally"
         msgcode = 0
         return render_template('leaderboard.html', flag="True", msg=msg, msgcode=msgcode)
@@ -286,7 +286,7 @@ def leaderboard():
 @app.route("/projects")
 def projects():
     global conn, cursor
-    if "LOCAL_CHECK" not in os.environ:
+    if "RUNNING_PROD" not in os.environ:
         msg = "Database Connection cannot be set since you are running website locally"
         msgcode = 0
         return render_template('index.html', flag="True", msg=msg, msgcode=msgcode)
@@ -374,3 +374,6 @@ app.config['SESSION_TYPE'] = 'filesystem'
 
 sess.init_app(app)
 app.debug = True
+
+if "RUNNING_PROD" not in os.environ:
+    app.run()
