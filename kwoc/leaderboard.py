@@ -1,7 +1,9 @@
 import requests
-import traceback 
-import json 
+import traceback
+import json
 import os
+
+import utils
 
 def get_commits(username, repo_name):
     '''
@@ -11,7 +13,7 @@ def get_commits(username, repo_name):
     '''
     # total_commits = 0
     # total_additions, total_deletions, total_changes = 0, 0, 0
-    
+
     # user = g.get_user(username)
     # repo = g.get_repo(repo_name)
     # starting_date = datetime.datetime(2016, 5, 1)
@@ -34,25 +36,8 @@ def get_commits(username, repo_name):
         for data in response :
             if data["author"]["login"].lower() == username.lower() :
                 commits+=int(data["total"])
-        return commits 
+        return commits
     except TypeError :
         msg = "Unable to get commits in {} repo.\nFollowing error occured : {}".format(repo_name,traceback.format_exc())
-        slack_notification(msg)
+        utils.slack_notification(msg)
         return 0
-
-
-def slack_notification(message):
-        headers = {
-                "Content-Type": "application/json"
-        }
-        data = json.dumps({
-                "text": "In leaderboard.py  following error occured :\n{}".format(message)
-        })
-        r = requests.post(
-                os.environ["SLACK_WEBHOOK_URL"], headers=headers, data=data)
-
-        if r.status_code != 200:
-                print("in slack_notification : {}".format(r.status_code))
-                print(r.text)
-if __name__ == '__main__':
-    print get_commits('defcon-007', 'defcon-007/utilobot')

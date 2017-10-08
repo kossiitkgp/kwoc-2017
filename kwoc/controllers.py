@@ -8,6 +8,7 @@ import requests
 from sendgrid_mail import send_mail
 from flask import render_template, request
 
+import utils
 
 def main():
     if request.method == "POST":
@@ -102,9 +103,9 @@ def project_register():
         index = form_dict['plink'].find("github.com/")
         phandle = form_dict['plink'][index + 11:]
         phandleCopy = phandle[:]
-        imgURL = getimageURL(phandleCopy.split("/")[0])
-        forkno = getforks(phandle)
-        watcherno = getwatchers(phandle)
+        imgURL = utils.getimageURL(phandleCopy.split("/")[0])
+        forkno = utils.getforks(phandle)
+        watcherno = utils.getwatchers(phandle)
         if imgURL:
             query = r"INSERT INTO project (f_name,l_name,email_id,project_link,project_name,project_handle, " \
                 "project_description,image,forkno,watcherno) values ('{}','{}','{}','{}','{}','{}','{}','{}','{}','{}')"
@@ -125,7 +126,7 @@ def project_register():
             mail_check = send_mail(mail_subject, mail_body, form_dict["emailid"])
             if not mail_check:
                 msg = "Unable to send mail to the following project:\n{}\nGot the follwing error:\n{}"
-                slack_notification(msg.format(form_dict, traceback.format_exc()))
+                utils.slack_notification(msg.format(form_dict, traceback.format_exc()))
             flag = "True"
             msg = "Your project {} has been successfully registered. Please check your email for instructions."
             msg = msg.format(form_dict["pname"])
@@ -139,7 +140,7 @@ def project_register():
         except psycopg2.IntegrityError:
             conn.rollback()
             error_msg = "{}\n\nForm: {}".format(traceback.format_exc(), form_dict)
-            slack_notification(error_msg)
+            utils.slack_notification(error_msg)
             flag = "True"
             msg = "Registration Failed ! Project already exists"
             msgcode = 0
@@ -153,7 +154,7 @@ def project_register():
         except Exception:
             conn.rollback()
             error_msg = "{}\n\nForm: {}".format(traceback.format_exc(), form_dict)
-            slack_notification(error_msg)
+            utils.slack_notification(error_msg)
             flag = "True"
             msg = "Registration Failed !"
             msgcode = 0
@@ -226,7 +227,7 @@ def student_register():
                 mail_body = mail_body.format(form_dict['fname'])
                 mail_check = send_mail(mail_subject, mail_body, form_dict["emailid"])
                 if not mail_check:
-                    slack_notification("Unable to send mail to the following student:\n{}".format(form_dict))
+                    utils.slack_notification("Unable to send mail to the following student:\n{}".format(form_dict))
                 flag = "True"
                 msg = "{}, You have been successfully registered. Please check your email for instructions."
                 msg = msg.format(form_dict["fname"])
@@ -241,7 +242,7 @@ def student_register():
             except psycopg2.IntegrityError:
                     conn.rollback()
                     error_msg = "{}\n\nForm: {}".format(traceback.format_exc(), form_dict)
-                    slack_notification(error_msg)
+                    utils.slack_notification(error_msg)
                     flag = "True"
                     msg = "Registration Failed ! User already registered"
                     msgcode = 0
@@ -255,7 +256,7 @@ def student_register():
             except Exception:
                     conn.rollback()
                     error_msg = "{}\n\nForm: {}".format(traceback.format_exc(), form_dict)
-                    slack_notification(error_msg)
+                    utils.slack_notification(error_msg)
                     flag = "True"
                     msg = "Registration Failed ! Please try again."
                     msgcode = 0
@@ -265,56 +266,3 @@ def student_register():
                         "msg": msg,
                         "msgcode": msgcode
                     }
-
-
-
-def getimageURL(githubUsername):  # getting the image url from github
-    baseQuery = "https://api.github.com/search/users?access_token={}&q=".format(os.environ["DEFCON_GITHUB_AUTH_TOKEN"])
-    try:
-        query = baseQuery + githubUsername
-        response = requests.get(query).json()
-        if response["total_count"] == 1:  # checking if a unique user is found
-            return response["items"][0]["avatar_url"]
-            # return unicode(response["items"][0]["avatar_url"] , "utf-8")
-        else:
-            slack_notification("Got more than one result for {}".format(githubUsername))
-            return False
-    except Exception:
-        return False
-
-
-def getforks(projectHandle):
-    baseQuery = "https://api.github.com/repos/{}?access_token={}".format(
-        projectHandle, os.environ["DEFCON_GITHUB_AUTH_TOKEN"])
-    try:
-        response = requests.get(baseQuery).json()
-        forkNo = response["forks"]
-        return forkNo
-    except Exception:
-        return "-"
-
-
-def getwatchers(projectHandle):
-    baseQuery = "https://api.github.com/repos/{}?access_token={}".format(
-        projectHandle, os.environ["DEFCON_GITHUB_AUTH_TOKEN"])
-    try:
-        response = requests.get(baseQuery).json()
-        watcherNo = response["watchers"]
-        return watcherNo
-    except Exception:
-        return "-"
-
-
-def slack_notification(message):
-        headers = {
-            "Content-Type": "application/json"
-        }
-        data = json.dumps({
-            "text": "In KWOC Website following error occured:\n{}".format(message)
-        })
-        r = requests.post(
-            os.environ["SLACK_WEBHOOK_URL"], headers=headers, data=data)
-
-        if r.status_code != 200:
-                print("in slack_notification: {}".format(r.status_code))
-                print(r.text)

@@ -14,6 +14,8 @@ try:
 except Exception as e:
 		from urllib import parse as urlparse
 
+import utils
+
 if "LOCAL_CHECK" in os.environ:
 		urlparse.uses_netloc.append("postgres")
 		url = urlparse.urlparse(os.environ["DATABASE_URL"])
@@ -36,14 +38,14 @@ def updateProjectImage():
 		cursor.execute(query)
 		# projectsData=list()
 		for index,row in enumerate(cursor.fetchall()) :
-			if not row[7] :   #checking if a valid image url is already present 
+			if not row[7] :   #checking if a valid image url is already present
 				handle=row[0][:]
-				imgURL=getimageURL(handle.split("/")[0])
+				imgURL=utils.getimageURL(handle.split("/")[0])
 				if imgURL :
 					updateQuery = "UPDATE project SET image='%s' WHERE project_handle='%s'" % (imgURL,row[0])
-				else : 
+				else :
 					updateQuery = "UPDATE project SET image='%s' WHERE project_handle='%s'" % ("http://i.imgur.com/nx6cwcv.png",row[0])
-				try :  #updating image URL in the database 
+				try :  #updating image URL in the database
 					cursor.execute(updateQuery)
 					conn.commit()
 				except :
@@ -57,21 +59,6 @@ def updateProjectImage():
 					traceback.format_exc())
 			print (error_msg)
 
-def getimageURL(githubUsername) :  # getting the image url from github 
-	baseQuery="https://api.github.com/search/users?access_token={}&q=".format(os.environ["DEFCON_GITHUB_AUTH_TOKEN"])
-	try :
-		query = baseQuery+githubUsername 
-		response=requests.get(baseQuery+githubUsername).json()
-		if response["total_count"] == 1 :  # checking if a unique user is found
-			return response["items"][0]["avatar_url"]
-			# return unicode(response["items"][0]["avatar_url"] , "utf-8")
-		else :
-			print ("Got more than one result for {}".format(githubUsername))
-			return False 
-	except :
-		print ("Unable to retrive image url for {}\nGot following error :{}".format(githubUsername,traceback.format_exc()))
-		# slack_notification("Unable to retrive image url for {}\nGot following error :{}".format(githubUsername,traceback.format_exc()))
-		return False 
 
 def updateForkNo():
 	global conn, cursor
@@ -84,9 +71,9 @@ def updateForkNo():
 		for index,row in enumerate(cursor.fetchall()) :
 			if row[1] == "df" and row[2] == "df" :
 				continue
-			forkno = getforks(row[0])
+			forkno = utils.getforks(row[0])
 			updateQuery = "UPDATE project SET forkno='%s' WHERE project_handle='%s'" % (str(forkno),row[0])
-			try :  #updating image URL in the database 
+			try :  #updating image URL in the database
 				cursor.execute(updateQuery)
 				conn.commit()
 			except :
@@ -98,16 +85,8 @@ def updateForkNo():
 			conn.rollback()
 			error_msg = "Unable to get all projects\n\n {}".format(
 					traceback.format_exc())
-			print (error_msg)	
+			print (error_msg)
 
-def getforks(projectHandle):
-	baseQuery="https://api.github.com/repos/{}?access_token={}".format(projectHandle,os.environ["DEFCON_GITHUB_AUTH_TOKEN"])
-	try :
-		response = requests.get(baseQuery).json()
-		forkNo = response["forks"]
-		return forkNo
-	except :
-		return "None"
 
 def updatewatcherNo():
 	global conn, cursor
@@ -120,9 +99,9 @@ def updatewatcherNo():
 		for index,row in enumerate(cursor.fetchall()) :
 			if row[1] == "df" and row[2] == "df" :
 				continue
-			watcherno = getwatchers(row[0])
+			watcherno = utils.getwatchers(row[0])
 			updateQuery = "UPDATE project SET watcherno='%s' WHERE project_handle='%s'" % (str(watcherno),row[0])
-			try :  #updating image URL in the database 
+			try :  #updating image URL in the database
 				cursor.execute(updateQuery)
 				conn.commit()
 			except :
@@ -134,16 +113,7 @@ def updatewatcherNo():
 			conn.rollback()
 			error_msg = "Unable to get all projects\n\n {}".format(
 					traceback.format_exc())
-			print (error_msg)	
-
-def getwatchers(projectHandle):
-	baseQuery="https://api.github.com/repos/{}?access_token={}".format(projectHandle,os.environ["DEFCON_GITHUB_AUTH_TOKEN"])
-	try :
-		response = requests.get(baseQuery).json()
-		watcherNo = response["watchers"]
-		return watcherNo
-	except :
-		return "-"
+			print (error_msg)
 
 
 if __name__ == "__main__" :

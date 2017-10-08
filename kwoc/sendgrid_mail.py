@@ -14,6 +14,8 @@ from sendgrid.helpers.mail import *
 import traceback
 import requests
 
+import utils
+
 
 def send_mail(mail_subject, mail_body, to_email):
     sg = sendgrid.SendGridAPIClient(apikey=os.environ["DEFCON_SENDGRID"])
@@ -26,23 +28,9 @@ def send_mail(mail_subject, mail_body, to_email):
         return True
     except urllib.HTTPError:
         msg = "Got following error while sending mail :{}".format(traceback.format_exc())
-        slack_notification(msg)
+        utils.slack_notification(msg)
         return False
 
-
-def slack_notification(message):
-    headers = {
-        "Content-Type": "application/json"
-    }
-    data = json.dumps({
-        "text": "In KWOC Website following error occured :\n{}".format(message)
-    })
-    r = requests.post(
-        os.environ["SLACK_WEBHOOK_URL"], headers=headers, data=data)
-
-    if r.status_code != 200:
-        print("in slack_notification : {}".format(r.status_code))
-        print(r.text)
 
 
 '''Not used, for gmail smtp server
@@ -74,7 +62,7 @@ def send_mail(mail_subject, mail_body, to_email):
         except :
             flag+=1
             if flag >= 5 :
-                slack_notification("Got following error while sending email : \n{}".format(traceback.format_exc()))
+                utils.slack_notification("Got following error while sending email : \n{}".format(traceback.format_exc()))
                 return False
             time.sleep(1)
             # return False
