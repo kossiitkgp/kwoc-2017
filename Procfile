@@ -1,1 +1,1 @@
-web: gunicorn app:app
+web: gunicorn kwoc.app:app
