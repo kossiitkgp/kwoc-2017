@@ -1,7 +1,10 @@
 # -*- coding: utf-8 -*-
+import sys
+sys.path.append("kwoc")
+
 import os
-import config
 import controllers
+import config
 
 app, sess = config.create_app()
 sess.init_app(app)
@@ -85,5 +88,5 @@ def student_register():
 #     pass
 # # above three lines are IMPORTANT
 
-if "RUNNING_PROD" not in os.environ:
-    app.run()
+if __name__ == '__main__' and "RUNNING_PROD" not in os.environ:
+    app.run(host='0.0.0.0', port=80)
