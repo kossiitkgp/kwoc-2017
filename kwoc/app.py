@@ -79,6 +79,10 @@ def contact():
 def student_register():
     return controllers.student_register()
 
+@app.route("/testimonials")
+def testimonials():
+    return controllers.testimonials()
+
 # # Lines below should not be needed for Python 3
 # from imp import reload
 # reload(sys)

@@ -56,6 +56,8 @@ def leaderboard():
 def add_message(git_handle):
     return render_template('user.html', handle=git_handle)
 
+def testimonials():
+    return render_template('testimonials.html')
 
 def projects():
     if "RUNNING_PROD" not in os.environ:
