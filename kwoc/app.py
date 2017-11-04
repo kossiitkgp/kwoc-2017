@@ -27,7 +27,7 @@ def leaderboard():
 
 @app.route('/leaderboard/user/<git_handle>', methods=['GET', 'POST'])
 def add_message(git_handle):
-    return controllers.add_message()
+    return controllers.add_message(git_handle)
 
 
 @app.route("/projects")
