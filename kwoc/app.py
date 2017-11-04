@@ -65,7 +65,7 @@ def media():
     return controllers.media()
 
 
-@app.route("/resources/faq")
+@app.route("/faq")
 def faq():
     return controllers.faq()
 
