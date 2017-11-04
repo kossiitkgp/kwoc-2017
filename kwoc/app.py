@@ -40,39 +40,19 @@ def project_register():
     return controllers.project_register()
 
 
-@app.route("/resources")
-def resources():
-    return controllers.resources()
-
-
-@app.route("/resources/timeline")
-def timeline():
-    return controllers.timeline()
-
-
-@app.route("/resources/manuals")
+@app.route("/manuals")
 def manuals():
     return controllers.manuals()
 
 
-@app.route("/resources/social")
+@app.route("/social")
 def social():
     return controllers.social()
-
-
-@app.route("/resources/media")
-def media():
-    return controllers.media()
 
 
 @app.route("/faq")
 def faq():
     return controllers.faq()
-
-
-@app.route("/resources/contact")
-def contact():
-    return controllers.contact()
 
 
 @app.route("/student-register", methods=['GET', 'POST'])

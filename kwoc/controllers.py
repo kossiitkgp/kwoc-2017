@@ -172,28 +172,12 @@ def resources():
     return render_template('resources.html')
 
 
-def timeline():
-    return render_template('timeline.html')
-
-
 def manuals():
     return render_template('manuals.html')
 
 
-def social():
-    return render_template('social.html')
-
-
-def media():
-    return render_template('media.html')
-
-
 def faq():
     return render_template('faq.html')
-
-
-def contact():
-    return render_template('contact.html')
 
 
 def student_register():
