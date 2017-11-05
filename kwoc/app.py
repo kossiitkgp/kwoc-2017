@@ -63,6 +63,11 @@ def student_register():
 def testimonials():
     return controllers.testimonials()
 
+
+@app.route("/mentor_form")
+def mentor_form():
+    return controllers.mentor_form()
+
 # # Lines below should not be needed for Python 3
 # from imp import reload
 # reload(sys)
