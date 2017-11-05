@@ -3,7 +3,7 @@ import os
 import json
 import operator  # To sort the list
 import traceback
-import psycopg2
+# import psycopg2
 import requests
 from sendgrid_mail import send_mail
 from flask import render_template, request
@@ -252,3 +252,7 @@ def student_register():
                         "msg": msg,
                         "msgcode": msgcode
                     }
+
+
+def mentor_form():
+	return render_template('mentor_form.html')
