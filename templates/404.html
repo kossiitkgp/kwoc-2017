@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+@import "https://fonts.googleapis.com/css?family=Merriweather:400,700";
+@import "https://fonts.googleapis.com/css?family=Lato:400,700";
+body {
+  background: #D9CB9E;
+}
+
+.row {
+  text-align: center;
+  margin: 60px auto;
+  animation-duration: 2s;
+  animation-name: slideup;
+  animation-delay: 1s;
+  animation-fill-mode: backwards;
+}
+
+h1, h2, p {
+  text-rendering: optimizeLegibility;
+}
+
+h2, p {
+  font-family: "Lato", sans-serif;
+  color: #374140;
+}
+
+h1 {
+  color: #1E1E20;
+  font-family: "Merriweather", serif;
+  font-size: 120px;
+  line-height: 122px;
+}
+
+h2 {
+  font-size: 30px;
+  line-height: 32px;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 18px;
+  line-height: 20px;
+}
+
+hr {
+  width: 15%;
+  margin: 40px auto;
+  border-color: #DC3522;
+}
+
+@keyframes slideup {
+  from {
+    margin-top: 200%;
+  }
+  to {
+    margin-top: 60px;
+  }
+}
+
+  </style>
+<body>
+       <div class="row">
+  <h1>
+    404!
+  </h1>
+  <hr />
+  <h2>
+    Page Not Found
+  </h2>
+</div>
+</body>
+</html>
