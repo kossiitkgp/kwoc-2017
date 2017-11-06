@@ -1913,3 +1913,9 @@ $('.scrollToTop').click(function () {
 //Scroll To Top - END CODE
 /*==============================================================*/
 
+function openManual() {
+    document.getElementById("manualNav").style.height = "100%";
+}
+function closeNav() {
+    document.getElementById("manualNav").style.height = "0%";
+}

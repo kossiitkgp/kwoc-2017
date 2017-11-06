@@ -145,12 +145,14 @@
 {% macro end_footer() %}
             <div class="container footer-middle" style="align-content: center;">
                 <div class="row">
-                    <div class="col-md-3 col-sm-3 footer-link1 xs-display-none" style="margin-left: 20%">
+                    <div class="col-md-12 footer-link1">
                         <!-- headline -->
                         <h5>About KOSS</h5>
                         <!-- end headline -->
                         <!-- text -->
-                        <p class="footer-text">We are a group of Open Source Enthusiasts who focus on something more preliminary and relevant, ”A Love for Coding”.</p>
+                        <p class="footer-text">We are a group of Open Source Enthusiasts who focus on something more
+                            preliminary and relevant, ”A Love for Coding”.
+                        </p>
                         <!-- end text -->
                     </div>
                 </div>
@@ -185,18 +187,27 @@
             <div class=" bg-white footer-top">
                 <div class="container">
                     <div class="row margin-four">
-                        <!-- phone -->
-                        <a href ="#timeline"><div class="col-md-3 col-sm-4 text-center"><i class="icon-clock small-icon black-text"></i><h6 class="black-text margin-two no-margin-bottom">Timeline</h6></div></a>
-                        <!-- end phone -->
-                        <!-- address -->
-                        <div class="col-md-3 col-sm-4 text-center"><i class="icon-documents small-icon black-text"></i><h6 class="black-text margin-two no-margin-bottom"><a href="" style="color: black;">Manuals</a></h6></div>
-                        <!-- end address -->
-                        <!-- email -->
-                        <a href="https://www.facebook.com/groups/kwoc2016"><div class="col-md-3 col-sm-4 text-center"><i class="icon-chat small-icon black-text"></i><h6 class="black-text margin-two no-margin-bottom">Social groups</h6></div></a>
 
+                        <a href ="#timeline"><div class="col-md-3 col-sm-4 text-center"><i class="icon-clock small-icon black-text"></i><h6 class="black-text margin-two no-margin-bottom">Timeline</h6></div></a>
+                        <div onclick="openManual()" class="col-md-3 col-sm-4 text-center"><i class="icon-documents small-icon black-text"></i><h6 class="black-text margin-two no-margin-bottom">Manuals</h6></div>
+                        <a href="https://www.facebook.com/groups/kwoc2016"><div class="col-md-3 col-sm-4 text-center"><i class="icon-chat small-icon black-text"></i><h6 class="black-text margin-two no-margin-bottom">Social groups</h6></div></a>
                         <a href="{{ url_for('faq') }}"<div class="col-md-3 col-sm-4 text-center"><i class="icon-caution small-icon black-text"></i><h6 class="margin-two no-margin-bottom"> <div class="black-text">FAQ</div></a></h6></div>
-                        <!-- end email -->
                     </div>
                 </div>
             </div>
+            <!-- The overlay -->
+            <div onclick="closeNav()" id="manualNav" class="overlayManual">
+
+              <!-- Button to close the overlay navigation -->
+              <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+              <!-- Overlay content -->
+              <div class="overlayManual-content">
+                  <h1>Select a Manual</h1>
+                  <a href="http://localhost/faq">Student Manual</a>
+                  <a href="http://localhost/faq">Mentor's Manual</a>
+              </div>
+
+            </div>
+
 {% endmacro %}
