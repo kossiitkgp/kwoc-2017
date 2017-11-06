@@ -712,7 +712,7 @@ footer ul.list-inline li:first-child {padding-left: 6px}
 .slider-subtitle5 {font-size: 22px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 50px; display: block; line-height: 30px }
 .slider-title-big5 {font-family: "Oswald",sans-serif;  font-size: 15px; font-weight: 100; letter-spacing: 7px; text-transform: uppercase; display: block; margin-bottom: 30px}
 .slider-number {border: 2px solid #fff; color: #fff; display: inline-block; font-family: "Oswald",sans-serif; font-size: 20px; font-weight: 400; margin-bottom: 60px; padding: 9px 0; width: 46px; text-align: center}
-.slider-title-big6{ font-size:110px;}
+.slider-title-big6{ font-size:110px; font-family:"Open Sans", Arial}
 
 /* ===================================
     Parallax
