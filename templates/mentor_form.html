@@ -266,7 +266,6 @@ $(document).ready( function() {
 function send(form){
       var request = new XMLHttpRequest();
       var data = new FormData(form);
-      // var url = "https://script.google.com/macros/s/AKfycbzvd8_P6BrP-C04-4KwbM3z-3Mh7_BGnkmDCRCU-Vg5BSug_ETx/exec";
       var url = "https://test-mail-dpd.herokuapp.com/update_sheet";
       request.onreadystatechange = function() {
       console.log(request.readyState);
@@ -274,9 +273,9 @@ function send(form){
       console.log(request.content);
       if (request.readyState === 4) {
             if (request.status === 200) {
-                   window.location.replace("http://0.0.0.0:5000/index");  // to be replaced by a success page
+                   window.location.replace("http://kwoc-2017.herokuapp.com/");  // to be replaced by a success page 
                 } else {
-                  window.location.replace("http://0.0.0.0:5000/index");   // to be replaced by a error page
+                  window.location.replace("http://kwoc-2017.herokuapp.com/");   // to be replaced by a error page
                 }
             }
         };  
