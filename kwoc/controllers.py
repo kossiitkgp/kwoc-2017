@@ -252,3 +252,7 @@ def student_register():
                         "msg": msg,
                         "msgcode": msgcode
                     }
+
+
+def mentor_form():
+	return render_template('mentor_form.html')
