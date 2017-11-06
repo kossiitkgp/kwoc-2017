@@ -94,4 +94,7 @@ ENV/
 # Rope project settings
 .ropeproject
 
+# PyCharm
+.idea/*
+
 **/..DS_Store
