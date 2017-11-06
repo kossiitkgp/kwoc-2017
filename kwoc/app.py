@@ -78,4 +78,4 @@ def mentor_form():
 # # above three lines are IMPORTANT
 
 if __name__ == '__main__' and "RUNNING_PROD" not in os.environ:
-    app.run(host='0.0.0.0', port=80)
+    app.run(host='0.0.0.0', port=8080)
