@@ -270,9 +270,9 @@ function send(form){
       console.log(request.content);
       if (request.readyState === 4) {
             if (request.status === 200) {
-                    $("#status").html("<p>Thanks for registering. You would have received an email. If not please report an error.");
+                $("#status").html("<p>Thanks for registering. You would have received an email. If not please report an error.</p>");
                 } else {
-                    $("#status").html("<p>Sorry there was a problem registering. If this persists, please report to us.");
+                    $("#status").html("<p>Sorry there was a problem registering. If this persists, please report to us.</p>");
                 }
             }
         };  
