@@ -4,11 +4,8 @@
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
        <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<<<<<<< 19560fbaff1bec2e78cca9a1a6f09006ca405a5b
       <title>Register yourself as mentor and propose a project</title>
-=======
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
->>>>>>> added modal; fixed FAQ and form made mobile responsive
       <style>
       @import url(https://fonts.googleapis.com/css?family=Open+Sans:400);
 
@@ -235,7 +232,7 @@ form {
   }
   .button-panel .button {
     height: 10vw;
-    font-size: 25px;
+    font-size: 20px;
     width: 60%;
   }
   .tag:before{
@@ -244,6 +241,14 @@ form {
   .tag:after{
     display: none;
   }
+  }
+  @media only screen and (max-width: 768px) {
+    .tag:before{
+      display: none;
+    }
+    .tag:after{
+      display: none;
+    }
   }
       </style>
     </head>
@@ -346,6 +351,7 @@ function send(form){
       console.log(request.content);
       if (request.readyState === 4) {
             if (request.status === 200) {
+                   window.location.replace("http://kwoc-2017.herokuapp.com/");  // to be replaced by a success page
                 $("#status").html("<p>Thanks for registering. You would have received an email. If not please report an error.</p>");
                 } else {
                     $("#status").html("<p>Sorry there was a problem registering. If this persists, please report to us.</p>");

@@ -6,11 +6,22 @@
         {{ helpers.title() }}
     </head>
     <body>
+      {{ helpers.snow_css() }}
         <!-- navigation panel -->
         {{ helpers.navigation_panel() }}
         <!-- end navigation panel -->
             <div id="owl-demo" class="owl-carousel owl-theme light-pagination square-pagination dark-pagination-without-next-prev-arrow main-slider">
-                <div class="item owl-bg-img" style="background-image:url('/static/images/intro-bg.jpg');">
+
+
+
+
+                <div  class="item owl-bg-img " style="background-image:url('/static/images/intro-background.jpg');">
+                    <div class="snow snow--near"></div>
+                  <div class="snow snow--near snow--alt"></div>
+                   <div class="snow snow--mid"></div>
+                  <div class="snow snow--mid snow--alt"></div>
+                  <div class="snow snow--far"></div>
+                  <div class="snow snow--far snow--alt"></div>
                     <div class="opacity-full bg-dark-gray" style="opacity: 0.5"></div>
                     <div class="container full-screen position-relative">
                         <div class="slider-typography text-center">
