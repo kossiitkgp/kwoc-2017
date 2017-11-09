@@ -248,7 +248,7 @@ form {
       <div class="form-wrapper">
   <h1>Register your Project</h1>
   <div class="form-footer">
-    <p>Plese read <a href="#">Mentor Manual</a> before registering!</p>
+    <p>Please read <a href="https://kwoc.kossiitkgp.in/static/files/KWoCMentorManual.pdf">Mentor Manual</a> before registering!</p>
   </div>
   <form id="form" onsubmit="event.preventDefault(); send(form);">
     <div class="form-item">
@@ -343,9 +343,9 @@ function send(form){
       console.log(request.content);
       if (request.readyState === 4) {
             if (request.status === 200) {
-                   window.location.replace("http://kwoc-2017.herokuapp.com/");  // to be replaced by a success page
+                    $("#status").html("<p>Thanks for registering. You would have received an email. If not please report an error.</p>");
                 } else {
-                  window.location.replace("http://kwoc-2017.herokuapp.com/");   // to be replaced by a error page
+                    $("#status").html("<p>Sorry there was a problem registering. If this persists, please report to us.</p>");
                 }
             }
         };
