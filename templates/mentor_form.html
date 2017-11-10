@@ -248,7 +248,7 @@ form {
       <div class="form-wrapper">
   <h1>Register your Project</h1>
   <div class="form-footer">
-    <p>Please read <a href="https://kwoc.kossiitkgp.in/static/files/KWoCMentorManual.pdf">Mentor Manual</a> before registering!</p>
+    <p>Please read <a href="/static/files/KWoCMentorManual.pdf">Mentor Manual</a> before registering!</p>
   </div>
   <form id="form" onsubmit="event.preventDefault(); send(form);">
     <div class="form-item">
@@ -306,7 +306,8 @@ form {
           <p style="font-size:15px;" id="reg_msg"></p>
         </div>
         <div class="modal-footer">
-          <a type="button" class="btn btn-default" href="http://kwoc.kossiitkgp.in">Go to home page</a>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Register another project</button>
+	  <button type="button" class="btn btn-default" onclick="location.href='/';">Go to Home Page</button>
         </div>
       </div>
 
