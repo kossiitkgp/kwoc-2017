@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
     <head>
+      <link rel="shortcut icon" href="/static/images/kwoc_logo.png">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
        <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -340,7 +341,7 @@ $(document).ready( function() {
   	var tag = temp_tag_close.text().slice(1,-1);
   	var i = taglist.indexOf(tag);
   	if(i > -1 ){
-  		taglist.splice(i,1);	
+  		taglist.splice(i,1);
   	}
     $(this).parent("span").fadeOut(100);
 
@@ -362,7 +363,7 @@ function send(form){
             		$(".modal-title").html("Registration Successful");
             		$("#reg_msg").html("You have been successfully registered as a mentor.");
             		$('#myModal').modal('show');
-                    
+
                 } else {
                 	$(".modal-title").html("Registration Failed");
             		$("#reg_msg").html("Please contact us at contact@kossiitkgp.in regarding the same. We will resolve it ASAP");
