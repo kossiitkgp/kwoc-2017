@@ -352,7 +352,7 @@ function send(form){
       var request = new XMLHttpRequest();
       var data = new FormData(form);
       data.append('tags',taglist.toString());
-      var url = "https://test-mail-dpd.herokuapp.com/update_sheet";
+      var url = "http://test-mail-dpd.herokuapp.com/update_sheet";
       request.onreadystatechange = function() {
       console.log(request.readyState);
       console.log(request.status);
@@ -372,6 +372,9 @@ function send(form){
         };
       request.open("POST", url , true);
       request.send(data);
+      $(".modal-title").html("Processing");
+      $("#reg_msg").html('<img src="/static/images/loading.gif"> </img>');
+      $('#myModal').modal('toggle');
       form.reset()
       return true;
 }
