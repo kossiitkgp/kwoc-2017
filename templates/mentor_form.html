@@ -281,14 +281,14 @@ form {
     <!--<span class="tag"><span class="close">&times;</span>such tage</span>
     <span class="tag"><span class="close">&times;</span>so color</span>
     <span class="tag"><span class="close">&times;</span>many type</span>-->
-    <span class="tag"><span class="close">&times;</span>Python</span>
-    <span class="tag"><span class="close">&times;</span>Scraping</span>
+    <span class="tag"><span class="close">&times;</span>Python </span>
+    <span class="tag"><span class="close">&times;</span>Scraping </span>
     <input id="tag-typer" type="text" placeholder="Add tags ..."/>
   </div>
   </label>
     </div>
     <div class="button-panel">
-      <input class="button btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" type="submit" value="Register" title="Register"></input>
+      <input class="button btn btn-info btn-lg" type="submit" value="Register" title="Register"></input>
     </div>
   </form>
 </div>
@@ -300,10 +300,10 @@ form {
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Registration Success</h4>
+          <h4 class="modal-title" id="reg_title"></h4>
         </div>
         <div class="modal-body">
-          <p style="font-size:15px;">You have been successfully registered as a mentor.</p>
+          <p style="font-size:15px;" id="reg_msg"></p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Register another project</button>
@@ -315,12 +315,18 @@ form {
   </div>
     </body>
 <script>
+
+var taglist = ['Python','Scraping'];
+var temp_tag_close = null;
+
 $(document).ready( function() {
+
   $("#tag-typer").keypress( function(event) {
     var key = event.which;
     if (key == 13 || key == 44){
      event.preventDefault();
      var tag = $(this).val();
+     taglist.push(tag);
       if(tag.length > 0){
         $("<span class='tag' style='display:none'><span class='close'>&times;</span>"+tag+" </span>").insertBefore(this).fadeIn(100);
         $(this).val("");
@@ -328,8 +334,16 @@ $(document).ready( function() {
     }
   });
 
+
   $("#tags").on("click", ".close", function() {
+  	temp_tag_close = $(this).parent("span");
+  	var tag = temp_tag_close.text().slice(1,-1);
+  	var i = taglist.indexOf(tag);
+  	if(i > -1 ){
+  		taglist.splice(i,1);	
+  	}
     $(this).parent("span").fadeOut(100);
+
   });
 
 });
@@ -337,6 +351,7 @@ $(document).ready( function() {
 function send(form){
       var request = new XMLHttpRequest();
       var data = new FormData(form);
+      data.append('tags',taglist.toString());
       var url = "https://test-mail-dpd.herokuapp.com/update_sheet";
       request.onreadystatechange = function() {
       console.log(request.readyState);
@@ -344,9 +359,14 @@ function send(form){
       console.log(request.content);
       if (request.readyState === 4) {
             if (request.status === 200) {
-                    $("#status").html("<p>Thanks for registering. You would have received an email. If not please report an error.</p>");
+            		$(".modal-title").html("Registration Successful");
+            		$("#reg_msg").html("You have been successfully registered as a mentor.");
+            		$('#myModal').modal('show');
+                    
                 } else {
-                    $("#status").html("<p>Sorry there was a problem registering. If this persists, please report to us.</p>");
+                	$(".modal-title").html("Registration Failed");
+            		$("#reg_msg").html("Please contact us at contact@kossiitkgp.in regarding the same. We will resolve it ASAP");
+            		$('#myModal').modal('show');
                 }
             }
         };
