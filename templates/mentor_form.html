@@ -373,7 +373,7 @@ function send(form){
       request.open("POST", url , true);
       request.send(data);
       $(".modal-title").html("Processing");
-      $("#reg_msg").html("<button style="font-size:24px">Button <i class="fa fa-circle-o-notch"></i></button>");
+      $("#reg_msg").html('<img src="/static/images/loading.gif"> </img>');
       $('#myModal').modal('toggle');
       form.reset()
       return true;
