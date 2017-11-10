@@ -300,13 +300,13 @@ form {
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Registration Success</h4>
+          <h4 class="modal-title" id="reg_title"></h4>
         </div>
         <div class="modal-body">
-          <p style="font-size:15px;">You have been successfully registered as a mentor.</p>
+          <p style="font-size:15px;" id="reg_msg"></p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Go to home page</button>
+          <a type="button" class="btn btn-default" href="http://kwoc.kossiitkgp.in">Go to home page</a>
         </div>
       </div>
 
@@ -314,9 +314,12 @@ form {
   </div>
     </body>
 <script>
+
 var taglist = ['Python','Scraping'];
 var temp_tag_close = null;
+
 $(document).ready( function() {
+
   $("#tag-typer").keypress( function(event) {
     var key = event.which;
     if (key == 13 || key == 44){
@@ -348,22 +351,27 @@ function send(form){
       var request = new XMLHttpRequest();
       var data = new FormData(form);
       data.append('tags',taglist.toString());
-      var url = "http://0.0.0.0:5001/update_sheet";
+      var url = "https://test-mail-dpd.herokuapp.com/update_sheet";
       request.onreadystatechange = function() {
       console.log(request.readyState);
       console.log(request.status);
       console.log(request.content);
       if (request.readyState === 4) {
             if (request.status === 200) {
-                    $("#status").html("<p>Thanks for registering. You would have received an email. If not please report an error.</p>");
+            		$(".modal-title").html("Registration Successful");
+            		$("#reg_msg").html("You have been successfully registered as a mentor.");
+            		$('#myModal').modal('show');
+                    
                 } else {
-                    $("#status").html("<p>Sorry there was a problem registering. If this persists, please report to us.</p>");
+                	$(".modal-title").html("Registration Failed");
+            		$("#reg_msg").html("Please contact us at contact@kossiitkgp.in regarding the same. We will resolve it ASAP");
+            		$('#myModal').modal('show');
                 }
             }
         };
       request.open("POST", url , true);
       request.send(data);
-      // form.reset()
+      form.reset()
       return true;
 }
 </script>
