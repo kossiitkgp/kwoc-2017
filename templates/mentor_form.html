@@ -281,14 +281,14 @@ form {
     <!--<span class="tag"><span class="close">&times;</span>such tage</span>
     <span class="tag"><span class="close">&times;</span>so color</span>
     <span class="tag"><span class="close">&times;</span>many type</span>-->
-    <span class="tag"><span class="close">&times;</span>Python</span>
-    <span class="tag"><span class="close">&times;</span>Scraping</span>
+    <span class="tag"><span class="close">&times;</span>Python </span>
+    <span class="tag"><span class="close">&times;</span>Scraping </span>
     <input id="tag-typer" type="text" placeholder="Add tags ..."/>
   </div>
   </label>
     </div>
     <div class="button-panel">
-      <input class="button btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" type="submit" value="Register" title="Register"></input>
+      <input class="button btn btn-info btn-lg" type="submit" value="Register" title="Register"></input>
     </div>
   </form>
 </div>
@@ -314,12 +314,15 @@ form {
   </div>
     </body>
 <script>
+var taglist = ['Python','Scraping'];
+var temp_tag_close = null;
 $(document).ready( function() {
   $("#tag-typer").keypress( function(event) {
     var key = event.which;
     if (key == 13 || key == 44){
      event.preventDefault();
      var tag = $(this).val();
+     taglist.push(tag);
       if(tag.length > 0){
         $("<span class='tag' style='display:none'><span class='close'>&times;</span>"+tag+" </span>").insertBefore(this).fadeIn(100);
         $(this).val("");
@@ -327,8 +330,16 @@ $(document).ready( function() {
     }
   });
 
+
   $("#tags").on("click", ".close", function() {
+  	temp_tag_close = $(this).parent("span");
+  	var tag = temp_tag_close.text().slice(1,-1);
+  	var i = taglist.indexOf(tag);
+  	if(i > -1 ){
+  		taglist.splice(i,1);	
+  	}
     $(this).parent("span").fadeOut(100);
+
   });
 
 });
@@ -336,7 +347,8 @@ $(document).ready( function() {
 function send(form){
       var request = new XMLHttpRequest();
       var data = new FormData(form);
-      var url = "https://test-mail-dpd.herokuapp.com/update_sheet";
+      data.append('tags',taglist.toString());
+      var url = "http://0.0.0.0:5001/update_sheet";
       request.onreadystatechange = function() {
       console.log(request.readyState);
       console.log(request.status);
@@ -351,7 +363,7 @@ function send(form){
         };
       request.open("POST", url , true);
       request.send(data);
-      form.reset()
+      // form.reset()
       return true;
 }
 </script>
