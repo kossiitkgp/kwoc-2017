@@ -100,9 +100,6 @@
                                   <a href="{{ url_for('projects') }}">Projects</a>
                               </li>
 
-                              <li class="dropdown panel">
-                                  <a href="{{ url_for('mentors') }}">Mentors</a>
-                              </li>
                           </ul>
                       </div>
                   </div>
@@ -134,13 +131,24 @@
           </div>
       </section>
         <!-- content section -->
+        <div class="search">
+       <input type="text" class="searchTerm" id="myInput" placeholder="Type for projects....">
+       <button type="submit" class="searchButton">
+         <i class="fa fa-search"></i>
+      </button>
+    </div>
+
+
+
         <div class="container2">
   <div class="cards">
     <div class="card-item">
       <div class="card-info">
-        <h2 class="card-title">Exploring around</h2>
+        <h2 class="card-title">Qwerty Project</h2>
+        <hr>
         <p class="card-intro">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-    <hr></div>
+    </div>
+    <div class="mentor"><h2>-@sipah00</h2></div>
     <form id="form">
   <ul class="tags custom">
     <li>
@@ -159,12 +167,15 @@
  </div>
     </div>
   </div>
+
   <div class="cards">
     <div class="card-item">
       <div class="card-info">
-        <h2 class="card-title">A new trail you can't miss</h2>
+        <h2 class="card-title">crickfever</h2>
+        <hr>
         <p class="card-intro">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-      <hr></div>
+      </div>
+        <div class="mentor"><h2>-@asder</h2></div>
       <form id="form">
     <ul class="tags custom">
       <li>
@@ -186,9 +197,37 @@
   <div class="cards">
     <div class="card-item">
       <div class="card-info">
-        <h2 class="card-title">Inside the Outdoors</h2>
+        <h2 class="card-title">Google</h2>
+        <hr>
         <p class="card-intro">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-      <hr></div>
+      </div>
+      <div class="mentor"><h2>-@qwerty</h2></div>
+      <form id="form">
+    <ul class="tags custom">
+      <li>
+        <div class="tag">React</div>
+      </li>
+      <li>
+        <div class="tag">PHP</div>
+      </li>
+      <li>
+        <div class="tag">Machine Learning</div>
+      </li>
+    </ul>
+  </form>
+  <div class="wrap">
+       <a href="#" class="button">Details</a>
+   </div>
+    </div>
+  </div>
+  <div class="cards">
+    <div class="card-item">
+      <div class="card-info">
+        <h2 class="card-title">hiking hacks</h2>
+        <hr>
+        <p class="card-intro">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+      </div>
+      <div class="mentor"><h2>-@asder</h2></div>
       <form id="form">
     <ul class="tags custom">
       <li>
@@ -210,9 +249,11 @@
   <div class="cards">
     <div class="card-item">
       <div class="card-info">
-        <h2 class="card-title">Essential hiking hacks</h2>
+        <h2 class="card-title">Discovery</h2>
+        <hr>
         <p class="card-intro">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-      <hr></div>
+      </div>
+      <div class="mentor"><h2>-@asder</h2></div>
       <form id="form">
     <ul class="tags custom">
       <li>
@@ -234,33 +275,11 @@
   <div class="cards">
     <div class="card-item">
       <div class="card-info">
-        <h2 class="card-title">Discovering this hidden gem</h2>
+        <h2 class="card-title">Day routes</h2>
+        <hr>
         <p class="card-intro">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-      <hr></div>
-      <form id="form">
-    <ul class="tags custom">
-      <li>
-        <div class="tag">Julia</div>
-      </li>
-      <li>
-        <div class="tag">Python</div>
-      </li>
-      <li>
-        <div class="tag">Machine Learning</div>
-      </li>
-    </ul>
-  </form>
-  <div class="wrap">
-       <a href="#" class="button">Details</a>
-   </div>
-    </div>
-  </div>
-  <div class="cards">
-    <div class="card-item">
-      <div class="card-info">
-        <h2 class="card-title">1 Day routes for this weekend</h2>
-        <p class="card-intro">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-      <hr></div>
+      </div>
+      <div class="mentor"><h2>-@asder</h2></div>
       <form id="form">
     <ul class="tags custom">
       <li>
@@ -323,6 +342,7 @@
         <!-- end footer -->
 
         <!-- javascript libraries -->
+          <script type="text/javascript" src="/static/js/shufflejs/shuffle.js"></script>
         <script type="text/javascript" src="/static/js/jquery.min.js"></script>
         <script type="text/javascript" src="/static/js/modernizr.js"></script>
         <script type="text/javascript" src="/static/js/bootstrap.js"></script>
