@@ -1,0 +1,122 @@
+
+.container2 {
+  display: flex;
+  -webkit-display: box;
+  -moz-display: box;
+  -ms-display: flexbox;
+  -webkit-display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+.cards {
+  display: flex;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+@media (min-width: 40rem) {
+  .cards {
+    width: 50%;
+  }
+}
+@media (min-width: 56rem) {
+  .cards {
+    width: 33.3%;
+  }
+}
+.cards .card-item {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  width: 100%;
+  border-radius: 6px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.25);
+  overflow: hidden;
+}
+.cards .card-item:hover .card-image {
+  opacity: 1;
+}
+.cards .card-info {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  padding: 1rem;
+  line-height: 1.5em;
+}
+.cards .card-title {
+  font-size: 25px;
+  line-height: 1.1em;
+  color: #32325d;
+  margin-bottom: 0.2em;
+}
+
+hr{
+  height:1px;
+  width:100%;
+  background-color: grey;
+}
+
+.tags {
+  margin: auto;
+  text-align: center;
+  padding-bottom: 4em;
+  padding-left: 1em;
+}
+
+.custom {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.tags li {
+  -webkit-border-radius: 0px 3px 3px 0px;
+  -moz-border-radius: 0px 3px 3px 0px;
+  border-radius: 0px 3px 3px 0px;
+  -webkit-box-shadow: 0 1px 0 rgba(255,255,255,0.5) inset;
+  -moz-box-shadow: 0 1px 0 rgba(255,255,255,0.5) inset;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.5) inset;
+  border: 1px solid;
+  border-left: 0;
+  position: relative;
+  display: inline-block;
+  padding: 0 1em;
+  height: 4vh;
+  color: #fff;
+  font-size: 1em;
+  font-weight: bold;
+  line-height: 25px;
+  text-shadow: 0 1px 0 rgba(0,0,0,0.5);
+  text-decoration: none;
+  background-color:steelblue;
+}
+.wrap{
+  padding-bottom: 2em;
+}
+.wrap a {
+	-webkit-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+	-moz-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+	-ms-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+	-o-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+	transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+	display: block;
+	margin: 0 auto;
+	text-decoration: none;
+	border-radius: 4px;
+  font-size: 1.5em;
+  max-width: 150px;
+  text-align: center;
+	padding: 0.5em 0.5em;
+}
+
+.wrap a.button {
+	color: steelblue;
+	box-shadow: steelblue 0 0px 0px 2px inset;
+}
+
+.wrap a.button:hover {
+	color: rgba(255, 255, 255, 0.85);
+	box-shadow: steelblue 0 0px 0px 40px inset;
+}
