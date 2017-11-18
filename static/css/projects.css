@@ -152,7 +152,9 @@ hr{
 .searchTerm:focus{
   color: steelblue;
 }
-
+input{
+  border-radius:5px;
+}
 input:focus{
   border-color: steelblue;
   border:3px solid steelblue;
@@ -176,4 +178,159 @@ color:black;
   color: white;
   cursor: pointer;
   font-size: 20px;
+}
+
+.modal {
+  background-color: rgba(0,0,0,0.5);
+  display: none;
+  overflow: auto;
+  position: fixed;
+  z-index: 10000000;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+}
+/* Modal Content */
+.modal-content {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60%;
+  margin: 0 auto;
+  background-color: #fff;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+}
+.modal-animated-in {
+  animation: totop-in .3s ease;
+}
+.modal-animated-out {
+  animation: totop-out .3s ease forwards;
+}
+.modal-header {
+  background-color: steelblue;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  font-size: 2em;
+  z-index:1000;
+}
+.modal-content .close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: #222;
+  width: 60px;
+  height: 60px;
+  color: #fff;
+  line-height: 60px;
+  text-align: center;
+  cursor: pointer;
+  transition: all .3s;
+}
+.modal-content .close:hover {
+  background-color: #fff;
+  color: #222;
+}
+
+/* Modal Body */
+.modal-body {
+  padding: 0 20px;
+}
+.modal-body ul.require {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.modal-body ul.require li.need {
+  position: relative;
+  display: block;
+  margin-left: 20px;
+  color: #555;
+}
+.modal-body ul.require li::before {
+  position: absolute;
+  content: '\f00c';
+  color: #5cc560;
+  left: -20px;
+  top: 10px;
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+.modal-body ul.qwe{
+  padding-top: 1em;
+  padding-bottom: 4em;
+  padding-left: 1em;
+  width: 100%;
+  text-align: left;
+  height:2em;
+}
+
+.modal-body ul.tags{
+  padding-top: 1em;
+  text-align: left;
+  height:2em;
+}
+.modal-body ul.qwe li{
+  padding-left: 1em;
+  padding-right: 1em;
+  background: steelblue;
+  -webkit-border-radius: 0px 3px 3px 0px;
+  -moz-border-radius: 0px 3px 3px 0px;
+  border-radius: 0px 3px 3px 0px;
+  -webkit-box-shadow: 0 1px 0 rgba(255,255,255,0.5) inset;
+  -moz-box-shadow: 0 1px 0 rgba(255,255,255,0.5) inset;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.5) inset;
+  border: 1px solid;
+  border-left: 0;
+  position: relative;
+  display: inline-block;
+  color: #fff;
+  font-size: 1em;
+  font-weight: bold;
+  line-height: 25px;
+  text-shadow: 0 1px 0 rgba(0,0,0,0.5);
+  text-decoration: none;
+  background-color:steelblue;
+}
+.header-title{
+  font-size: 1em;
+  text-align: center;
+}
+/* Modal Footer */
+.modal-footer {
+  background-color: steelblue;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  padding-left: 20px;
+}
+.modal-header h3,
+.modal-footer h3 {
+  color: #fff;
+}
+
+/* Keyframes */
+@keyframes totop-in {
+  0% {
+    top: 600px;
+    opacity: 0;
+  }
+  100% {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes totop-out {
+  0% {
+    top: 0px;
+    opacity: 1;
+  }
+  100% {
+    top: -100%;
+    opacity: 0;
+  }
 }
