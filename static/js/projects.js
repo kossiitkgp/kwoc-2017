@@ -148,5 +148,29 @@ var modBtn, modal, close,modContent;
           }
         });
 
+        $('input').on('keyup', function(e) {
+            var input, filter,ul,li,i;
+            i = 0;
+            input = $("#myInput");
+            var text = input.val();
+            filter = text.toUpperCase();
+            console.log(filter);
+             $(".tags").find('li').each(function(){
+               var data = $('.tag').text();
+               if (data.toUpperCase().indexOf(filter) > -1) {
+                   console.log('hey');
+               } else {
+                   console.log('f');
+               }
+             });
 
+          /* for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByClassName(".tag")[0];
+                if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }*/
+        });
 });
