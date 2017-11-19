@@ -158,7 +158,7 @@ form {
     </div>
     <div class="form-item">
       <label for="github"></label>
-      <input type="text" name="github" required="required" placeholder="Github Handle" autocomplete="off"></input>
+      <input type="text" name="gitlink" required="required" placeholder="Github username" autocomplete="off"></input>
     </div>
     <div class="form-item">
       <label for="college"></label>
@@ -170,7 +170,7 @@ form {
     </div>
     <div class="form-item">
       <label for="info"></label>
-      <input type="text" name="info" required="required" placeholder="How did you come to know about KWoC ?" autocomplete="off"></input>
+      <input type="text" name="how" required="required" placeholder="How did you come to know about KWoC ?" autocomplete="off"></input>
     </div>
     <div class="button-panel">
       <input class="button btn btn-info btn-lg" type="submit" value="Apply" title="Apply"></input>
@@ -191,7 +191,7 @@ form {
           <p style="font-size:15px;" id="reg_msg"></p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">You are successfully registered as a student.</button>
+          <!-- <button type="button" class="btn btn-default" data-dismiss="modal">You are successfully registered as a student.</button> -->
 	  <button type="button" class="btn btn-default" onclick="location.href='/';">Go to Home Page</button>
         </div>
       </div>
@@ -199,3 +199,35 @@ form {
     </div>
   </div>
     </body>
+    <script type="text/javascript">
+      function send(form){
+      var request = new XMLHttpRequest();
+      var data = new FormData(form);
+      var url = "https://test-mail-dpd.herokuapp.com/update_student_sheet";
+      request.onreadystatechange = function() {
+      console.log(request.readyState);
+      console.log(request.status);
+      console.log(request.content);
+      if (request.readyState === 4) {
+            if (request.status === 200) {
+                $(".modal-title").html("Registration Successful");
+                $("#reg_msg").html("You have been successfully registered as a student.");
+                $('#myModal').modal('show');
+
+                } else {
+                  $(".modal-title").html("Registration Failed");
+                $("#reg_msg").html("Please contact us at contact@kossiitkgp.in regarding the same. We will resolve it ASAP");
+                $('#myModal').modal('show');
+                }
+            }
+        };
+      request.open("POST", url , true);
+      request.send(data);
+      $(".modal-title").html("Processing");
+      $("#reg_msg").html('<img src="/static/images/loader.gif"> </img>');
+      $('#myModal').modal('toggle');
+      form.reset()
+      return true;
+}
+    </script>
+</html>
