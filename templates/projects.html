@@ -27,8 +27,11 @@
         <link rel="stylesheet" href="/static/css/text-effect.css" />
         <!-- common -->
         <link rel="stylesheet" href="/static/css/style.css" />
+        <link rel="stylesheet" href="/static/css/projects.css" />
         <!-- responsive -->
-        <link rel="stylesheet" href="/static/css/responsive.css" />
+
+         <!-- Compiled and minified JavaScript -->
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!--[if IE]>
             <link rel="stylesheet" href="/static/css/style-ie.css" />
@@ -96,6 +99,7 @@
                               <li class="dropdown panel">
                                   <a href="{{ url_for('projects') }}">Projects</a>
                               </li>
+
                           </ul>
                       </div>
                   </div>
@@ -104,104 +108,38 @@
           </div>
       </nav>
 
+      <section id="slider" class="wow fadeIn fix-background" style="background-image:url('/static/images/testimonial.jpg'); padding:120px 0 20px 0">
+          <div class="opacity-full bg-dark-gray"></div>
+          <div class="container">
+              <div class="row">
+                  <div id="owl-demo" class="col-xs-12 owl-carousel owl-theme light-pagination bottom-pagination dark-pagination-without-next-prev-arrow position-relative">
+                      <!-- testimonials item -->
+                      <div class="item">
+                          <div class="col-md-5 col-sm-8 no-padding testimonial-style2 center-col text-center">
+                              <span class="name white-text" style="font-size:2.3rem; margin:auto;">Projects</span>
+                              <p class="white-text">Search for a project using a language, title, or topic</p>
+                          </div>
+                          <div class="search">
+                              <span aria-hidden="true" class="searchButton fa fa-search"></span>
+                              <input type="text" class="searchTerm" id="myInput" placeholder="Search for projects...">
+                          </div>
+                      </div>
+                      <!-- end testimonials item -->
+                      <!-- testimonials item -->
+
+                      <!-- end testimonials item -->
+                      <!-- testimonials item -->
+
+                      <!-- end testimonials item -->
+                  </div>
+              </div>
+          </div>
+      </section>
         <!-- content section -->
-        <section id="slider" class="wow fadeIn fix-background" style="background-image:url('/static/images/testimonial.jpg');">
-            <div class="opacity-full bg-dark-gray"></div>
-            <div class="container">
-                <div class="row">
-                    <div id="owl-demo" class="col-xs-12 owl-carousel owl-theme light-pagination bottom-pagination dark-pagination-without-next-prev-arrow position-relative">
-                        <!-- testimonials item -->
-                        <div class="item">
-                            <div class="col-md-5 col-sm-8 no-padding testimonial-style2 center-col text-center margin-three no-margin-top">
-                                <span class="name white-text" style="font-size:2.3rem; padding:1em 0; margin:auto;">Testimonials</span>
-                            </div>
-                        </div>
-                        <!-- end testimonials item -->
-                        <!-- testimonials item -->
 
-                        <!-- end testimonials item -->
-                        <!-- testimonials item -->
+        <div class="container2">
 
-                        <!-- end testimonials item -->
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="wow fadeIn">
-            <div class="container">
-                <div class="row">
-                    <!-- testimonials item -->
-                    <div class="col-md-4 col-sm-6 testimonial-style2 text-center wow fadeInUp margin-ten no-margin-top">
-                        <img src="https://avatars2.githubusercontent.com/u/23132358?s=460&v=4" alt=""/>
-                        <p class="center-col width-90">KWoC was a lot more than experience and learning. Now, I had worked on the repositories and had interacted with their makers.</p>
-                        <span class="name black-text">Sayan Sinha</span>
-                        <div style="display:inline-flex;">
-                        <div><i class="fa fa-quote-left small-icon yellow-text display-block margin-five no-margin-bottom"></i></div>
-                        <div><a target="_blank" href="https://blog.kossiitkgp.in/kharagpur-winter-of-code-c4eeb4af71f1" style="padding-left:1em;">Blog</a></div>
-                      </div>
-                    </div>
-                    <!-- end testimonials item -->
-                    <!-- testimonials item -->
-                    <div class="col-md-4 col-sm-6 testimonial-style2 text-center wow fadeInUp margin-ten no-margin-top">
-
-                        <img src="https://avatars1.githubusercontent.com/u/23414388?s=460&v=4" alt=""/>
-
-                        <p class="center-col width-90"> I got to learn a lot about web scraping and webdriver automation.Lots of thanks to my mentor Nitin Choudhary and KOSS for such a wonderful initiative.</p>
-                        <span class="name black-text">Rahul Vernwal</span>
-                        <div style="display:inline-flex;">
-                        <div><i class="fa fa-quote-left small-icon yellow-text display-block margin-five no-margin-bottom"></i></div>
-                        <div><a target="_blank" href="http://vernwalrahul.blogspot.in/" style="padding-left:1em;">Blog</a></div>
-                      </div>
-                    </div>
-                    <!-- end testimonials item -->
-                    <!-- testimonials item -->
-                    <div class="col-md-4 col-sm-6 testimonial-style2 text-center wow fadeInUp margin-ten no-margin-top">
-                        <img src="/static/images/arindam.jpg" alt=""/>
-                        <p class="center-col width-90">The project consisted of functions to decode and encode functions and some other features. I thought of developing a GUI to decode and encode in morsecode.</p>
-                        <span class="name black-text">Arindam Biswas</span>
-                        <div style="display:inline-flex;">
-                        <div><i class="fa fa-quote-left small-icon yellow-text display-block margin-five no-margin-bottom"></i></div>
-                        <div><a target="_blank" href="/static/files/arindam.pdf" style="padding-left:1em;">Blog</a></div>
-                      </div>
-                    </div>
-                    <!-- end testimonials item -->
-                    <!-- testimonials item -->
-                    <div class="col-md-4 col-sm-6 testimonial-style2 text-center wow fadeInUp sm-margin-bottom-ten">
-                        <img src="/static/images/aditya.jpg" alt=""/>
-                        <p class="center-col width-90">Thanks to the people at Kharagpur open source society for organising Kharagpur Winter of code for the students who are eager to contribute to open source community.</p>
-                        <span class="name black-text">Aditya Singh</span>
-                        <div style="display:inline-flex;">
-                        <div><i class="fa fa-quote-left small-icon yellow-text display-block margin-five no-margin-bottom"></i></div>
-                        <div><a target="_blank" href="/static/files/adityasingh.pdf" style="padding-left:1em;">Blog</a></div>
-                      </div>
-                    </div>
-                    <!-- end testimonials item -->
-                    <!-- testimonials item -->
-                    <div class="col-md-4 col-sm-6 testimonial-style2 text-center wow fadeInUp xs-margin-bottom-ten">
-                        <img src="https://avatars1.githubusercontent.com/u/19925138?s=460&v=4" alt=""/>
-                        <p class="center-col width-90">That amazing feeling when you make your first commit or successfully merge your first pull request is something which cannot be described in words.Thank you KWOC for providing such a great opportunity.</p>
-                        <span class="name black-text">Zishan Sami</span>
-                        <div style="display:inline-flex;">
-                        <div><i class="fa fa-quote-left small-icon yellow-text display-block margin-five no-margin-bottom"></i></div>
-                        <div><a target="_blank" href="/static/files/zishan_sami.pdf" style="padding-left:1em;">Blog</a></div>
-                      </div>
-                    </div>
-                    <!-- end testimonials item -->
-                    <!-- testimonials item -->
-                    <div class="col-md-4 col-sm-6 testimonial-style2 text-center wow fadeInUp">
-                        <img src="https://avatars2.githubusercontent.com/u/19743282?s=460&v=4" alt=""/>
-                        <p class="center-col width-90">I came to know about KWOC and was happy to contribute yet another project to the open source community. Among KWOC projects Sheldonisms impressed me.</p>
-                        <span class="name black-text">Amrish Kumar</span>
-                        <div style="display:inline-flex;">
-                        <div><i class="fa fa-quote-left small-icon yellow-text display-block margin-five no-margin-bottom"></i></div>
-                        <div><a target="_blank" href="https://amrishkumarblog.wordpress.com/2017/01/08/my-one-month-experience-in-kharagpur-winter-of-code/" style="padding-left:1em;">Blog</a></div>
-                      </div>
-                    </div>
-                    <!-- end testimonials item -->
-                </div>
-            </div>
-        </section>
-
+</div>
         <!-- footer -->
         <footer>
 
@@ -245,7 +183,9 @@
         <!-- end footer -->
 
         <!-- javascript libraries -->
+
         <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+        <script type="text/javascript" src="/static/js/projects.js"></script>
         <script type="text/javascript" src="/static/js/modernizr.js"></script>
         <script type="text/javascript" src="/static/js/bootstrap.js"></script>
         <script type="text/javascript" src="/static/js/bootstrap-hover-dropdown.js"></script>
