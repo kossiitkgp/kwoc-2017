@@ -203,7 +203,7 @@ $(function() {
     var randcolors = ["#3498db", "#9b59b6", "#8e44ad", "#f1c40f", "#e67e22", "#e74c3c", "#ecf0f1", "#95a5a6", "#f39c12", "#d35400", "#c0392b", "#bdc3c7", "#7f8c8d"]
 
     var cards = [
-    // each
+      // each
     ];
 
     var searchRes = cards;
@@ -278,16 +278,32 @@ $(function() {
     };
 
 
+    var searchInput = $('.searchTerm');
     function displayMatches() {
-        var matchArray = findMatches(this.value, cards)
+        var matchArray = findMatches(searchInput.val(), cards)
         if(!isEqual(searchRes, matchArray)) {
             searchRes = matchArray
             displayRes()
         }
-    }
+    };
 
-    var searchInput = document.querySelector('.searchTerm')
-    searchInput.addEventListener('keyup', displayMatches);
+    // var searchInput = document.querySelector('.searchTerm')
+    // searchInput.addEventListener('keyup', displayMatches);
+    //setup before functions
+    var typingTimer;                //timer identifier
+    var doneTypingInterval = 1000;  //if user waits for 1 second
+
+    //on keyup, start the countdown
+    searchInput.on('keyup', function () {
+      clearTimeout(typingTimer);
+      typingTimer = setTimeout(displayMatches, doneTypingInterval);
+    });
+
+    //on keydown, clear the countdown
+    searchInput.on('keydown', function () {
+      clearTimeout(typingTimer);
+    });
+
 
     function displayRes() {
         var str = "";
