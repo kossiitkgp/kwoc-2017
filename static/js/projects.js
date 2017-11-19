@@ -350,16 +350,32 @@ $(function() {
     };
 
 
+    var searchInput = $('.searchTerm');
     function displayMatches() {
-        var matchArray = findMatches(this.value, cards)
+        var matchArray = findMatches(searchInput.val(), cards)
         if(!isEqual(searchRes, matchArray)) {
             searchRes = matchArray
             displayRes()
         }
-    }
+    };
 
-    var searchInput = document.querySelector('.searchTerm')
-    searchInput.addEventListener('keyup', displayMatches);
+    // var searchInput = document.querySelector('.searchTerm')
+    // searchInput.addEventListener('keyup', displayMatches);
+    //setup before functions
+    var typingTimer;                //timer identifier
+    var doneTypingInterval = 1000;  //if user waits for 1 second
+
+    //on keyup, start the countdown
+    searchInput.on('keyup', function () {
+      clearTimeout(typingTimer);
+      typingTimer = setTimeout(displayMatches, doneTypingInterval);
+    });
+
+    //on keydown, clear the countdown
+    searchInput.on('keydown', function () {
+      clearTimeout(typingTimer);
+    });
+
 
     function displayRes() {
         var str = "";
