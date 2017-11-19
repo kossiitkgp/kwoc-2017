@@ -18,16 +18,7 @@
   margin-bottom: 2rem;
   width: 100%;
 }
-@media (min-width: 40rem) {
-  .cards {
-    width: 50%;
-  }
-}
-@media (min-width: 56rem) {
-  .cards {
-    width: 25%;
-  }
-}
+
 .cards .card-item {
 	display: flex;
 	flex-direction: column;
@@ -107,12 +98,12 @@ hr{
     padding: 0.5em 0.5em;
 }
 
-.wrap a.button {
+.wrap a.button2 {
 	color: #222;
 	box-shadow: #222 0 0px 0px 2px inset;
 }
 
-.wrap a.button:hover {
+.wrap a.button2:hover {
 	color: rgba(255, 255, 255, 0.85);
 	box-shadow: #222 0 0px 0px 40px inset;
 }
@@ -287,7 +278,7 @@ color:black;
     opacity: 0;
   }
   100% {
-    top: 0;
+    top: 300px;
     opacity: 1;
   }
 }
@@ -300,5 +291,73 @@ color:black;
   100% {
     top: -100%;
     opacity: 0;
+  }
+}
+@media only screen and (min-width: 769px)
+{
+  .cards {
+    width: 25%;
+  }
+  .container2{
+    padding:2rem 7rem;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .cards {
+    width: 33.3%;
+  }
+  .container2{
+    padding:2rem 3rem;
+  }
+  .modal-content {
+    width: 80%;
+  }
+  .modal-content .close {
+    right: 5px;
+    top: 5px;
+  }
+  .wrap a{
+      max-width: 120px;
+  }
+}
+@media only screen and (min-width: 200px) and (max-width:425px)
+{
+  .cards {
+    width: 100%;
+  }
+  .container2{
+    padding:2rem 1rem;
+  }
+  .modal-content .close {
+    right: 1px;
+    top: 1px;
+  }
+  .comm{
+    text-align: left;
+  }
+  .modal-content {
+    width: 75%;
+  }
+  .modal-footer {
+    text-align: center;
+  }
+}
+@media only screen and (min-width: 426px) and (max-width:630px)
+{
+  .cards {
+    width: 50%;
+  }
+  .container2{
+    padding:2rem 2rem;
+  }
+  .modal-content {
+    width: 80%;
+  }
+  .modal-content .close {
+    right: 3px;
+    top: 3px;
+  }
+  .wrap a{
+      max-width: 120px;
   }
 }

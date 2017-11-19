@@ -403,7 +403,7 @@ $(function() {
           </ul>\
         </form>\
         <div class="wrap">\
-             <a href="#" onclick="return false;" class="button" id="'+v.btnid+'" class="modal-btn">Details</a>\
+             <a href="#" onclick="return false;" class="button2" id="'+v.btnid+'" class="modal-btn">Details</a>\
          </div>\
             </div>\
           </div>\
@@ -432,7 +432,7 @@ $(function() {
                <ul class="qwe">\
                 <span>Communication channel : </span>\
                   <li>\
-                    <div class="tag">'+v.comm+'</div>\
+                    <div class="tag comm">'+v.comm+'</div>\
                   </li>\
                 </ul>\
               </div>\
@@ -448,7 +448,7 @@ $(function() {
       });
       var btnno, no;
       var modBtn, modal, close,modContent;
-      $('.button').click(function() {
+      $('.button2').click(function() {
            btnno = $(this).attr('id');
            no = btnno - 1000;
            console.log(btnno);
@@ -476,5 +476,29 @@ $(function() {
 
     displayRes();
 
+        $('input').on('keyup', function(e) {
+            var input, filter,ul,li,i;
+            i = 0;
+            input = $("#myInput");
+            var text = input.val();
+            filter = text.toUpperCase();
+            console.log(filter);
+             $(".tags").find('li').each(function(){
+               var data = $('.tag').text();
+               if (data.toUpperCase().indexOf(filter) > -1) {
+                   console.log('hey');
+               } else {
+                   console.log('f');
+               }
+             });
 
+          /* for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByClassName(".tag")[0];
+                if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }*/
+        });
 });
