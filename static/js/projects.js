@@ -360,21 +360,6 @@ $(function() {
     };
 
     searchInput.keyup(displayMatches);
-    //setup before functions
-    // var typingTimer;                //timer identifier
-    //var doneTypingInterval = 800;  //if user waits for 800ms
-
-    //on keyup, start the countdown
-    //searchInput.on('keyup', function () {
-    //  clearTimeout(typingTimer);
-    //  typingTimer = setTimeout(displayMatches, doneTypingInterval);
-    //});
-
-    //on keydown, clear the countdown
-    //searchInput.on('keydown', function () {
-    //  clearTimeout(typingTimer);
-    //});
-
 
     function displayRes() {
         var str = "";
@@ -466,9 +451,6 @@ $(function() {
             });
           }
         });
-    }
-
-    displayRes();
 
     // When a tag is clicked, it goes to the search bar
     function onTagClick() {
@@ -481,5 +463,10 @@ $(function() {
     v.click(onTagClick)
 
     v.css("cursor", "pointer")
+
+
+    }
+
+    displayRes();
 
 });
