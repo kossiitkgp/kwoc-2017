@@ -44,7 +44,6 @@ with open('projects.csv', 'r') as csvfile:
                    "intro_full": proj_desc,
                    "mentor": name,
                    "mentor_email": email,
-                   "coordi":"TBD",
                    "tag": new_tags,
                    "link": link,
                    "comm": comm
