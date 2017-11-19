@@ -287,23 +287,7 @@ $(function() {
         }
     };
 
-    // var searchInput = document.querySelector('.searchTerm')
-    // searchInput.addEventListener('keyup', displayMatches);
-    //setup before functions
-    var typingTimer;                //timer identifier
-    var doneTypingInterval = 1000;  //if user waits for 1 second
-
-    //on keyup, start the countdown
-    searchInput.on('keyup', function () {
-      clearTimeout(typingTimer);
-      typingTimer = setTimeout(displayMatches, doneTypingInterval);
-    });
-
-    //on keydown, clear the countdown
-    searchInput.on('keydown', function () {
-      clearTimeout(typingTimer);
-    });
-
+    searchInput.keyup(displayMatches);
 
     function displayRes() {
         var str = "";
@@ -338,7 +322,7 @@ $(function() {
           <div class="modal" id="'+v.id+'">\
             <div class="modal-content">\
               <div class="modal-header">\
-                <h3 class="header-title"><i class="icon-desktop i-extra-small-box i-rounded i-circled"></i>'+v.title+'</h3>\
+                <h3 class="header-title"><i class="icon-desktop i-extra-small-box i-rounded i-circled"></i>'+'<a target="_blank" href="'+v.link+'">'+v.title+'</a>'+'</h3>\
                 <div class="close fa fa-close"></div>\
               </div>\
               <div class="modal-body">\
@@ -346,21 +330,15 @@ $(function() {
                 <ul class="tags custom"><span class="icon-pricetags i-extra-small-box"></span>'+list+'\
                 </ul>\
                 <ul class="qwe">\
-                <span>Mentors : </span>\
+                <span>Mentor(s) : </span>\
                   <li>\
-                    <div class="tag">'+v.mentor+'</div>\
+                    <div class="tag">'+v.mentor+' ( '+v.mentor_email+' ) '+'</div>\
                   </li>\
                 </ul>\
-                <ul class="qwe">\
-                <span>Coordinator : </span>\
-                  <li>\
-                    <div class="tag">'+v.coordi+'</div>\
-                  </li>\
-              </ul>\
                <ul class="qwe">\
                 <span>Communication channel : </span>\
                   <li>\
-                    <div class="tag comm">'+v.comm+'</div>\
+                    <div class="tag comm" style="word-break: break-all;">'+v.comm+'</div>\
                   </li>\
                 </ul>\
               </div>\
@@ -371,9 +349,10 @@ $(function() {
             </div>\
           </div>';
 
-        $('.container2').html(str);
-
       });
+
+      $('.container2').html(str);
+
       var btnno, no;
       var modBtn, modal, close,modContent;
       $('.button2').click(function() {
@@ -400,9 +379,22 @@ $(function() {
             });
           }
         });
+
+    // When a tag is clicked, it goes to the search bar
+    function onTagClick() {
+        let tagText = this.innerText;
+        searchInput.val(tagText)
+        displayMatches()
+    }
+
+    v = $('.tag')
+    v.click(onTagClick)
+
+    v.css("cursor", "pointer")
+
+
     }
 
     displayRes();
-
 
 });
