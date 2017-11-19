@@ -363,7 +363,7 @@ $(function() {
     // searchInput.addEventListener('keyup', displayMatches);
     //setup before functions
     var typingTimer;                //timer identifier
-    var doneTypingInterval = 1000;  //if user waits for 1 second
+    var doneTypingInterval = 800;  //if user waits for 1 second
 
     //on keyup, start the countdown
     searchInput.on('keyup', function () {
@@ -470,5 +470,16 @@ $(function() {
 
     displayRes();
 
+    // When a tag is clicked, it goes to the search bar
+    function onTagClick() {
+        let tagText = this.innerText;
+        searchInput.val(tagText)
+        displayMatches()
+    }
+
+    v = $('.tag')
+    v.click(onTagClick)
+
+    v.css("cursor", "pointer")
 
 });
