@@ -147,9 +147,6 @@ form {
     <body>
       <div class="form-wrapper">
   <h1>Apply as Student</h1>
-  <div class="form-footer">
-    <p>Please read <a href="/static/files/KWoCStudentManual.pdf">Student Manual</a> before applying!</p>
-  </div>
   <form id="form" onsubmit="event.preventDefault(); send(form);">
     <div class="form-item">
       <label for="name"></label>
@@ -170,6 +167,10 @@ form {
     <div class="form-item">
       <label for="year"></label>
       <input type="text" name="year" required="required" placeholder="Year of study" autocomplete="off"></input>
+    </div>
+    <div class="form-item">
+      <label for="info"></label>
+      <input type="text" name="info" required="required" placeholder="How did you come to know about KWoC ?" autocomplete="off"></input>
     </div>
     <div class="button-panel">
       <input class="button btn btn-info btn-lg" type="submit" value="Apply" title="Apply"></input>
