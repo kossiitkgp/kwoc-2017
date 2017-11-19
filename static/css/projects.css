@@ -80,9 +80,9 @@ hr{
 	display: inline-block;
 	padding: 4px 15px;
 	color: #000;
-	font-weight: bold;
+	font-weight: 100;
 	text-decoration: none;
-	font-family: Monospace;
+	font-family: "Open Sans";
 	font-size: 15px;
 	background: #CCC;
 	margin: 4px 4px;
@@ -188,18 +188,19 @@ color:black;
   animation: totop-out .3s ease forwards;
 }
 .modal-header {
-  background-color: #E6AF2A;
   width: 100%;
   height: 60px;
   line-height: 60px;
   font-size: 2em;
   z-index:1000;
+  border-bottom: none;
+  margin: 15px;
 }
 .modal-content .close {
   position: absolute;
-  right: 0;
-  top: 0;
-  background-color: #222;
+  right: 15px;
+  top: 15px;
+  color: #222 !important;
   width: 60px;
   height: 60px;
   color: #fff;
@@ -209,8 +210,7 @@ color:black;
   transition: all .3s;
 }
 .modal-content .close:hover {
-  background-color: #fff;
-  color: #222;
+  color: #CCC;
 }
 
 /* Modal Body */
@@ -239,57 +239,45 @@ color:black;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
 }
-.modal-body ul.qwe{
-  padding-top: 1em;
-  padding-bottom: 4em;
-  padding-left: 1em;
-  width: 100%;
-  text-align: left;
-  height:2em;
+.modal-body ul.qwe {
+	width: 100%;
+	margin: 10px 5px;
 }
 
-.modal-body ul.tags{
-  padding-top: 1em;
-  text-align: left;
-  height:2em;
+.modal-body ul.tags {
+	padding-top: 0;
+	text-align: left;
+	border-bottom: none;
 }
+
 .modal-body ul.qwe li{
   padding-left: 1em;
   padding-right: 1em;
-  background: #E6AF2A;
-  -webkit-border-radius: 0px 3px 3px 0px;
-  -moz-border-radius: 0px 3px 3px 0px;
-  border-radius: 0px 3px 3px 0px;
-  -webkit-box-shadow: 0 1px 0 rgba(255,255,255,0.5) inset;
-  -moz-box-shadow: 0 1px 0 rgba(255,255,255,0.5) inset;
-  box-shadow: 0 1px 0 rgba(255,255,255,0.5) inset;
-  border: 1px solid;
-  border-left: 0;
   position: relative;
   display: inline-block;
-  color: #fff;
-  font-size: 1em;
-  font-weight: bold;
-  line-height: 25px;
-  text-shadow: 0 1px 0 rgba(0,0,0,0.5);
+  color: #222;
   text-decoration: none;
-  background-color:#E6AF2A;
 }
 .header-title{
   font-size: 1em;
   text-align: center;
 }
+.header-title i {
+	margin-right: 10px;
+}
 /* Modal Footer */
 .modal-footer {
-  background-color: steelblue;
+  background-color: #F3F5F6;
   width: 100%;
-  height: 60px;
-  line-height: 60px;
   padding-left: 20px;
+  border-top: none;
 }
-.modal-header h3,
-.modal-footer h3 {
-  color: #fff;
+.modal-header h3, .modal-footer h3 {
+	color: #2B3038;
+	text-align: left;
+	font-family: "Open Sans";
+	font-weight: 300;
+	text-transform: capitalize;
 }
 
 /* Keyframes */

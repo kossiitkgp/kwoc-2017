@@ -219,7 +219,7 @@ $(function() {
            intro: "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.",
            mentor: "sipah00",
            coordi:"americast",
-           tag: ['JavaScript','HTML','CSS', 'NotaLanguage']
+           tag: ['JavaScript','HTML','Rust', 'NotaLanguage']
        },
        {
            title: "Mango",
@@ -375,29 +375,29 @@ $(function() {
           <div class="modal" id="'+v.id+'">\
             <div class="modal-content">\
               <div class="modal-header">\
-                <h3 class="header-title">'+v.title+'</h3>\
+                <h3 class="header-title"><i class="icon-desktop i-extra-small-box i-rounded i-circled"></i>'+v.title+'</h3>\
                 <div class="close fa fa-close"></div>\
               </div>\
               <div class="modal-body">\
-                <h3>Description:-</h3>\
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit natus nemo et magni soluta voluptatibus quas quasi pariatur necessitatibus, totam, officia id at praesentium fuga molestias numquam ullam iure accusamus.</p>\
-                <h3>Tags:-</h3>\
-                <ul class="tags custom">'+list+'\
+                <ul class="tags custom"><span class="icon-pricetags i-extra-small-box"></span>'+list+'\
                 </ul>\
-                <h3>Mentors:-</h3>\
                 <ul class="qwe">\
+                <span>Mentors : </span>\
                   <li>\
                     <div class="tag">@'+v.mentor+'</div>\
                   </li>\
                 </ul>\
-                <h3>Coordinator:-</h3>\
                 <ul class="qwe">\
+                <span>Coordinator : </span>\
                   <li>\
                     <div class="tag">@'+v.coordi+'</div>\
                   </li>\
                 </ul>\
               </div>\
               <div class="modal-footer">\
+                 <a href="#" class="highlight-button-dark btn btn-round button xs-margin-bottom-five">\
+                 </i><span>View Project</span></a>\
               </div>\
             </div>\
           </div>';
