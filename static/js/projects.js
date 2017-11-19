@@ -359,22 +359,21 @@ $(function() {
         }
     };
 
-    // var searchInput = document.querySelector('.searchTerm')
-    // searchInput.addEventListener('keyup', displayMatches);
+    searchInput.keyup(displayMatches);
     //setup before functions
-    var typingTimer;                //timer identifier
-    var doneTypingInterval = 800;  //if user waits for 1 second
+    // var typingTimer;                //timer identifier
+    //var doneTypingInterval = 800;  //if user waits for 800ms
 
     //on keyup, start the countdown
-    searchInput.on('keyup', function () {
-      clearTimeout(typingTimer);
-      typingTimer = setTimeout(displayMatches, doneTypingInterval);
-    });
+    //searchInput.on('keyup', function () {
+    //  clearTimeout(typingTimer);
+    //  typingTimer = setTimeout(displayMatches, doneTypingInterval);
+    //});
 
     //on keydown, clear the countdown
-    searchInput.on('keydown', function () {
-      clearTimeout(typingTimer);
-    });
+    //searchInput.on('keydown', function () {
+    //  clearTimeout(typingTimer);
+    //});
 
 
     function displayRes() {
@@ -437,9 +436,10 @@ $(function() {
             </div>\
           </div>';
 
-        $('.container2').html(str);
-
       });
+
+      $('.container2').html(str);
+
       var btnno, no;
       var modBtn, modal, close,modContent;
       $('.button2').click(function() {
