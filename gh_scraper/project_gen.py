@@ -42,8 +42,8 @@ with open('projects.csv', 'r') as csvfile:
                    "btnid": 1000 + i,
                    "intro": proj_desc_small,
                    "intro_full": proj_desc,
-                   "mentor": '<a href="mailto:'+email+'">'+name+'</a>',
-                   "coordi":"TBD",
+                   "mentor": name,
+                   "mentor_email": email,
                    "tag": new_tags,
                    "link": link,
                    "comm": comm
