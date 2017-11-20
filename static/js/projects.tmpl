@@ -299,7 +299,7 @@ $(function() {
         for(i = 0; i<len; i++){
           tagcolor = langColor[v.tag[i]] || randcolors[Math.floor(Math.random()*randcolors.length)]
           list +='<li style="background: '+tagcolor+'" >\
-              <div class="tag">'+v.tag[i]+'</div>\
+              <div class="tag click-to-search">'+v.tag[i]+'</div>\
             </li>';
         }
 
@@ -387,7 +387,7 @@ $(function() {
         displayMatches()
     }
 
-    v = $('.tag')
+    v = $('.tag.click-to-search')
     v.click(onTagClick)
 
     v.css("cursor", "pointer")
