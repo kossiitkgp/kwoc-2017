@@ -1276,6 +1276,10 @@ figure:hover img { -ms-transform: scale(1.1,1.1); -webkit-transform: scale(1.1,1
 .highlight-button-white-border{ border: 4px solid #fff; background-color: transparent; font-size: 22px; padding: 20px 30px; color: #fff; font-weight: 700}
 .highlight-button-white-border:hover { border: 4px solid #fff; background-color: #fff; color: #000}
 
+.highlight-button-home-white-border{ border: 4px solid; border-color: rgba(255, 255, 255, 0.9); background-color: transparent; font-size: 22px; padding: 20px 30px; color: rgba(255, 255, 255, 0.9); font-weight: 700}
+.highlight-button-home-white-border:hover { border: 4px solid; border-color: rgba(255, 255, 255, 0.9); background-color: rgba(255, 255, 255, 0.9); color: #000}
+
+
 .highlight-button-black-background{ border: 4px solid #000; background-color: #000; font-size: 20px; padding: 20px 30px; color: #fff; font-weight: 700}
 .highlight-button-black-background:hover { border: 4px solid #000; background-color: #fff; color: #000}
 
