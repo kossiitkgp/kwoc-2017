@@ -282,10 +282,26 @@ $(function() {
     var searchRes = cards;
 
     function findMatches(wordToMatch, cards) {
-        return cards.filter(project => {
-            const regex = new RegExp(wordToMatch, 'gi');
-            return project.title.match(regex) || regex.test(project.tag);
-        });
+        if (wordToMatch === '') {
+            return cards;
+        } else {
+            var options = {
+              findAllMatches: true,
+              threshold: 0.3,
+              location: 0,
+              distance: 100,
+              maxPatternLength: 50,
+              minMatchCharLength: 1,
+              keys: [
+                "intro_full",
+                "link",
+                "tag"
+            ]
+            };
+            var fuse = new Fuse(cards, options);
+            var result = fuse.search(wordToMatch);
+            return result;
+        }
     }
 
     var isEqual = function (value, other) {
