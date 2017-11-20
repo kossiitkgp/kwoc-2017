@@ -29,6 +29,14 @@
                                 <div class="slider-text-middle slider-text-middle6 padding-left-right-px wow fadeInUp">
                                     <span class="slider-title-big6 white-text  font-weight-700 letter-spacing-3">KWoC</span>
                                     <span class="white-text slider-text-middle text-uppercase letter-spacing-10 margin-three no-margin-bottom display-block xs-letter-spacing-6">Kharagpur Winter of Code</span>
+                                    <span class="white-text slider-text-middle letter-spacing-3 text-uppercase margin-two no-margin-bottom display-block xs-letter-spacing-6">In Association with
+                                        <a target="_blank" href="http://www.ktj.in/">
+                                            <img style="height: 30px" src="/static/images/ktj.png">
+                                        </a>
+                                    </span>
+                                    <a class="btn highlight-button-home-white-border margin-four no-margin-bottom wow fadeInUp" href="{{ url_for('student_form') }}" target="_blank">Apply Now</a>
+                                    <a class="btn highlight-button-home-white-border margin-four no-margin-bottom wow fadeInUp" href="{{ url_for('projects') }}" target="_blank">View Projects</a>
+
                                 </div>
                             </div>
                         </div>
@@ -413,7 +421,7 @@
               <div class="cd-timeline-content">
                 <h2>Kharagpur Winter of Code announced</h2>
                 <div>KWoC Program is announced. Mentor registration starts and they begin submitting their projects.</div>
-                <span class="cd-date"><span class="cd-date-year">6th</span><span class="cd-date-month">Nov 2017</span></span>
+                <span class="cd-date"><span class="cd-date-year">11th</span><span class="cd-date-month">Nov 2017</span></span>
               </div> <!-- cd-timeline-content -->
             </div> <!-- cd-timeline-block -->
 
@@ -425,7 +433,7 @@
               <div class="cd-timeline-content">
                 <h2>Accepting Student applications</h2>
                 <p>Project and mentor registrations close while student registrations open. Accepted projects are released. Students begin to look through projects and choose one or more of their choice.</p>
-                <span class="cd-date"><span class="cd-date-year">15th</span><span class="cd-date-month">Nov 2017</span></span>
+                <span class="cd-date"><span class="cd-date-year">20th</span><span class="cd-date-month">Nov 2017</span></span>
               </div> <!-- cd-timeline-content -->
             </div> <!-- cd-timeline-block -->
 
@@ -436,7 +444,7 @@
 
               <div class="cd-timeline-content">
                 <h2>KWoC Coding period begins</h2>
-                <p>Students are paired with mentors and assigned projects. They can now start working on the project of their choice, upon discussion with their mentors.</p>
+                <p>Students, projects and mentors are notified about their acceptance. Students can now start working on the project of their choice, upon discussion with their mentors.</p>
                 <span class="cd-date"><span class="cd-date-year">1st</span><span class="cd-date-month">Dec 2017</span></span>
               </div> <!-- cd-timeline-content -->
             </div> <!-- cd-timeline-block -->
@@ -550,8 +558,11 @@
         <section id="new-project" class="new-project wow fadeIn">
             <div class="container">
                 <div class="row center-col text-center">
-                    <h5 class="wow fadeInDown">We'd love to hear from you.</h5>
-                    <a class="btn highlight-button-black-border margin-four no-margin-bottom wow fadeInUp" href="{{ url_for('mentor_form') }}" target="_blank">Register Project</a>
+                    <h5 class="wow fadeInDown">Students, apply to get started!</h5>
+                    <a class="btn highlight-button-black-border margin-four no-margin-bottom wow fadeInUp" href="{{ url_for('student_form') }}" target="_blank">Student Registration</a>
+                    <h5 class="wow fadeInDown divider"><hr></h5>
+                    <h5 class="wow fadeInDown">Mentors, We'd love to hear from you!</h5>
+                    <a class="btn highlight-button-black-border margin-four no-margin-bottom wow fadeInUp" href="{{ url_for('mentor_form') }}" target="_blank">Mentor Registration</a>
                 </div>
             </div>
         </section>
