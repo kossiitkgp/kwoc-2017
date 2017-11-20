@@ -35,6 +35,8 @@ with open('projects.csv', 'r') as csvfile:
         for tag in tags:
             if str(tag)!="":
                 new_tags.append(tag)
+        # print (link.split('/'))
+        img = "https://github.com/"+link.split('/')[3]+".png?size=50"
         dict_here = \
          {
                    "title": proj_name,
@@ -46,7 +48,8 @@ with open('projects.csv', 'r') as csvfile:
                    "mentor_email": email,
                    "tag": new_tags,
                    "link": link,
-                   "comm": comm
+                   "comm": comm,
+                   "img":  img
         }
         string+=str(dict_here)+",\n"
 
