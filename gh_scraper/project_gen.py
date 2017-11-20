@@ -1,5 +1,6 @@
 import csv
 from copy import *
+import operator
 f=open("../static/js/projects.tmpl")
 all_text = f.read()
 f.close()
@@ -14,6 +15,20 @@ string=""
 #            "coordi":"ankita132",
 #            "tag": ['Matlab','Python','cpp','R']
 # }
+
+# Sort the projects
+with open('projects.csv', "rb") as csv_file:
+    raw_reader = csv.reader(csv_file)
+    header = next(raw_reader, None)
+    sorted_data = sorted(raw_reader, key=operator.itemgetter(2))
+
+with open('projects.csv', 'wb') as csv_file:
+    wr = csv.writer(csv_file, quoting=csv.QUOTE_ALL)
+    if header:
+        wr.writerow(header)
+    wr.writerows(sorted_data)
+
+
 with open('projects.csv', 'r') as csvfile:
     spamreader = csv.reader(csvfile, delimiter=',')
     i=-1
