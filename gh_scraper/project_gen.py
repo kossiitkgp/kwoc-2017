@@ -17,12 +17,12 @@ string=""
 # }
 
 # Sort the projects
-with open('projects.csv', "rb") as csv_file:
+with open('projects.csv', "r") as csv_file:
     raw_reader = csv.reader(csv_file)
     header = next(raw_reader, None)
     sorted_data = sorted(raw_reader, key=operator.itemgetter(2))
 
-with open('projects.csv', 'wb') as csv_file:
+with open('projects.csv', 'w') as csv_file:
     wr = csv.writer(csv_file, quoting=csv.QUOTE_ALL)
     if header:
         wr.writerow(header)
