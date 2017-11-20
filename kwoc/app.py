@@ -44,6 +44,17 @@ def testimonials():
 def mentor_form():
     return render_template('mentor_form.html')
 
+@app.route("/student_form")
+def student_form():
+    return render_template('student_form.html')
+
+@app.route("/projects")
+def projects():
+    return render_template('projects.html')
+
+@app.route("/mentors")
+def mentors():
+    return render_template('mentors.html')
 # # Lines below should not be needed for Python 3
 # from imp import reload
 # reload(sys)
