@@ -307,7 +307,7 @@ $(function() {
         } else {
             var options = {
               findAllMatches: true,
-              threshold: 0.3,
+              threshold: 0.4,
               location: 0,
               distance: 100,
               maxPatternLength: 50,
@@ -315,7 +315,9 @@ $(function() {
               keys: [
                 "intro_full",
                 "link",
-                "tag"
+                "tag",
+                "title",
+                "mentor"
             ]
             };
             var fuse = new Fuse(cards, options);
