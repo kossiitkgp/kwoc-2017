@@ -1,14 +1,10 @@
+import csv
 import json
 import requests
 
-usernames = [
-    'americast',
-    'pungi-man',
-    'debugger22'
-]
-
 projects = [
     'kossiitkgp/kwoc-2017',
+    'americast/smtp_mail',
     'orkohunter/pep8speaks',
 ]
 
@@ -29,6 +25,9 @@ value : dict
 
     key     : name
     value   : string
+
+    key     : affiliation
+    value   : string (Name of college)
 
     key     : projects
     value   : type: set (Projects the user is working on)
@@ -70,18 +69,26 @@ value : dict
 """
 
 # Generate empty statistics
-for user in usernames:
-    stats[user] = dict()
-    stats[user]['avatar_url'] = ''
-    stats[user]['name'] = ''
-    stats[user]['projects'] = set()
-    stats[user]['no_of_commits'] = 0
-    stats[user]['pr_open'] = 0
-    stats[user]['pr_closed'] = 0
-    stats[user]['languages'] = set()
-    stats[user]['lines_added'] = 0
-    stats[user]['lines_removed'] = 0
-    stats[user]['commits'] = list()
+usernames = set()
+with open('students.csv', "r") as csv_file:
+    raw_reader = csv.reader(csv_file)
+    header = next(raw_reader, None)
+    for row in raw_reader:
+        print(row)
+        user = row[2]
+        usernames.add(user)
+        stats[user] = dict()
+        stats[user]['avatar_url'] = ''
+        stats[user]['name'] = row[0]
+        stats[user]['affiliation'] = row[3]
+        stats[user]['projects'] = set()
+        stats[user]['no_of_commits'] = 0
+        stats[user]['pr_open'] = 0
+        stats[user]['pr_closed'] = 0
+        stats[user]['languages'] = set()
+        stats[user]['lines_added'] = 0
+        stats[user]['lines_removed'] = 0
+        stats[user]['commits'] = list()
 
 
 # Students' data based on commits merged
@@ -125,7 +132,7 @@ for project in projects:
             message = commit['commit']['message']
 
             _api_url_commit = commit['url']
-            r = requests.get(_api_url_commit)
+            r = requests.get(_api_url_commit, headers=headers)
             if not r.ok:
                 raise(Exception("Error in fetching commit info", "query : ", _api_url_commit, "r.json() ", r.json()))
             _commit_info = r.json()
@@ -158,7 +165,7 @@ for project in projects:
             }
 
             stats[author]['commits'].append(commit_record)
-            stats[author]['projects'] = stats[author][projects].add(project)
+            stats[author]['projects'].add(project)
             stats[author]['no_of_commits'] += 1
             stats[author]['languages'] = stats[author]['languages'].union(languages_used)
             stats[author]['lines_added'] += lines_added
@@ -190,7 +197,7 @@ for project in projects:
     query = "https://api.github.com/repos/{}/pulls?state=all".format(project)
 
     since = "2017-11-21T00:00:00Z"
-    prs = fetch_all_pull_requests(query, since=since)
+    prs = fetch_all_pull_requests(query, since=since, headers=headers)
 
     # Trim out of date pull requests
     while(True):
@@ -208,6 +215,12 @@ for project in projects:
                 stats[author]['pr_open'] += 1
             elif pr['state'] == 'closed':
                 stats[author]['pr_closed'] += 1
+
+
+# set is not JSON serializable
+for user in stats:
+    stats[user]['projects'] = list(stats[user]['projects'])
+    stats[user]['languages'] = list(stats[user]['languages'])
 
 with open('stats.json', 'w') as f:
     f.write(json.dumps(stats))
