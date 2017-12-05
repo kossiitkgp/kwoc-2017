@@ -1,15 +1,13 @@
+import os
 import csv
 import json
 import requests
 
-projects = [
-    'kossiitkgp/kwoc-2017',
-    'americast/smtp_mail',
-    'orkohunter/pep8speaks',
-]
+projects = open('repos.txt', 'r').read().split('\n')
+projects.pop()
 
 headers = {
-    'Authorization': 'token cffc61752e7d72ebcca8451a90693995198c17f4'
+    'Authorization': 'token ' + os.environ['GH_TOKEN']
 }
 
 languages_json = json.load(open("languages.json", 'r'))
