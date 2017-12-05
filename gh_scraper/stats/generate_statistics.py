@@ -6,8 +6,10 @@ import requests
 projects = open('repos.txt', 'r').read().split('\n')
 projects.pop()
 
+token = open('token.txt', 'r').read().split('\n')[0]
+
 headers = {
-    'Authorization': 'token ' + os.environ['GH_TOKEN']
+    'Authorization': 'token ' + token
 }
 
 languages_json = json.load(open("languages.json", 'r'))
@@ -68,11 +70,10 @@ value : dict
 
 # Generate empty statistics
 usernames = set()
-with open('students.csv', "r") as csv_file:
+with open('students.csv', "r") as csv_file:  # This csv is generated from the sanitized sheet
     raw_reader = csv.reader(csv_file)
     header = next(raw_reader, None)
     for row in raw_reader:
-        print(row)
         user = row[2]
         usernames.add(user)
         stats[user] = dict()
@@ -113,12 +114,34 @@ def fetch_all_pages(query, params=None, headers=None):
         return r.json() + fetch_all_pages(next_url, params=params, headers=headers)
 
 
-for project in projects:
-    query = "https://api.github.com/repos/{}/commits".format(project)
+def fetch_all_pull_requests(query, since=None, headers=None):
+    r = requests.get(query, headers=headers)
+    link = r.headers.get('link', None)
+    if link is None:
+        return r.json()
 
+    if 'rel="next"' not in link:
+        return r.json()
+    else:
+        if r.json()[-1]["created_at"] < since:
+            return r.json()
+        else:
+            next_url = None
+            for url in link.split(','):
+                if 'rel="next"' in url:
+                    next_url = url.split(';')[0][1:-1]
+
+            return r.json() + fetch_all_pull_requests(next_url, since=since, headers=None)
+
+
+for project in projects:
+    print("Working on project : ", project)
+    query = "https://api.github.com/repos/{}/commits".format(project)
+    since = '2017-11-21T00:00:00Z'
+    until = '2018-01-01T00:00:00Z'
     params = {
-        'since': '2017-11-21T00:00:00Z',
-        'until': '2018-01-01T00:00:00Z'
+        'since': since,
+        'until': until
     }
 
     commits = fetch_all_pages(query, params=params, headers=headers)
@@ -168,33 +191,11 @@ for project in projects:
             stats[author]['languages'] = stats[author]['languages'].union(languages_used)
             stats[author]['lines_added'] += lines_added
             stats[author]['lines_removed'] += lines_removed
+    print("Done.")
 
 
-# Students' data based on Pull Requests
-def fetch_all_pull_requests(query, since=None, headers=None):
-    r = requests.get(query, headers=headers)
-    link = r.headers.get('link', None)
-    if link is None:
-        return r.json()
-
-    if 'rel="next"' not in link:
-        return r.json()
-    else:
-        if r.json()[-1]["created_at"] < since:
-            return r.json()
-        else:
-            next_url = None
-            for url in link.split(','):
-                if 'rel="next"' in url:
-                    next_url = url.split(';')[0][1:-1]
-
-            return r.json() + fetch_all_pull_requests(next_url, since=since, headers=None)
-
-
-for project in projects:
+    # Students' data based on Pull Requests
     query = "https://api.github.com/repos/{}/pulls?state=all".format(project)
-
-    since = "2017-11-21T00:00:00Z"
     prs = fetch_all_pull_requests(query, since=since, headers=headers)
 
     # Trim out of date pull requests
