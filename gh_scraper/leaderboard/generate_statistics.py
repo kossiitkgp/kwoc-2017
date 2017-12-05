@@ -1,7 +1,8 @@
+import json
 import requests
 
 usernames = [
-    'orkohunter',
+    'americast',
     'pungi-man',
     'debugger22'
 ]
@@ -9,24 +10,89 @@ usernames = [
 projects = [
     'kossiitkgp/kwoc-2017',
     'orkohunter/pep8speaks',
-    'networkx/networkx'
 ]
 
-query = "https://api.github.com/repos/{}/commits"
-
-params = {
-    'since': '2017-11-21T00:00:00Z',
-    'until': '2018-01-01T00:00:00Z'
+headers = {
+    'Authorization': 'token cffc61752e7d72ebcca8451a90693995198c17f4'
 }
 
-r = requests.get(query.format(projects[0]), params=params) # Change this for every project
+languages_json = json.load(open("languages.json", 'r'))
 
-commits = fetch_all_pages(r)
+stats = {}
+"""
+Structure of stats :
 
-def fetch_all_pages(r):
+key : username (In lowercase)
+value : dict
+    key     : avatar_url
+    value   : string
+
+    key     : name
+    value   : string
+
+    key     : projects
+    value   : type: set (Projects the user is working on)
+
+    key     : no_of_commits
+    value   : type: int (Commits merged)
+
+    key     : pr_open
+    value   : type: int (Pull Requests opened)
+
+    key     : pr_closed
+    value   : type: int (Pull Requests closed/merged)
+
+    key     : languages
+    value   : type: set (Languages involved in commits/PRs)
+
+    key     : lines_added
+    value   : type: int (Total number of lines added)
+
+    key     : lines_removed
+    value   : type: int (Total number of lines removed)
+
+    key     : commits
+    value   : type : list of dicts
+        key : message
+        value : type: string (Message of the commit)
+
+        key : project
+        value : type: string (Project this commit belongs to)
+
+        key : html_url
+        value : type: string (Link for the url)
+
+        key : lines_added
+        value : type: int (Lines added in the commit)
+
+        key : lines_removed
+        value : type: int (Lines removed in the commit)
+"""
+
+# Generate empty statistics
+for user in usernames:
+    stats[user] = dict()
+    stats[user]['avatar_url'] = ''
+    stats[user]['name'] = ''
+    stats[user]['projects'] = set()
+    stats[user]['no_of_commits'] = 0
+    stats[user]['pr_open'] = 0
+    stats[user]['pr_closed'] = 0
+    stats[user]['languages'] = set()
+    stats[user]['lines_added'] = 0
+    stats[user]['lines_removed'] = 0
+    stats[user]['commits'] = list()
+
+
+# Students' data based on commits merged
+def fetch_all_pages(query, params=None, headers=None):
     """
-    The number of commits is paginated by GitHub api. This function recursively returns all the commits.
+    If the query returns paginated results,
+    this function recursively fetchs all the results, concatenate and return.
     """
+    r = requests.get(query, params=params, headers=headers)
+    if not r.ok:
+        raise(Exception("Error in fetch_all_pages", "query : ", query, "r.json() ", r.json()))
     link = r.headers.get('link', None)
     if link is None:
         return r.json()
@@ -39,46 +105,109 @@ def fetch_all_pages(r):
             if 'rel="next"' in url:
                 next_url = url.split(';')[0][1:-1]
 
-        next_r = requests.get(next_url)
-        return r.json() + fetch_all_pages(next_r)
+        return r.json() + fetch_all_pages(next_url, params=params, headers=headers)
 
-# Final data for frontend
-students_commits = {}
 
-for commit in commits:
-    author = commit['author']['login'].lower()
-    if author in usernames:
-        html_url = commit['html_url']
-        message = commit['commit']['message']
+for project in projects:
+    query = "https://api.github.com/repos/{}/commits".format(project)
 
-        _api_url_commit = commit['url']
-        _commit_info = requests.get(_api_url_commit).json()
+    params = {
+        'since': '2017-11-21T00:00:00Z',
+        'until': '2018-01-01T00:00:00Z'
+    }
 
-        lines_added = _commit_info['stats']['additions']
-        lines_removed = _commit_info['stats']['deletions']
-        _files_modified = set()
+    commits = fetch_all_pages(query, params=params, headers=headers)
 
-        for f in _commit_info['files']:
-            _files_modified.add(f['filename'])
+    for commit in commits:
+        author = commit['author']['login'].lower()
+        if author in usernames:
+            html_url = commit['html_url']
+            message = commit['commit']['message']
 
-        languages_used = set()
-        for f in _files_modified:
-            file_ext = '.' + f.split('/')[-1].split('.')[-1]
-            lang = d.get(file_ext, None)
-            if lang is not None:
-                languages_used.add(lang)
+            _api_url_commit = commit['url']
+            r = requests.get(_api_url_commit)
+            if not r.ok:
+                raise(Exception("Error in fetching commit info", "query : ", _api_url_commit, "r.json() ", r.json()))
+            _commit_info = r.json()
 
-        commit_record = {
-            'html_url': html_url,
-            'message': message,
-            'lines_added': lines_added,
-            'lines_removed': lines_removed,
-            'languages_used': languages_used
-        }
+            try:
+                lines_added = _commit_info['stats']['additions']
+                lines_removed = _commit_info['stats']['deletions']
+            except KeyError:
+                lines_added = lines_removed = 0
 
-        try:
-            students_commits[author].append(commit_record)
-        except KeyError:
-            students_commits[author] = [commit_record]
+            languages_used = set()
+            files = _commit_info.get('files', None)
+            _files_modified = set()
+            if files is not None:
+                for f in _commit_info['files']:
+                    _files_modified.add(f['filename'])
 
-# Final data for frontend is in students_commits
+            for f in _files_modified:
+                file_ext = '.' + f.split('/')[-1].split('.')[-1]
+                lang = languages_json.get(file_ext, None)
+                if lang is not None:
+                    languages_used.add(lang)
+
+            commit_record = {
+                'html_url': html_url,
+                'message': message,
+                'project': project,
+                'lines_added': lines_added,
+                'lines_removed': lines_removed,
+            }
+
+            stats[author]['commits'].append(commit_record)
+            stats[author]['projects'] = stats[author][projects].add(project)
+            stats[author]['no_of_commits'] += 1
+            stats[author]['languages'] = stats[author]['languages'].union(languages_used)
+            stats[author]['lines_added'] += lines_added
+            stats[author]['lines_removed'] += lines_removed
+
+
+# Students' data based on Pull Requests
+def fetch_all_pull_requests(query, since=None, headers=None):
+    r = requests.get(query, headers=headers)
+    link = r.headers.get('link', None)
+    if link is None:
+        return r.json()
+
+    if 'rel="next"' not in link:
+        return r.json()
+    else:
+        if r.json()[-1]["created_at"] < since:
+            return r.json()
+        else:
+            next_url = None
+            for url in link.split(','):
+                if 'rel="next"' in url:
+                    next_url = url.split(';')[0][1:-1]
+
+            return r.json() + fetch_all_pull_requests(next_url, since=since, headers=None)
+
+
+for project in projects:
+    query = "https://api.github.com/repos/{}/pulls?state=all".format(project)
+
+    since = "2017-11-21T00:00:00Z"
+    prs = fetch_all_pull_requests(query, since=since)
+
+    # Trim out of date pull requests
+    while(True):
+        if len(prs) == 0:
+            break
+        if prs[-1]['created_at'] < since:
+            prs.pop()
+        else:
+            break
+
+    for pr in prs:
+        author = pr['user']['login'].lower()
+        if author in usernames:
+            if pr['state'] == 'open':
+                stats[author]['pr_open'] += 1
+            elif pr['state'] == 'closed':
+                stats[author]['pr_closed'] += 1
+
+with open('stats.json', 'w') as f:
+    f.write(json.dumps(stats))
