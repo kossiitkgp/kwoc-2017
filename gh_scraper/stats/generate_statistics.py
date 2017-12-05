@@ -74,6 +74,8 @@ with open('students.csv', "r") as csv_file:  # This csv is generated from the sa
     raw_reader = csv.reader(csv_file)
     header = next(raw_reader, None)
     for row in raw_reader:
+        if len(row) == 0:
+            continue
         user = row[2]
         usernames.add(user)
         stats[user] = dict()
