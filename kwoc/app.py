@@ -17,7 +17,7 @@ def main():
 
 @app.route("/leaderboard")
 def leaderboard():
-    return "Under Development"
+    return render_template('leaderboard.html')
 
 
 @app.route('/leaderboard/user/<git_handle>', methods=['GET', 'POST'])
