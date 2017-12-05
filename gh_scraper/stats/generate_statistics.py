@@ -1,5 +1,6 @@
-import os
+import copy
 import csv
+import os
 import json
 import requests
 
@@ -193,8 +194,6 @@ for project in projects:
             stats[author]['languages'] = stats[author]['languages'].union(languages_used)
             stats[author]['lines_added'] += lines_added
             stats[author]['lines_removed'] += lines_removed
-    print("Done.")
-
 
     # Students' data based on Pull Requests
     query = "https://api.github.com/repos/{}/pulls?state=all".format(project)
@@ -217,11 +216,13 @@ for project in projects:
             elif pr['state'] == 'closed':
                 stats[author]['pr_closed'] += 1
 
+    # Update stats.json
+    copy_stats = copy.deepcopy(stats)
+    # set is not JSON serializable
+    for user in copy_stats:
+        copy_stats[user]['projects'] = list(copy_stats[user]['projects'])
+        copy_stats[user]['languages'] = list(copy_stats[user]['languages'])
 
-# set is not JSON serializable
-for user in stats:
-    stats[user]['projects'] = list(stats[user]['projects'])
-    stats[user]['languages'] = list(stats[user]['languages'])
-
-with open('stats.json', 'w') as f:
-    f.write(json.dumps(stats))
+    with open('stats.json', 'w') as f:
+        f.write(json.dumps(stats))
+    print("Done.")
