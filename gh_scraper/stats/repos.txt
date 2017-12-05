@@ -19,8 +19,8 @@ zishansami102/CNN-from-Scratch
 OrkoHunter/pep8speaks
 mayank-kgp/VoiceCalculator
 djokester/sangita
-icyflame/relative-date-reverse/issues
-icyflame/cli-cube-timer/issues
+icyflame/relative-date-reverse
+icyflame/cli-cube-timer
 icyflame/awesome-social-science
 dibyadas/read-it
 kshitij10496/lexico
