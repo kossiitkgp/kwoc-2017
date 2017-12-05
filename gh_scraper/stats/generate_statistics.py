@@ -77,7 +77,7 @@ with open('students.csv', "r") as csv_file:  # This csv is generated from the sa
     for row in raw_reader:
         if len(row) == 0:
             continue
-        user = row[2]
+        user = row[2].lower()
         usernames.add(user)
         stats[user] = dict()
         stats[user]['avatar_url'] = ''
@@ -150,8 +150,11 @@ for project in projects:
     commits = fetch_all_pages(query, params=params, headers=headers)
 
     for commit in commits:
+        if commit['author'] is None:
+            continue
         author = commit['author']['login'].lower()
         if author in usernames:
+            print(author, " working on ", project)
             html_url = commit['html_url']
             message = commit['commit']['message']
 
@@ -224,5 +227,5 @@ for project in projects:
         copy_stats[user]['languages'] = list(copy_stats[user]['languages'])
 
     with open('stats.json', 'w') as f:
-        f.write(json.dumps(stats))
+        f.write(json.dumps(copy_stats))
     print("Done.")
