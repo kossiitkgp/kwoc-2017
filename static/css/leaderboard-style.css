@@ -1,31 +1,7 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100);
 
-body {
-  font-family: "Roboto", helvetica, arial, sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  text-rendering: optimizeLegibility;
+.category-dropdown {
+  padding-top: 3em;
 }
-
-div.table-title {
-   display: block;
-  margin: auto;
-  max-width: 600px;
-  padding:5px;
-  text-align:center;
-  width: 100%;
-}
-
-.table-title h3 {
-   color: black;
-   font-size: 30px;
-   font-weight: 400;
-   font-style:normal;
-   font-family: "Roboto", helvetica, arial, sans-serif;
-   text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
-   text-transform:uppercase;
-}
-
 
 /*** Table Styles **/
 
@@ -33,9 +9,9 @@ div.table-title {
   background: white;
   border-radius:3px;
   border-collapse: collapse;
-  height: 320px;
-  margin: auto;
-  max-width: 950px;
+  height: auto;
+  margin: 1em auto 3em;
+  max-width: 1200px;
   padding:5px;
   width: 100%;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
@@ -47,9 +23,9 @@ th {
   background:#1b1e24;
   border-bottom:4px solid #9ea7af;
   border-right: 1px solid #343a45;
-  font-size:23px;
+  font-size:20px;
   font-weight: 100;
-  padding:24px;
+  padding: 15px 0 !important;
   text-align:left;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   vertical-align:middle;
@@ -68,7 +44,8 @@ tr {
   border-top: 1px solid #C1C3D1;
   border-bottom-: 1px solid #C1C3D1;
   color:#666B85;
-  font-size:16px;
+  padding: 2px 0;
+  font-size:14px;
   font-weight:normal;
   text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
 }
@@ -110,9 +87,9 @@ td {
   text-align:left;
   vertical-align:middle;
   font-weight:300;
-  font-size:18px;
-  text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+  font-size:15px;
   border-right: 1px solid #C1C3D1;
+  padding: 10px 0 !important;
 }
 
 td:last-child {
