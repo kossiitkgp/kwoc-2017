@@ -92,9 +92,9 @@
                               </li> -->
                               <!-- end menu item -->
                               <!-- menu item -->
-                              <!--li class="dropdown panel">
+                              <li class="dropdown panel">
                                   <a href="{{ url_for('stats') }}" target="_blank">Statistics</a>
-                              </li> -->
+                              </li>
                               <!-- end menu item -->
 
       <!-- menu item -->
@@ -171,7 +171,7 @@
             <thead>
             <tr style="cursor:pointer" >
             <th class="text-center">Name</th>
-            <th class="text-center">Github Handle</th>
+            <th class="text-center">Github Username</th>
              <th class="text-center">PRs (Open/Closed)</th>
               <th class="text-center">Commits</th>
               <th class="text-center">Lines added/removed</th>
@@ -179,7 +179,7 @@
             </thead>
             <tbody class="table-hover">
             {% for user, userdata in stats.items() %}
-              <tr style="cursor:pointer" >
+              <tr style="cursor:pointer" onclick="location.href='/stats/{{ user }}'">
               <td class="text-center" data-target="#myModal"> {{ userdata.name }} </td>
               <td class="text-center"> {{ user }} </td>
               <td class="text-center">{{ userdata.pr_open }}/{{ userdata.pr_closed }}</td>
