@@ -1,76 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-<meta name="viewport" content="user-scalable = no">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>KWoC | Kharagpur Winter of Code | KOSS</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="/static/css/leaderboard-style.css">
-  </head>
+<!--
   <body>
-<div class="table-title">
-<h3>KWOC LeaderBoard</h3>
-</div>
-<table class="table-fill">
-<thead>
-<tr>
-<th class="text-left">Name</th>
-<th class="text-left">Github Handle</th>
- <th class="text-left">Pull requests</th>
-  <th class="text-left">Commits</th>
-  <th class="text-left">No of lines added</th>
-</tr>
-</thead>
-<tbody class="table-hover">
-<tr>
-<td class="text-left" style="cursor:pointer" data-toggle="modal" data-target="#myModal">Sourav Thacker <a style="float:right;">+</a></td>
-<td class="text-left">Sourav22</td>
-  <td class="text-left">5</td>
-  <td class="text-left">15</td>
-  <td class="text-left">100</td>
-</tr>
-<tr>
-<td class="text-left" style="cursor:pointer" data-toggle="modal" data-target="#myModal">Sayan Das <a style="float:right;">+</a></td>
-<td class="text-left">americast</td>
-  <td class="text-left">5</td>
-  <td class="text-left">15</td>
-  <td class="text-left">100</td>
-</tr>
-<tr>
-<td class="text-left" style="cursor:pointer" data-toggle="modal" data-target="#myModal">Akshat Mishra <a style="float:right;">+</a></td>
-<td class="text-left">akshatrocks</td>
-  <td class="text-left">5</td>
-  <td class="text-left">15</td>
-  <td class="text-left">100</td>
-</tr>
-<tr>
-<td class="text-left" style="cursor:pointer" data-toggle="modal" data-target="#myModal">Sneha Sri <a style="float:right;">+</a></td>
-<td class="text-left">sneha32</td>
-  <td class="text-left">5</td>
-  <td class="text-left">15</td>
-  <td class="text-left">100</td>
-</tr>
-<tr>
-<td class="text-left" style="cursor:pointer" data-toggle="modal" data-target="#myModal">Nikhil Sharma <a style="float:right;">+</a></td>
-<td class="text-left">Minion</td>
-  <td class="text-left">5</td>
-  <td class="text-left">15</td>
-  <td class="text-left">100</td>
-</tr>
-</tbody>
-</table>
-
 <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
 
-      <!-- Modal content-->
+
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -87,4 +21,329 @@
     </div>
   </div>
   </body>
-  </html>
+-->
+
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <title>Kharagpur Winter of Code | Projects</title>
+        <meta name="description" content="KWoC | Kharagpur Winter of Code">
+        <meta name="keywords" content="">
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="/static/css/leaderboard-style.css">
+        <link rel="shortcut icon" href="/static/images/kwoc_logo.png">
+        <!-- animation -->
+        <link rel="stylesheet" href="/static/css/animate.css" />
+        <!-- bootstrap -->
+        <link rel="stylesheet" href="/static/css/bootstrap.css" />
+        <!-- et line icon -->
+        <link rel="stylesheet" href="/static/css/et-line-icons.css" />
+        <!-- font-awesome icon -->
+        <link rel="stylesheet" href="/static/css/font-awesome.min.css" />
+        <!-- revolution slider -->
+        <link rel="stylesheet" href="/static/css/extralayers.css" />
+        <link rel="stylesheet" href="/static/css/settings.css" />
+        <!-- magnific popup -->
+        <link rel="stylesheet" href="/static/css/magnific-popup.css" />
+        <!-- owl carousel -->
+        <link rel="stylesheet" href="/static/css/owl.carousel.css" />
+        <link rel="stylesheet" href="/static/css/owl.transitions.css" />
+        <link rel="stylesheet" href="/static/css/full-slider.css" />
+        <!-- text animation -->
+        <link rel="stylesheet" href="/static/css/text-effect.css" />
+        <!-- common -->
+        <link rel="stylesheet" href="/static/css/style.css" />
+        <link rel="stylesheet" href="/static/css/projects.css" />
+        <!-- responsive -->
+
+         <!-- Compiled and minified JavaScript -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--[if IE]>
+            <link rel="stylesheet" href="/static/css/style-ie.css" />
+        <![endif]-->
+        <!--[if IE]>
+            <script src="/static/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+      <nav class="navbar navbar-default navbar-fixed-top nav-transparent overlay-nav sticky-nav nav-white nav-border-bottom" role="navigation">
+          <div class="container">
+              <div class="row">
+                  <!-- logo -->
+                  <div class="col-md-2 pull-left"><a class="logo-light" href="/"><img alt="" src="/static/images/kwoc_logo.png" class="logo" style="height: 60px;" /></a><a class="logo-dark" href="/"><img alt="" src="/static/images/kwoc_logo.png" class="logo" style="height: 60px;" /></a></div>
+                  <!-- end logo -->
+                  <!-- toggle navigation -->
+                  <div class="navbar-header col-sm-8 col-xs-2 pull-right">
+                      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                  </div>
+                  <!-- toggle navigation end -->
+                  <!-- main menu -->
+                  <div class="col-md-10 accordion-menu text-right">
+                      <div class="navbar-collapse collapse">
+                          <ul id="accordion" class="nav navbar-nav navbar-right panel-group">
+                              <!-- menu item -->
+                              <li class="dropdown panel">
+                                  <a href="/">Home</a>
+                              </li>
+      <!-- Uncomment this when projects and leaderboard needs to be added -->
+                              <!-- end menu item -->
+                              <!-- menu item -->
+                              <!-- <li class="dropdown panel">
+                                  <a href="#" target="_blank">Projects</a>
+                              </li> -->
+                              <!-- end menu item -->
+                              <!-- menu item -->
+                              <!--li class="dropdown panel">
+                                  <a href="{{ url_for('leaderboard') }}" target="_blank">LeaderBoard</a>
+                              </li> -->
+                              <!-- end menu item -->
+
+      <!-- menu item -->
+                              <li class="dropdown panel">
+                                  <a href="./#timeline">Timeline</a>
+                              </li>
+                              <!-- end menu item -->
+
+      <!-- menu item -->
+                              <li class="dropdown panel">
+                                  <a href="./#resources">Resources</a>
+                              </li>
+                              <!-- end menu item -->
+
+                              <li class="dropdown panel">
+                                  <a href="{{ url_for('student_form') }}">Apply as student</a>
+                              </li>
+                              <!-- end menu item -->
+                              <!-- menu item -->
+                              <!-- end menu item -->
+                              <li class="dropdown panel">
+                                  <a href="{{ url_for('testimonials') }}">Testimonials</a>
+                              </li>
+
+                              <li class="dropdown panel">
+                                  <a href="{{ url_for('projects') }}">Projects</a>
+                              </li>
+
+                          </ul>
+                      </div>
+                  </div>
+                  <!-- end main menu -->
+              </div>
+          </div>
+      </nav>
+
+      <section id="slider" class="wow fadeIn fix-background" style="background-image:url('/static/images/testimonial.jpg'); padding:120px 0 20px 0">
+          <div class="opacity-full bg-dark-gray"></div>
+          <div class="container">
+              <div class="row">
+                  <div id="owl-demo" class="col-xs-12 owl-carousel owl-theme light-pagination bottom-pagination dark-pagination-without-next-prev-arrow position-relative">
+                      <!-- testimonials item -->
+                      <div class="item">
+                          <div class="col-md-5 col-sm-8 no-padding testimonial-style2 center-col text-center">
+                              <span class="name white-text" style="font-size:2.3rem; margin:auto; padding-top: 2%;">Leaderboard</span>
+                              <p class="white-text">Some relevant text to be added here</p>
+                          </div>
+                      </div>
+                      <!-- end testimonials item -->
+                      <!-- testimonials item -->
+
+                      <!-- end testimonials item -->
+                      <!-- testimonials item -->
+
+                      <!-- end testimonials item -->
+                  </div>
+              </div>
+          </div>
+      </section>
+        <!-- content section -->
+
+        <div class="container">
+            <div class="row category-dropdown">
+                <div class="col-md-4">
+                    <select id="ddlList">
+                        <option value="1">Option1</option>
+                        <option value="2">Option2</option>
+                        <option value="3">Option3</option>
+                        <option value="4">Option4</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <input type="button" id="btnSort" Value=" Sort Leaderboard " />
+                </div>
+            </div>
+
+            <table class="table-fill">
+            <thead>
+            <tr style="cursor:pointer" >
+            <th class="text-center">Name</th>
+            <th class="text-center">Github Handle</th>
+             <th class="text-center">PRs (Open/Merged)</th>
+              <th class="text-center">Commits</th>
+              <th class="text-center">No of lines added</th>
+            </tr>
+            </thead>
+            <tbody class="table-hover">
+            <tr style="cursor:pointer" >
+            <td class="text-center" data-target="#myModal">Sourav Thacker </td>
+            <td class="text-center">Sourav22</td>
+              <td class="text-center">5/5</td>
+              <td class="text-center">15</td>
+              <td class="text-center">100</td>
+            </tr>
+            <tr style="cursor:pointer" >
+            <td class="text-center" data-target="#myModal">Sayan Das </td>
+            <td class="text-center">americast</td>
+              <td class="text-center">5/5</td>
+              <td class="text-center">15</td>
+              <td class="text-center">100</td>
+            </tr>
+            <tr style="cursor:pointer" >
+            <td class="text-center" data-target="#myModal">Akshat Mishra </td>
+            <td class="text-center">akshatrocks</td>
+              <td class="text-center">5/5</td>
+              <td class="text-center">15</td>
+              <td class="text-center">100</td>
+            </tr>
+            <tr style="cursor:pointer" >
+            <td class="text-center" data-target="#myModal">Sneha Sri </td>
+            <td class="text-center">sneha32</td>
+              <td class="text-center">5/5</td>
+              <td class="text-center">15</td>
+              <td class="text-center">100</td>
+            </tr>
+            <tr style="cursor:pointer" >
+            <td class="text-center" data-target="#myModal">Nikhil Sharma </td>
+            <td class="text-center">Minion</td>
+              <td class="text-center">5/5</td>
+              <td class="text-center">15</td>
+              <td class="text-center">100</td>
+            </tr>
+            <tr style="cursor:pointer" >
+            <td class="text-center" data-target="#myModal">SomeDude with LongName</td>
+            <td class="text-center">Minion</td>
+              <td class="text-center">5/5</td>
+              <td class="text-center">15</td>
+              <td class="text-center">100</td>
+            </tr>
+            <tr style="cursor:pointer" >
+            <td class="text-center" data-target="#myModal">SomeDude with LongName</td>
+            <td class="text-center">Minion</td>
+              <td class="text-center">5/5</td>
+              <td class="text-center">15</td>
+              <td class="text-center">100</td>
+            </tr>
+            <tr style="cursor:pointer" >
+            <td class="text-center" data-target="#myModal">SomeDude with LongName</td>
+            <td class="text-center">Minion</td>
+              <td class="text-center">5/5</td>
+              <td class="text-center">15</td>
+              <td class="text-center">100</td>
+            </tr>
+            <tr style="cursor:pointer" >
+            <td class="text-center" data-target="#myModal">SomeDude with LongName</td>
+            <td class="text-center">Minion</td>
+              <td class="text-center">5/5</td>
+              <td class="text-center">15</td>
+              <td class="text-center">100</td>
+            </tr>
+            <tr style="cursor:pointer" >
+            <td class="text-center" data-target="#myModal">Sayan Das </td>
+            <td class="text-center">americast</td>
+              <td class="text-center">5/5</td>
+              <td class="text-center">15</td>
+              <td class="text-center">100</td>
+            </tr>
+            <tr style="cursor:pointer" >
+            <td class="text-center" data-target="#myModal">Sayan Das </td>
+            <td class="text-center">americast</td>
+              <td class="text-center">5/5</td>
+              <td class="text-center">15</td>
+              <td class="text-center">100</td>
+            </tr>
+            </tbody>
+            </table>
+        </div>
+        <!-- footer -->
+        <footer>
+
+            <div class="container footer-middle" style="align-content: center;">
+              <div class="row">
+                  <div class="col-md-12 footer-link1">
+                      <!-- headline -->
+                      <h5>About KOSS</h5>
+                      <!-- end headline -->
+                      <!-- text -->
+                      <p class="footer-text">We are a group of Open Source Enthusiasts who focus on something more
+                          preliminary and relevant, ”A Love for Coding”.
+                      </p>
+                      <!-- end text -->
+                  </div>
+              </div>
+                <div class="wide-separator-line bg-mid-gray no-margin-lr margin-three no-margin-bottom"></div>
+                <div class="row margin-four no-margin-bottom">
+                    <div class="col-md-6 col-sm-12 sm-text-center sm-margin-bottom-four">
+                        <!-- link -->
+                        <ul class="list-inline footer-link text-uppercase">
+                            <li><a href="https://kossiitkgp.in">About</a></li>
+                            <li><a href="https://blog.kossiitkgp.in/">Blog</a></li>
+                            <li><a href="{{ url_for('testimonials') }}">Testimonials</a></li>
+                        </ul>
+                        <!-- end link -->
+                    </div>
+                    <div class="col-md-6 col-sm-12 footer-social text-right sm-text-center">
+                        <!-- social media link -->
+                        <a target="_blank" href="https://www.facebook.com/kossiitkgp/"><i class="fa fa-facebook"></i></a>
+                          <a target="_blank" href="mailto:contact@kossiitkgp.in"><i class="fa fa-envelope"></i></a>
+                        <a target="_blank" href="https://github.com/kossiitkgp"><i class="fa fa-github"></i></a>
+                        <!-- end social media link -->
+                    </div>
+                </div>
+            </div>
+            <!-- scroll to top -->
+            <a href="javascript:;" class="scrollToTop"><i class="fa fa-angle-up"></i></a>
+            <!-- scroll to top End... -->
+        </footer>
+        <!-- end footer -->
+
+        <!-- javascript libraries -->
+
+        <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+        <script type="text/javascript" src="/static/js/materialize.min.js"></script>
+        <script type="text/javascript" src="/static/js/fuse.js"></script>
+        <script type="text/javascript" src="/static/js/projects.js"></script>
+        <script type="text/javascript" src="/static/js/modernizr.js"></script>
+        <script type="text/javascript" src="/static/js/bootstrap.js"></script>
+        <script type="text/javascript" src="/static/js/bootstrap-hover-dropdown.js"></script>
+        <script type="text/javascript" src="/static/js/jquery.easing.1.3.js"></script>
+        <script type="text/javascript" src="/static/js/skrollr.min.js"></script>
+        <script type="text/javascript" src="/static/js/smooth-scroll.js"></script>
+        <!-- animation -->
+        <script type="text/javascript" src="/static/js/wow.min.js"></script>
+        <!-- page scroll -->
+        <script type="text/javascript" src="/static/js/page-scroll.js"></script>
+        <!-- easy piechart-->
+        <script type="text/javascript" src="/static/js/jquery.easypiechart.js"></script>
+        <!-- parallax -->
+        <script type="text/javascript" src="/static/js/jquery.parallax-1.1.3.js"></script>
+        <!--portfolio with shorting tab -->
+        <script type="text/javascript" src="/static/js/jquery.isotope.min.js"></script>
+        <!-- owl slider  -->
+        <script type="text/javascript" src="/static/js/owl.carousel.min.js"></script>
+        <!-- magnific popup  -->
+        <script type="text/javascript" src="/static/js/jquery.magnific-popup.min.js"></script>
+        <script type="text/javascript" src="/static/js/popup-gallery.js"></script>
+        <!-- text effect  -->
+        <script type="text/javascript" src="/static/js/text-effect.js"></script>
+        <!-- revolution slider  -->
+        <script type="text/javascript" src="/static/js/jquery.tools.min.js"></script>
+        <script type="text/javascript" src="/static/js/jquery.revolution.js"></script>
+        <!-- counter  -->
+        <script type="text/javascript" src="/static/js/counter.js"></script>
+        <!-- fit videos  -->
+        <script type="text/javascript" src="/static/js/jquery.fitvids.js"></script>
+        <!-- imagesloaded  -->
+        <script type="text/javascript" src="/static/js/imagesloaded.pkgd.min.js"></script>
+        <!-- setting -->
+        <script type="text/javascript" src="/static/js/main.js"></script>
+    </body>
+</html>
