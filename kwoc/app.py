@@ -15,13 +15,13 @@ def main():
     return render_template('index.html')
 
 
-@app.route("/leaderboard")
-def leaderboard():
-    return render_template('leaderboard.html')
+@app.route("/stats")
+def stats():
+    return render_template('stats.html')
 
 
-@app.route('/leaderboard/user/<git_handle>', methods=['GET', 'POST'])
-def add_message(git_handle):
+@app.route('/stats/<git_handle>', methods=['GET', 'POST'])
+def user_stats(git_handle):
     return "Under Development"
 
 
