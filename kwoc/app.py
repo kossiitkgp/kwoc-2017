@@ -52,6 +52,10 @@ def student_form():
 def projects():
     return render_template('projects.html')
 
+@app.route("/profile")
+def profile():
+    return render_template('profile.html')
+
 # # Lines below should not be needed for Python 3
 # from imp import reload
 # reload(sys)
