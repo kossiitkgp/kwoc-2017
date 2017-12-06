@@ -78,8 +78,8 @@ def mentor_form():
 
 @app.route("/student_form")
 def student_form():
-    return "Registrations have now been closed. See you next year !"
-    # return render_template('student_form.html')
+    # return "Registrations have now been closed. See you next year !"
+    return render_template('student_form.html')
 
 @app.route("/projects")
 def projects():
