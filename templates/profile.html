@@ -133,8 +133,8 @@
   						<p>{{ affiliation }}</p>
   					</div>
             <div class="col2 first">
-              <h3>Projects working:</h3>
-              <ul class="tags custom">
+              <h3>Project(s) working:</h3>
+              <ul style="text-align: center;" class="tags custom">
                 {% for project in projects %}
                 <li style="background:orange" >
                     <div onclick="window.open('http://github.com/{{ project }}');" style="cursor:pointer;" class="tag">{{ project }}</div>
@@ -147,7 +147,7 @@
               <ul class="tags custom">
                 {% for lan in languages %}
                 <li style="background:orange" >
-                    <div class="tag">Python</div>
+                    <div class="tag">{{ lan }}</div>
                 </li>
                 {% endfor %}
               </ul>
