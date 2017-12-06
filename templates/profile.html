@@ -181,7 +181,7 @@
               <ul style="margin-left: 20%">
                 {% for commit in commits %}
                 <li style="width: 100%">
-                    <p onclick="window.open('{{ commit.html_url }}');" style="cursor:pointer;">{{ commit.project }} &nbsp;&nbsp;&nbsp; {{ commit.message }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  + {{ commit.lines_added }} - {{ commit.lines_removed }}</p>
+                    <p onclick="window.open('{{ commit.html_url }}');" style="cursor:pointer;">{{ commit.project }} &nbsp;&nbsp;&nbsp; {{ commit.message }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  +{{ commit.lines_added }} -{{ commit.lines_removed }}</p>
                 </li>
                 {% endfor %}
               </ul>
