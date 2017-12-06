@@ -12,12 +12,28 @@ import config
 app, sess = config.create_app()
 sess.init_app(app)
 
+# Load stats.json file
 dir_path = os.path.dirname(os.path.realpath(__file__))
 root_dir = '/'.join(dir_path.split('/')[:-1])
 stats_json = root_dir + '/gh_scraper/stats/stats.json'
 with open(stats_json, 'r') as f:
     stats_dict = json.load(f)
-stats_dict = collections.OrderedDict(sorted(stats_dict.items(), key=lambda t: t[1]['name']))
+
+# Separate people with non-zero contributions
+non_zero_contributions = {}
+zero_contributions = {}
+for user, userdata in stats_dict.items():
+    if userdata['no_of_commits'] + userdata['pr_open'] + userdata['pr_closed'] == 0:
+        zero_contributions[user] = userdata
+    else:
+        non_zero_contributions[user] = userdata
+
+non_zero_contributions = collections.OrderedDict(sorted(non_zero_contributions.items(), key=lambda t: t[1]['name']))
+zero_contributions = collections.OrderedDict(sorted(zero_contributions.items(), key=lambda t: t[1]['name']))
+non_zero_contributions.update(zero_contributions)
+
+# Final data
+stats_dict = non_zero_contributions
 
 
 # Define routes
