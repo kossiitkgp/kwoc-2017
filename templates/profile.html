@@ -67,7 +67,7 @@
                               <!-- end menu item -->
                               <!-- menu item -->
                               <!--li class="dropdown panel">
-                                  <a href="{{ url_for('leaderboard') }}" target="_blank">LeaderBoard</a>
+                                  <a href="{{ url_for('stats') }}" target="_blank">Statistics</a>
                               </li> -->
                               <!-- end menu item -->
 
@@ -83,9 +83,6 @@
                               </li>
                               <!-- end menu item -->
 
-                              <li class="dropdown panel">
-                                  <a href="{{ url_for('student_form') }}" target="_blank">Apply as student</a>
-                              </li>
                               <!-- end menu item -->
                               <!-- menu item -->
                               <!-- end menu item -->
@@ -111,7 +108,7 @@
                       <!-- testimonials item -->
                       <div class="item">
                           <div class="col-md-5 col-sm-8 no-padding testimonial-style2 center-col text-center margin-three no-margin-top">
-                              <span class="name white-text" style="font-size:2.3rem; padding:1em 0; margin:auto;">Ankita Sahoo</span>
+                              <span class="name white-text" style="font-size:2.3rem; padding:1em 0; margin:auto;">{{ name }}</span>
                           </div>
                       </div>
                       <!-- end testimonials item -->
@@ -131,79 +128,68 @@
   			<div>
   				<div class="row grid clearfix">
   					<div class="col2 first">
-  						<img src="http://images.contactmusic.com/newsimages/david_beckham_1133321.jpg" alt="">
-  						<h1>david beckham</h1>
-  						<p>IIT Kharagpur</p>
+  						<img src="{{ avatar_url }}" alt="">
+  						<h1>{{ name }}</h1>
+  						<p>{{ affiliation }}</p>
   					</div>
             <div class="col2 first">
               <h3>Projects working:</h3>
               <ul class="tags custom">
+                {% for project in projects %}
                 <li style="background:orange" >
-                    <div class="tag">FB_Messenger_Bot</div>
-                  </li>
-                  <li style="background:orange" >
-                      <div class="tag">Hangman</div>
-                    </li>
-                    <li style="background:orange" >
-                        <div class="tag">Git</div>
-                      </li>
+                    <div onclick="window.open('http://github.com/{{ project }}');" style="cursor:pointer;" class="tag">{{ project }}</div>
+                </li>
+                {% endfor %}
               </ul>
             </div>
             <div class="col2 first">
               <h3>Languages Involved :</h3>
               <ul class="tags custom">
+                {% for lan in languages %}
                 <li style="background:orange" >
                     <div class="tag">Python</div>
-                  </li>
-                  <li style="background:orange" >
-                      <div class="tag">Java</div>
-                    </li>
-                    <li style="background:orange" >
-                        <div class="tag">C++</div>
-                      </li>
-                      <li style="background:orange" >
-                          <div class="tag">Javascript</div>
-                        </li>
+                </li>
+                {% endfor %}
               </ul>
             </div>
   					<div class="col2 last">
   						<div class="grid clearfix">
   							<div class="col3 first">
-  								<h1>694</h1>
+  								<h1>{{ no_of_commits }}</h1>
   								<span>No of Commits</span>
   							</div>
-  							<div class="col3"><h1>452</h1>
-  							<span>PR_open</span></div>
-  							<div class="col3 last"><h1>1207</h1>
-  							<span>PR_closed</span></div>
+  							<div class="col3"><h1>{{ pr_open }}</h1>
+  							<span>Pull Requests open</span></div>
+  							<div class="col3 last"><h1>{{ pr_closed }}</h1>
+  							<span>Pull Requests closed</span></div>
   						</div>
   					</div>
             <div class="col2 last" style="transform:translate(16%);">
   						<div class="grid clearfix">
   							<div class="col3 first">
-  								<h1>694</h1>
+  								<h1>{{ lines_added }}</h1>
   								<span>Lines Added</span>
   							</div>
-  							<div class="col3" style="border-right:none;"><h1>452</h1>
+  							<div class="col3" style="border-right:none;"><h1>{{ lines_removed }}</h1>
   							<span>Lines Removed</span></div>
   						</div>
   					</div>
             <div class="col2 first">
-              <h3>Commit Summary:</h3>
+              <h3>Commits Summary:</h3>
               </div>
               <br>
               <ul style="list-style-type:disc">
+                {% for commit in commits %}
                 <li>
-              <div class="col2 first" style="text-align:left; width:200%">
-                <p><strong>Message :</strong> Added qwerty.txt</p>
-                <p><strong>Project :</strong>Hangman</p>
-                <p><strong>html_url :</strong>https://github.com/kossiitkgp/kwoc-2017/commit/265ae997bde2f03c8b573c0b46b7cd2d2ca4c47a</p>
-                <p><strong>No of lines added :</strong>7</p>
-                <p><strong>No of lines removed :</strong>17</p>
-              </div>
-            </li>
-          </ul>
-  				</div>
+                  <div class="col2 first" style="text-align:left; width:200%">
+                    <p onclick="window.open('{{ commit.html_url }}');" style="cursor:pointer;"><strong>Message :</strong> {{ commit.message }}</p>
+                    <p><strong>Project :</strong> {{ commit.project }}</p>
+                    <p><strong> + {{ commit.lines_added }} - {{ commit.lines_removed }}</strong></p>
+                  </div>
+                </li>
+                {% endfor %}
+              </ul>
+  				  </div>
   			</div>
   		</section>
   	</div>

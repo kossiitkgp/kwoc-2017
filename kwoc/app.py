@@ -5,12 +5,20 @@ import os
 import json
 sys.path.append("kwoc")
 
-from flask import render_template
+from flask import render_template, redirect
 import os
 import config
 
 app, sess = config.create_app()
 sess.init_app(app)
+
+dir_path = os.path.dirname(os.path.realpath(__file__))
+root_dir = '/'.join(dir_path.split('/')[:-1])
+stats_json = root_dir + '/gh_scraper/stats/stats.json'
+with open(stats_json, 'r') as f:
+    stats_dict = json.load(f)
+stats_dict = collections.OrderedDict(sorted(stats_dict.items(), key=lambda t: t[1]['name']))
+
 
 # Define routes
 @app.route("/")
@@ -20,18 +28,17 @@ def main():
 
 @app.route("/stats")
 def stats():
-    dir_path = os.path.dirname(os.path.realpath(__file__))
-    root_dir = '/'.join(dir_path.split('/')[:-1])
-    stats_json = root_dir + '/gh_scraper/stats/stats.json'
-    with open(stats_json, 'r') as f:
-        stats_dict = json.load(f)
-    stats_dict = collections.OrderedDict(sorted(stats_dict.items(), key=lambda t: t[1]['name']))
     return render_template('stats.html', stats=stats_dict)
 
 
-@app.route('/stats/<git_handle>', methods=['GET', 'POST'])
+@app.route('/stats/<git_handle>')
 def user_stats(git_handle):
-    return "Under Development"
+    git_handle = git_handle.lower()
+    if git_handle in stats_dict:
+        print(stats_dict[git_handle])
+        return render_template('profile.html', **stats_dict[git_handle])
+    else:
+        return redirect('/stats', code=302)
 
 
 @app.route("/manuals")
