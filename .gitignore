@@ -61,6 +61,7 @@ local_settings.py
 instance/
 .webassets-cache
 flask_session/*
+kwoc/flask_session/*
 
 # Scrapy stuff:
 .scrapy

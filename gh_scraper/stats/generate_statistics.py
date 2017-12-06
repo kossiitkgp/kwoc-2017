@@ -153,6 +153,7 @@ for project in projects:
         if commit['author'] is None:
             continue
         author = commit['author']['login'].lower()
+        avatar_url = commit['author']['avatar_url']
         if author in usernames:
             print(author, " working on ", project)
             html_url = commit['html_url']
@@ -197,6 +198,8 @@ for project in projects:
             stats[author]['languages'] = stats[author]['languages'].union(languages_used)
             stats[author]['lines_added'] += lines_added
             stats[author]['lines_removed'] += lines_removed
+            if stats[author]['avatar_url'] == '':
+                stats[author]['avatar_url'] = avatar_url
 
     # Students' data based on Pull Requests
     query = "https://api.github.com/repos/{}/pulls?state=all".format(project)
