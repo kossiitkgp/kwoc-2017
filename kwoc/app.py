@@ -51,7 +51,6 @@ def stats():
 def user_stats(git_handle):
     git_handle = git_handle.lower()
     if git_handle in stats_dict:
-        print(stats_dict[git_handle])
         return render_template('profile.html', **stats_dict[git_handle])
     else:
         return redirect('/stats', code=302)
