@@ -89,6 +89,10 @@ def projects():
 def profile():
     return render_template('profile.html')
 
+@app.route("/mid-term")
+def mid_term():
+    return render_template('mid-term-student.html')
+
 # # Lines below should not be needed for Python 3
 # from imp import reload
 # reload(sys)
