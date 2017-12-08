@@ -43,9 +43,9 @@
           <label>Who is your mentor?</label>
           <select name="mentor">
             <option value="" disabled="disabled" selected="selected"></option>
-            <option value="1">Nishant Nikhil - Play_next</option>
-            <option value="2">Siddharth Kannan - Some repo</option>
-            <option value="3">Himanshu Mishra - PEP8Speaks</option>
+            {% for mentor in list_of_mentors %}
+            <option value="{{ mentor }}">{{ mentor }}</option>
+            {% endfor %}
           </select>
         </div>
         <div class="form-item">

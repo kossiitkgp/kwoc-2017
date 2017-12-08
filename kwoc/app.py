@@ -89,9 +89,13 @@ def projects():
 def profile():
     return render_template('profile.html')
 
+mentors_json = root_dir + '/gh_scraper/list_of_mentors.json'
+with open(mentors_json, 'r') as f:
+    list_of_mentors = json.load(f)
+
 @app.route("/mid-term")
 def mid_term():
-    return render_template('mid-term-student.html')
+    return render_template('mid-term-student.html', list_of_mentors=list_of_mentors)
 
 # # Lines below should not be needed for Python 3
 # from imp import reload
