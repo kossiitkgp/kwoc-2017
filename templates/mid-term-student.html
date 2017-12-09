@@ -30,11 +30,11 @@
       <form id="form" onsubmit="event.preventDefault(); send(form);">
         <div class="form-item">
           <label for="email">Email Address</label>
-          <input id="emailid" type="email" name="email" required="required" placeholder="" autocomplete="off"></input>
+          <input id="emailid" type="email" name="email" required="required" placeholder="" autocomplete="off"  onfocus="hideWarning();"></input>
         </div>
         <div class="form-item">
           <label for="github">Github Username</label>
-          <input id="gh_username" type="text" name="gitlink" required="required" placeholder="" autocomplete="off"></input>
+          <input id="gh_username" type="text" name="gitlink" required="required" placeholder="" autocomplete="off"  onfocus="hideWarning();"></input>
         </div>
         <div class="form-item">
           <label for="ktjemail">Email id used for Kshitij registration</label>
@@ -65,6 +65,9 @@
             <textarea name="feedback_for_kwoc" required="required"></textarea>
           </div>
         </div>
+        <div>
+          <p id="warning"></p>
+        </div>
         <div class="button-container">
           <div class="button-panel">
             <input class="button" type="submit"></input>
@@ -77,6 +80,7 @@
 <script type="text/javascript" src="/static/js/sha1.js"></script>
 <script type="text/javascript">
   var hashes = JSON.parse('{{ hashes|tojson }}')
+  $('#warning').hide()
 
   function send(form) {
     var email = $('#emailid');
@@ -87,8 +91,13 @@
     if (hashes.indexOf(current_hash) > -1) {
       // do something
     } else {
-      console.log('The email address ' + str1 + ' and github username ' + str2 + ' is not registered with KWoC. If you think this is an error, write an email to kwoc@kossiitkgp.in')
+      $('#warning').html('The email address \'' + str1 + '\' and GitHub username \'' + str2 + '\' is not registered with KWoC. If you think this is an error, write an email to kwoc@kossiitkgp.in')
+      $('#warning').show()
     }
+  }
+
+  function hideWarning() {
+    $('#warning').hide()
   }
 </script>
 </html>

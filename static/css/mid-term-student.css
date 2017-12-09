@@ -142,3 +142,9 @@ textarea {
 textarea:focus {
     outline: none;
 }
+
+#warning {
+    font-size: 2em;
+    line-height: 1em;
+    color: red;
+}
