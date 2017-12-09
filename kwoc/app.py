@@ -102,11 +102,16 @@ mentors_json = root_dir + '/gh_scraper/list_of_mentors.json'
 with open(mentors_json, 'r') as f:
     list_of_mentors = json.load(f)
 
+hashes_json = root_dir + '/gh_scraper/stats/student_email_username_hashes.json'
+with open(hashes_json, 'r') as f:
+    hashes = json.load(f)
+
 
 @app.route("/mid-term")
 def mid_term():
     return render_template('mid-term-student.html',
-                           list_of_mentors=list_of_mentors)
+                           list_of_mentors=list_of_mentors,
+                           hashes=hashes)
 
 # # Lines below should not be needed for Python 3
 # from imp import reload

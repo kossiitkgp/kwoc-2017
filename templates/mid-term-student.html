@@ -4,8 +4,9 @@
   <link rel="shortcut icon" href="/static/images/kwoc_logo.png">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <title>Mid-Term Evaluation | Students</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="/static/js/lodash.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="/static/css/mid-term-student.css">
 </head>
@@ -29,11 +30,11 @@
       <form id="form" onsubmit="event.preventDefault(); send(form);">
         <div class="form-item">
           <label for="email">Email Address</label>
-          <input type="email" name="email" required="required" placeholder="" autocomplete="off"></input>
+          <input id="emailid" type="email" name="email" required="required" placeholder="" autocomplete="off"></input>
         </div>
         <div class="form-item">
           <label for="github">Github Username</label>
-          <input type="text" name="gitlink" required="required" placeholder="" autocomplete="off"></input>
+          <input id="gh_username" type="text" name="gitlink" required="required" placeholder="" autocomplete="off"></input>
         </div>
         <div class="form-item">
           <label for="ktjemail">Email id used for Kshitij registration</label>
@@ -41,7 +42,7 @@
         </div>
         <div class="form-item">
           <label>Who is your mentor?</label>
-          <select name="mentor">
+          <select name="mentor" required="required">
             <option value="" disabled="disabled" selected="selected"></option>
             {% for mentor in list_of_mentors %}
             <option value="{{ mentor }}">{{ mentor }}</option>
@@ -53,7 +54,7 @@
             <label>Feedback for mentor (Not to be shared with them)</label>
           </div>
           <div>
-            <textarea placeholder="If you are working with multiple mentors, write feedback for every mentor separately indicating their names." name="feedback_for_mentor"></textarea>
+            <textarea name="feedback_for_mentor" required="required" placeholder="If you are working with multiple mentors, write feedback for every mentor separately indicating their names."></textarea>
           </div>
         </div>
         <div class="form-item">
@@ -61,16 +62,33 @@
             <label>Feedback for KWoC</label>
           </div>
           <div>
-            <textarea name="feedback_for_kwoc"></textarea>
+            <textarea name="feedback_for_kwoc" required="required"></textarea>
           </div>
         </div>
         <div class="button-container">
           <div class="button-panel">
-            <div class="button" type="submit"><div>SUBMIT</div></div>
+            <input class="button" type="submit"></input>
           </div>
         </div>
       </form>
     </div>
   </div>
 </body>
+<script type="text/javascript" src="/static/js/sha1.js"></script>
+<script type="text/javascript">
+  var hashes = JSON.parse('{{ hashes|tojson }}')
+
+  function send(form) {
+    var email = $('#emailid');
+    var username = $('#gh_username');
+    var str1 = _.trim(_.toLower(email.val()));
+    var str2 = _.trim(_.trim(_.toLower(username.val())), '@');
+    var current_hash = CryptoJS.SHA1(str1 + str2).toString()
+    if (hashes.indexOf(current_hash) > -1) {
+      // do something
+    } else {
+      console.log('The email address ' + str1 + ' and github username ' + str2 + ' is not registered with KWoC. If you think this is an error, write an email to kwoc@kossiitkgp.in')
+    }
+  }
+</script>
 </html>
