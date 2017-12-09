@@ -123,7 +123,7 @@ ul {
     letter-spacing: 0.05em;
     text-align: center;
     transition: background 0.3s ease-in-out;
-    min-width: 40vh;
+    min-width: 40%;
     cursor: pointer;
     border-radius: 6px;
     height: 3.6vw;
