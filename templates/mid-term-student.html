@@ -38,7 +38,7 @@
         </div>
         <div class="form-item">
           <label for="ktjemail">Email id used for Kshitij registration</label>
-          <input type="email" name="ktjemail" required="required" placeholder="" autocomplete="off"></input>
+          <input type="email" name="ktjmail" required="required" placeholder="" autocomplete="off"></input>
         </div>
         <div class="form-item">
           <label>Who is your mentor?</label>
@@ -91,7 +91,7 @@
         </div>
         <div class="modal-footer">
           <!-- <button type="button" class="btn btn-default" data-dismiss="modal">You are successfully registered as a student.</button> -->
-          <!-- <button type="button" class="btn btn-default" onclick="location.href='/projects';">See Projects</button> -->
+          <!-- <button type="button" class="btn btn-default" onclick="window.close();">Close Tab</button> -->
         </div>
       </div>
     </div>
@@ -113,7 +113,7 @@
 
       var request = new XMLHttpRequest();
       var data = new FormData(form);
-      var url = "https://test-mail-dpd.herokuapp.com/update_student_sheet";
+      var url = "https://test-mail-dpd.herokuapp.com/update_student_feedback";
       request.onreadystatechange = function() {
       console.log(request.readyState);
       console.log(request.status);
