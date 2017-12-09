@@ -12,7 +12,7 @@ body {
     margin: 3vw auto;
     padding: 5vh 1vw;
     padding-bottom:6vh;
-    max-width: 50vw;
+    max-width: 60vw;
     box-shadow: 5px 5px 10px grey;
     min-height: 100vh;
 }
@@ -33,6 +33,7 @@ body {
     padding-top: 1em;
     border-width: 1px;
     border-style: solid;
+    padding-right: 1em;
 
 }
 
