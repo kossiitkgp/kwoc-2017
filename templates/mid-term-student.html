@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <link rel="shortcut icon" href="/static/images/kwoc_logo.png">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mid-Term Evaluation | Students</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="/static/js/lodash.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="/static/css/mid-term-student.css">
+</head>
+<body>
+  <div class="form-wrapper">
+    <div class="header">
+      <h1>Mid-Term Evaluation | Students</h1>
+    </div>
+    <div class="instructions">
+      <p><b>Please read the instructions before you proceed :</b></p>
+      <br>
+      <ul>
+        <li><b>If you do not submit this evaluation, you shall not be allowed to continue in the program.</b></li>
+        <li>This form is supposed to be filled by KWoC students only.</li>
+        <li>You have to choose the mentor you have been working with. The mentor you choose, shall be writing feedback for you. If you are working with multiple mentors, use your discretion and choose one.</li>
+        <li>You need to sign up on Kshitij website as well. If you have not already done visit : <a target="_blank" href="http://ktj.in/sign-up">ktj.in/sign-up</a> (If the name of your college does not appear on Kshitij website, choose the first option and write to admin@ktj.in about missing college name)</li>
+        <li><b>Last date to submit the evaluation is December 13, 2017 23:59 IST (GMT +5:30).</b></li>
+      </ul>
+    </div>
+    <div class="form-class">
+      <form id="form" onsubmit="event.preventDefault(); send(form);">
+        <div class="form-item">
+          <label for="email">Email Address</label>
+          <input id="emailid" type="email" name="email" required="required" placeholder="" autocomplete="off"  onfocus="hideWarning();"></input>
+        </div>
+        <div class="form-item">
+          <label for="github">Github Username</label>
+          <input id="gh_username" type="text" name="gitlink" required="required" placeholder="" autocomplete="off"  onfocus="hideWarning();"></input>
+        </div>
+        <div class="form-item">
+          <label for="ktjemail">Email id used for Kshitij registration</label>
+          <input type="email" name="ktjmail" required="required" placeholder="" autocomplete="off"></input>
+        </div>
+        <div class="form-item">
+          <label>Who is your mentor?</label>
+          <select name="mentor" required="required">
+            <option value="" disabled="disabled" selected="selected"></option>
+            {% for mentor in list_of_mentors %}
+            <option value="{{ mentor }}">{{ mentor }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="form-item">
+          <div>
+            <label>Feedback for mentor (Not to be shared with them)</label>
+          </div>
+          <div>
+            <textarea name="mentor_feedback" required="required" placeholder="If you are working with multiple mentors, write feedback for every mentor separately indicating their names."></textarea>
+          </div>
+        </div>
+        <div class="form-item">
+          <div>
+            <label>Feedback for KWoC</label>
+          </div>
+          <div>
+            <textarea name="kwoc_feedback" required="required"></textarea>
+          </div>
+        </div>
+        <div>
+          <p id="warning"></p>
+        </div>
+        <div class="button-container">
+          <div class="button-panel">
+            <input class="button" type="submit"></input>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title" id="reg_title"></h4>
+        </div>
+        <div class="modal-body">
+          <p style="font-size:15px;" id="reg_msg"></p>
+        </div>
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-default" data-dismiss="modal">You are successfully registered as a student.</button> -->
+          <!-- <button type="button" class="btn btn-default" onclick="window.close();">Close Tab</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+<script type="text/javascript" src="/static/js/sha1.js"></script>
+<script type="text/javascript">
+  var hashes = JSON.parse('{{ hashes|tojson }}')
+  $('#warning').hide()
+
+  function send(form) {
+    var email = $('#emailid');
+    var username = $('#gh_username');
+    var str1 = _.trim(_.toLower(email.val()));
+    var str2 = _.trim(_.trim(_.toLower(username.val())), '@');
+    var current_hash = CryptoJS.SHA1(str1 + str2).toString()
+    if (hashes.indexOf(current_hash) > -1) {
+
+      var request = new XMLHttpRequest();
+      var data = new FormData(form);
+      var url = "https://test-mail-dpd.herokuapp.com/update_student_feedback";
+      request.onreadystatechange = function() {
+      console.log(request.readyState);
+      console.log(request.status);
+      console.log(request.content);
+      if (request.readyState === 4) {
+            if (request.status === 200) {
+                $(".modal-title").html("Submission Successful");
+                $("#reg_msg").html("You have successfully submitted your Mid-Term evaluation.");
+                $('#myModal').modal('show');
+
+                } else {
+                  $(".modal-title").html("Submission Failed");
+                $("#reg_msg").html("Please contact us at kwoc@kossiitkgp.in regarding the same. We will resolve it ASAP");
+                $('#myModal').modal('show');
+                }
+            }
+        };
+      request.open("POST", url , true);
+      request.send(data);
+      $(".modal-title").html("Processing");
+      $("#reg_msg").html('<img src="/static/images/loader.gif"> </img>');
+      $('#myModal').modal('toggle');
+      form.reset()
+      return true;
+
+
+    } else {
+      $('#warning').html('The email address \'' + str1 + '\' and GitHub username \'' + str2 + '\' is not registered with KWoC. If you think this is an error, write an email to kwoc@kossiitkgp.in')
+      $('#warning').show()
+    }
+  }
+
+  function hideWarning() {
+    $('#warning').hide()
+  }
+</script>
+</html>

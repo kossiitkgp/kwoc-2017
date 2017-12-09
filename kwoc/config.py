@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from flask import Flask
 from flask_session import Session
-import models
+# from . import models
 
 TEMPLATE_DIR = '../templates'
 
@@ -22,6 +22,6 @@ def create_app():
 
     sess = Session()
 
-    models.estabilish_connection()
+    # models.estabilish_connection()
 
     return app, sess
