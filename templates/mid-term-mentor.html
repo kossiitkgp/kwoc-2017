@@ -50,14 +50,14 @@
               </div>
             </div>
             <div class="student-container-inner">
-              <section>
+              <section name="section{{ loop.index }}">
                 &nbsp;&nbsp;&nbsp;
-                <input type="radio" id="PASS{{ loop.index }}" class="PASS" name="select{{ loop.index }}" value="PASS">
+                <input type="radio" id="PASS{{ loop.index }}" class="PASS" name="select{{ loop.index }}" value="PASS" required="required">
                 <label class=".radio-label" for="PASS{{ loop.index }}">
                   <h5>PASS</h5>
                 </label>
                 &nbsp;&nbsp;&nbsp;
-                <input type="radio" class="FAIL" id="FAIL{{ loop.index }}" name="select{{ loop.index }}" value="FAIL">
+                <input type="radio" class="FAIL" id="FAIL{{ loop.index }}" name="select{{ loop.index }}" value="FAIL" required="required">
                 <label class=".radio-label" for="FAIL{{ loop.index }}">
                   <h5>FAIL</h5>
                 </label>
@@ -112,51 +112,54 @@
 <script type="text/javascript">
   $('#warning').hide()
 
-  function send(form) {
-    var email = $('#emailid');
-    var username = $('#gh_username');
-    var str1 = _.trim(_.toLower(email.val()));
-    var str2 = _.trim(_.trim(_.toLower(username.val())), '@');
-    var current_hash = CryptoJS.SHA1(str1 + str2).toString()
-    if (hashes.indexOf(current_hash) > -1) {
+  var no_of_students = parseInt('{{ students|length }}')
+  var students = {{ students|safe }};
 
-      var request = new XMLHttpRequest();
-      var data = new FormData(form);
-      var url = "https://test-mail-dpd.herokuapp.com/update_student_feedback";
-      request.onreadystatechange = function() {
+  function send(form) {
+    var data = new FormData();
+    data.append('mentor_id', '{{ mentor_id }}');
+    data.append('name', '{{ mentor }}');
+
+    var evaluation = ''
+    for (var i = 1; i <= no_of_students; i++) {
+      evaluation += students[i-1][0]
+      evaluation += " "
+      evaluation += students[i-1][1].name
+      evaluation += " "
+      evaluation += $('input[name=select'+i+']:checked').val()
+      evaluation += "\n"
+    }
+    data.append('evaluation', evaluation)
+    data.append('feedback', $('textarea[name="kwoc_feedback"]').val())
+
+
+    var url = undefined;
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function() {
       console.log(request.readyState);
       console.log(request.status);
       console.log(request.content);
       if (request.readyState === 4) {
-            if (request.status === 200) {
-                $(".modal-title").html("Submission Successful");
-                $("#reg_msg").html("You have successfully submitted your Mid-Term evaluation.");
-                $('#myModal').modal('show');
+        if (request.status === 200) {
+          $(".modal-title").html("Submission Successful");
+          $("#reg_msg").html("You have successfully submitted your Mid-Term evaluation.");
+          $('#myModal').modal('show');
 
-                } else {
-                  $(".modal-title").html("Submission Failed");
-                $("#reg_msg").html("Please contact us at kwoc@kossiitkgp.in regarding the same. We will resolve it ASAP");
-                $('#myModal').modal('show');
-                }
-            }
-        };
-      request.open("POST", url , true);
-      request.send(data);
-      $(".modal-title").html("Processing");
-      $("#reg_msg").html('<img src="/static/images/loader.gif"> </img>');
-      $('#myModal').modal('toggle');
-      form.reset()
-      return true;
-
-
-    } else {
-      $('#warning').html('The email address \'' + str1 + '\' and GitHub username \'' + str2 + '\' is not registered with KWoC. If you think this is an error, write an email to kwoc@kossiitkgp.in')
-      $('#warning').show()
-    }
+          } else {
+            $(".modal-title").html("Submission Failed");
+          $("#reg_msg").html("Please contact us at kwoc@kossiitkgp.in regarding the same. We will resolve it ASAP");
+          $('#myModal').modal('show');
+        }
+      }
+    };
+    request.open("POST", url , true);
+    request.send(data);
+    $(".modal-title").html("Processing");
+    $("#reg_msg").html('<img src="/static/images/loader.gif"> </img>');
+    $('#myModal').modal('toggle');
+    form.reset()
+    return true;
   }
 
-  function hideWarning() {
-    $('#warning').hide()
-  }
 </script>
 </html>

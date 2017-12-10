@@ -131,6 +131,7 @@ def mid_term_mentor(mentor_id):
         students = [[i[0], stats_dict[i[0].lower()]] for i in students]
         print(students)
         return render_template('mid-term-mentor.html',
+                               mentor_id=mentor_id,
                                mentor=mentor,
                                students=students)
     else:
