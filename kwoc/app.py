@@ -113,6 +113,29 @@ def mid_term():
                            list_of_mentors=list_of_mentors,
                            hashes=hashes)
 
+
+mentor_ids_json = root_dir + '/gh_scraper/stats/mentor_unique_ids.json'
+with open(mentor_ids_json, 'r') as f:
+    mentor_ids = json.load(f)
+
+mentor_student_mappings_json = root_dir + '/gh_scraper/stats/mentor_student_mappings.json'
+with open(mentor_student_mappings_json, 'r') as f:
+    mentor_student_mappings = json.load(f)
+
+
+@app.route("/mid-term/<mentor_id>")
+def mid_term_mentor(mentor_id):
+    if mentor_id in mentor_ids:
+        mentor = mentor_ids[mentor_id]
+        students = mentor_student_mappings.get(mentor, [])
+        students = [[i[0], stats_dict[i[0].lower()]] for i in students]
+        print(students)
+        return render_template('mid-term-mentor.html',
+                               mentor=mentor,
+                               students=students)
+    else:
+        return redirect("/", code=302)
+
 # # Lines below should not be needed for Python 3
 # from imp import reload
 # reload(sys)
