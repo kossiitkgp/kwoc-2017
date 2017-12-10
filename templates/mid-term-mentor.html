@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <link rel="shortcut icon" href="/static/images/kwoc_logo.png">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <title>Mid-Term Evaluation | {{ mentor }}</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="/static/js/lodash.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="/static/css/mid-term-mentor.css">
+</head>
+<body>
+  <div class="form-wrapper">
+    <div class="header">
+      <h1>Mid-Term Evaluation</h1>
+    </div>
+    <div class="instructions">
+      <p><b>Hello {{mentor.split()[0]}} !</b></p>
+      <br>
+      <ul>
+        <li>The following students have listed you as their mentor in KWoC 2017.</li>
+        <li>Your grade for them will decide if they will be allowed to continue in the program for the next couple weeks.
+        <li>Below the name of every student, is a hyperlink which will show you the recent Pull Requests created by them.</li>
+        <li><b>Last date to submit the evaluation is December 16, 2017 23:59 IST (GMT +5:30).</b></li>
+      </ul>
+    </div>
+    <div class="form-class">
+      <form id="form" onsubmit="event.preventDefault(); send(form);">
+        <div class="form-item">
+          <label class=".normal-label" for="name">Name</label>
+          <input id="name" type="name" name="name" required="required" placeholder="{{ mentor }}" autocomplete="off" readonly onfocus="hideWarning();"></input>
+        </div>
+        <div class="form-item">
+          <div style="display: flex; justify-content: space-between; padding-right: 5%">
+            <label class=".normal-label">Students</label>
+            <label class=".normal-label">Grade</label>
+          </div>
+          {% for student in students %}
+          <div class="student-container-outer">
+            <div class="student-container-inner">
+              <div>
+                <div><p>{{ loop.index }}. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>{{ student[1].name|title }}</b> &nbsp;&nbsp;&nbsp; (<a target="_blank" href="https://github.com/{{ student[0] }}">@{{ student[0] }}</a>)</p></div>
+              </div>
+              <div>
+                <div><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a style="color: black" target="_blank" href="https://github.com/search?l=&q=is%3Apr+author%3A{{ student[0] }}+created%3A%3E2017-11-21&ref=advsearch&type=Issues&utf8=%E2%9C%93">
+                  PRs Open : {{ student[1].pr_open }} Closed : {{ student[1].pr_closed }}&nbsp;&nbsp;&nbsp;
+                  Commits: {{ student[1].no_of_commits }}&nbsp;&nbsp;&nbsp;
+                  Lines: +{{ student[1].lines_added }} -{{student[1].lines_removed }}</a></p>
+                </div>
+              </div>
+            </div>
+            <div class="student-container-inner">
+              <section name="section{{ loop.index }}">
+                &nbsp;&nbsp;&nbsp;
+                <input type="radio" id="PASS{{ loop.index }}" class="PASS" name="select{{ loop.index }}" value="PASS" required="required">
+                <label class=".radio-label" for="PASS{{ loop.index }}">
+                  <h5>PASS</h5>
+                </label>
+                &nbsp;&nbsp;&nbsp;
+                <input type="radio" class="FAIL" id="FAIL{{ loop.index }}" name="select{{ loop.index }}" value="FAIL" required="required">
+                <label class=".radio-label" for="FAIL{{ loop.index }}">
+                  <h5>FAIL</h5>
+                </label>
+              </section>
+            </div>
+          </div>
+          <hr>
+          {% endfor %}
+        </div>
+        <div class="form-item">
+          <div>
+            <label class=".normal-label">Feedback for KWoC</label>
+          </div>
+          <div>
+            <textarea name="kwoc_feedback" required="required"></textarea>
+          </div>
+        </div>
+        <div>
+          <p id="warning"></p>
+        </div>
+        <div class="button-container">
+          <div class="button-panel">
+            <input class="button" type="submit" value="Submit" title="Submit"></input>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title" id="reg_title"></h4>
+        </div>
+        <div class="modal-body">
+          <p style="font-size:15px;" id="reg_msg"></p>
+        </div>
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-default" data-dismiss="modal">You are successfully registered as a student.</button> -->
+          <!-- <button type="button" class="btn btn-default" onclick="window.close();">Close Tab</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+<script type="text/javascript" src="/static/js/sha1.js"></script>
+<script type="text/javascript">
+  $('#warning').hide()
+
+  var no_of_students = parseInt('{{ students|length }}')
+  var students = {{ students|safe }};
+
+  function send(form) {
+    var data = new FormData();
+    data.append('mentor_id', '{{ mentor_id }}');
+    data.append('name', '{{ mentor }}');
+
+    var evaluation = ''
+    for (var i = 1; i <= no_of_students; i++) {
+      evaluation += students[i-1][0]
+      evaluation += " "
+      evaluation += students[i-1][1].name
+      evaluation += " "
+      evaluation += $('input[name=select'+i+']:checked').val()
+      evaluation += "\n"
+    }
+    data.append('evaluation', evaluation)
+    data.append('feedback', $('textarea[name="kwoc_feedback"]').val())
+
+
+    var url = undefined;
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function() {
+      console.log(request.readyState);
+      console.log(request.status);
+      console.log(request.content);
+      if (request.readyState === 4) {
+        if (request.status === 200) {
+          $(".modal-title").html("Submission Successful");
+          $("#reg_msg").html("You have successfully submitted your Mid-Term evaluation.");
+          $('#myModal').modal('show');
+
+          } else {
+            $(".modal-title").html("Submission Failed");
+          $("#reg_msg").html("Please contact us at kwoc@kossiitkgp.in regarding the same. We will resolve it ASAP");
+          $('#myModal').modal('show');
+        }
+      }
+    };
+    request.open("POST", url , true);
+    request.send(data);
+    $(".modal-title").html("Processing");
+    $("#reg_msg").html('<img src="/static/images/loader.gif"> </img>');
+    $('#myModal').modal('toggle');
+    form.reset()
+    return true;
+  }
+
+</script>
+</html>

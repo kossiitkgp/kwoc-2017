@@ -106,3 +106,5 @@ gh_scraper/stats/*
 !gh_scraper/stats/languages.json
 !gh_scraper/stats/projects.csv
 !gh_scraper/stats/repos.txt
+
+secrets/*

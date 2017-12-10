@@ -102,7 +102,7 @@ mentors_json = root_dir + '/gh_scraper/list_of_mentors.json'
 with open(mentors_json, 'r') as f:
     list_of_mentors = json.load(f)
 
-hashes_json = root_dir + '/gh_scraper/stats/student_email_username_hashes.json'
+hashes_json = root_dir + '/secrets/student_email_username_hashes.json'
 with open(hashes_json, 'r') as f:
     hashes = json.load(f)
 
@@ -112,6 +112,29 @@ def mid_term():
     return render_template('mid-term-student.html',
                            list_of_mentors=list_of_mentors,
                            hashes=hashes)
+
+
+mentor_ids_json = root_dir + '/secrets/mentor_unique_ids.json'
+with open(mentor_ids_json, 'r') as f:
+    mentor_ids = json.load(f)
+
+mentor_student_mappings_json = root_dir + '/secrets/mentor_student_mappings.json'
+with open(mentor_student_mappings_json, 'r') as f:
+    mentor_student_mappings = json.load(f)
+
+
+@app.route("/mid-term/<mentor_id>")
+def mid_term_mentor(mentor_id):
+    if mentor_id in mentor_ids:
+        mentor = mentor_ids[mentor_id]
+        students = mentor_student_mappings.get(mentor, [])
+        students = [[i[0], stats_dict[i[0].lower()]] for i in students]
+        return render_template('mid-term-mentor.html',
+                               mentor_id=mentor_id,
+                               mentor=mentor,
+                               students=students)
+    else:
+        return redirect("/", code=302)
 
 # # Lines below should not be needed for Python 3
 # from imp import reload

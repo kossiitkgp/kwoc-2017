@@ -4,10 +4,13 @@ import os
 import json
 import requests
 
+dir_path = os.path.dirname(os.path.realpath(__file__))
+root_dir = '/'.join(dir_path.split('/')[:-2])
+
 projects = open('repos.txt', 'r').read().split('\n')
 projects.pop()
 
-token = open('token.txt', 'r').read().split('\n')[0]
+token = open(root_dir + '/secrets/token.txt', 'r').read().split('\n')[0]
 
 headers = {
     'Authorization': 'token ' + token
@@ -71,7 +74,7 @@ value : dict
 
 # Generate empty statistics
 usernames = set()
-with open('students.csv', "r") as csv_file:  # This csv is generated from the sanitized sheet
+with open(root_dir + '/secrets/students.csv', "r") as csv_file:  # This csv is generated from the sanitized sheet
     raw_reader = csv.reader(csv_file)
     header = next(raw_reader, None)
     for row in raw_reader:
