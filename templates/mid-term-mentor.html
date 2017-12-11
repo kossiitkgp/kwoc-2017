@@ -133,7 +133,7 @@
     data.append('feedback', $('textarea[name="kwoc_feedback"]').val())
 
 
-    var url = undefined;
+    var url = "https://test-mail-dpd.herokuapp.com/update_mentor_feedback";
     var request = new XMLHttpRequest();
     request.onreadystatechange = function() {
       console.log(request.readyState);
