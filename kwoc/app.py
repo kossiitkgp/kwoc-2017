@@ -129,11 +129,16 @@ def mid_term_mentor(mentor_id):
     if mentor_id in mentor_ids:
         mentor = mentor_ids[mentor_id]
         students = mentor_student_mappings.get(mentor, [])
-        students = [[i[0], stats_dict[i[0].lower()]] for i in students]
+        new_students = []
+        for i in students:
+            try:
+                new_students.append([i[0], stats_dict[i[0].lower()]])
+            except KeyError:
+                pass
         return render_template('mid-term-mentor.html',
                                mentor_id=mentor_id,
                                mentor=mentor,
-                               students=students)
+                               students=new_students)
     else:
         return redirect("/", code=302)
 
