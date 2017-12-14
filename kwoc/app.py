@@ -132,7 +132,7 @@ def mid_term_mentor(mentor_id):
         new_students = []
         for i in students:
             try:
-                new_students.append([i[0], stats_dict[i[0].lower()]])
+                new_students.append([i[0], stats_dict[i[0].lower().strip()]])
             except KeyError:
                 pass
         return render_template('mid-term-mentor.html',
