@@ -11,3 +11,7 @@
                       commences.
 
 + **5-mideval.txt** : Sent on December 12th, when student evaluation begins.
+
++ **6-mideval-pass.txt** : Sent on December 18th, to those students who received a PASS grade from mentors.
+
++ **6-mideval-fail.txt** : Sent on December 18th, to those students who received a FAIL grade from mentors.
