@@ -7,5 +7,6 @@
 
 + **3-commence.txt** : Sent on December 1st, when the program officially commences.
 
-+ **4-mideval.txt** : Sent on December 14th, after student evaluation closes and
-                      mentor evaluation begins
++ **4-mideval.txt** : Sent on December 14th, after student evaluation closes and mentor evaluation begins
+
++ **5-ossinvitation.txt** : Sent on December 28th, to invite them for Open Source Summit.
