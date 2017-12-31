@@ -137,7 +137,7 @@ def fetch_all_pull_requests(query, since=None, headers=None):
                 if 'rel="next"' in url:
                     next_url = url.split(';')[0][1:-1]
 
-            return r.json() + fetch_all_pull_requests(next_url, since=since, headers=None)
+            return r.json() + fetch_all_pull_requests(next_url, since=since, headers=headers)
 
 
 for project in projects:
