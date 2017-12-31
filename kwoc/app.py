@@ -102,9 +102,9 @@ mentors_json = root_dir + '/gh_scraper/list_of_mentors.json'
 with open(mentors_json, 'r') as f:
     list_of_mentors = json.load(f)
 
-hashes_json = root_dir + '/secrets/student_email_username_hashes.json'
-with open(hashes_json, 'r') as f:
-    hashes = json.load(f)
+midterm_hashes_json = root_dir + '/secrets/student_email_username_hashes_before_midterm.json'
+with open(midterm_hashes_json, 'r') as f:
+    midterm_hashes = json.load(f)
 
 
 @app.route("/mid-term")
@@ -112,7 +112,7 @@ def mid_term():
     return "Mid-term evaluations have now been closed. You can write to us at kwoc@kossiitkgp.in"
     #     return render_template('mid-term-student.html',
     #                            list_of_mentors=list_of_mentors,
-    #                            hashes=hashes)
+    #                            hashes=midterm_hashes)
 
 
 mentor_ids_json = root_dir + '/secrets/mentor_unique_ids.json'
@@ -141,6 +141,17 @@ def mid_term_mentor(mentor_id):
                                students=new_students)
     else:
         return redirect("/", code=302)
+
+
+endterm_hashes_json = root_dir + '/secrets/student_email_username_hashes_after_midterm.json'
+with open(endterm_hashes_json, 'r') as f:
+    endterm_hashes = json.load(f)
+
+
+@app.route("/end-term")
+def end_term():
+    return render_template('end-term-student.html',
+                           hashes=endterm_hashes)
 
 # # Lines below should not be needed for Python 3
 # from imp import reload
