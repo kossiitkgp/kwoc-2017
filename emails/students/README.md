@@ -15,3 +15,5 @@
 + **6-mideval-pass.txt** : Sent on December 18th, to those students who received a PASS grade from mentors.
 
 + **6-mideval-fail.txt** : Sent on December 18th, to those students who received a FAIL grade from mentors.
+
++ **7-endeval.txt** : Sent on December 31st, to those students who passed mid-term evaluation.
