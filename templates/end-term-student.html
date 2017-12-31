@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <link rel="shortcut icon" href="/static/images/kwoc_logo.png">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <title>End-Term Evaluation | Students</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="/static/js/lodash.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="/static/css/mid-term-student.css">
+</head>
+<body>
+  <div class="form-wrapper">
+    <div class="header">
+      <h1>End-Term Evaluation | Students</h1>
+    </div>
+    <div class="instructions">
+      <p><b>Please read the instructions before you proceed :</b></p>
+      <br>
+      <ul>
+        <li><b>If you do not submit this evaluation, your participation will not successful.</b></li>
+        <li>This form is supposed to be filled by KWoC students only, who passed the mid-term evaluation. See <a href="/stats">Stats board</a> to check if you are a part of the program.</li>
+        <li>Regarding "URL for your KWoC report": It has to be a link to either a blog post or a document which will be your final KWoC 2017 report. You can choose any blogging platform you want. Few examples are Medium.com, WordPress, GitHub static pages and Blogspot. The report can be as descriptive as you want, but must contain at least the following points : <ul>
+          <li>List of projects you worked on</li>
+          <li>List of Pull Requests you created or got involved in</li>
+          <li>Summary of your work</li></ul></li>
+        <li>Check out some good examples of end-term reports :
+          <a href="http://www.anirudhmurali.com/kwoc-report" target="_blank">Example 1</a>
+          <a href="https://github.com/kwoc/2016/blob/master/static/files/adityasingh.pdf" target="_blank">Example 2</a>
+          <a href="https://github.com/kwoc/2016/blob/master/static/files/zishan_sami.pdf" target="_blank">Example 3</a>
+          <a href="https://github.com/kwoc/2016/blob/master/static/files/arindam.pdf" target="_blank">Example 4</a>
+        </li>
+        <li><b>Last date to submit the evaluation is January 7, 2017 23:59 IST (GMT +5:30).</b></li>
+      </ul>
+    </div>
+    <div class="form-class">
+      <form id="form" onsubmit="event.preventDefault(); send(form);">
+        <div class="form-item">
+          <label for="email">Email Address</label>
+          <input id="emailid" type="email" name="email" required="required" placeholder="" autocomplete="off"  onfocus="hideWarning();"></input>
+        </div>
+        <div class="form-item">
+          <label for="gitlink">Github Username</label>
+          <input id="gh_username" type="text" name="gitlink" required="required" placeholder="" autocomplete="off"  onfocus="hideWarning();"></input>
+        </div>
+        <div class="form-item">
+          <label for="reporturl">URL for your KWoC report</label>
+          <input type="url" name="reporturl" required placeholder="" autocomplete="off" />
+        </div>
+        <div class="form-item">
+          <label for="question1">On average, how many hours a week have you spent working on your project(s) in KWoC?</label>
+          <input type="text" name="question1" required placeholder="" autocomplete="off" />
+        </div>
+        <div class="form-item">
+          <label for="question2">Has KWoC helped improve your programming skills?</label>
+          <input type="text" name="question2" required placeholder="" autocomplete="off" />
+        </div>
+        <div class="form-item">
+          <label for="question3">Would you consider being a mentor for KWoC next year?</label>
+          <input type="text" name="question3" required placeholder="" autocomplete="off" />
+        </div>
+        <div class="form-item">
+          <label for="question4">What advice would you give to students participating in KWoC in the future?</label>
+          <input type="text" name="question4" required placeholder="" autocomplete="off" />
+        </div>
+        <div class="form-item">
+          <label for="question5">Anything else you'd like to tell Kharagpur Open Source Society or suggestions on how to improve the program?</label>
+          <input type="text" name="question5" required placeholder="" autocomplete="off" />
+        </div>
+        <div>
+          <p id="warning"></p>
+        </div>
+        <div class="button-container">
+          <div class="button-panel">
+            <input class="button" type="submit" value="Submit" title="Submit"></input>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title" id="reg_title"></h4>
+        </div>
+        <div class="modal-body">
+          <p style="font-size:15px;" id="reg_msg"></p>
+        </div>
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-default" data-dismiss="modal">You are successfully registered as a student.</button> -->
+          <!-- <button type="button" class="btn btn-default" onclick="window.close();">Close Tab</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+<script type="text/javascript" src="/static/js/sha1.js"></script>
+<script type="text/javascript">
+  var hashes = JSON.parse('{{ hashes|tojson }}')
+  $('#warning').hide()
+
+  function send(form) {
+    var email = $('#emailid');
+    var username = $('#gh_username');
+    var str1 = _.trim(_.toLower(email.val()));
+    var str2 = _.trim(_.trim(_.toLower(username.val())), '@');
+    var current_hash = CryptoJS.SHA1(str1 + str2).toString()
+    if (hashes.indexOf(current_hash) > -1) {
+
+      var request = new XMLHttpRequest();
+      var data = new FormData(form);
+      var url = "https://script.google.com/macros/s/AKfycbxb3vo_w7zXIrSuD3mAXyqo8pa6VByWMl2O0aozTQQhbanTIVo/exec";
+      request.onreadystatechange = function() {
+      console.log(request.readyState);
+      console.log(request.status);
+      console.log(request.content);
+      if (request.readyState === 4) {
+            if (request.status === 200) {
+                $(".modal-title").html("Submission Successful");
+                $("#reg_msg").html("You have successfully submitted your End-Term evaluation. Happy new Year!");
+                $('#myModal').modal('show');
+
+                } else {
+                  $(".modal-title").html("Submission Failed");
+                $("#reg_msg").html("Please contact us at kwoc@kossiitkgp.in regarding the same. We will resolve it ASAP");
+                $('#myModal').modal('show');
+                }
+            }
+        };
+      request.open("POST", url , true);
+      request.send(data);
+      $(".modal-title").html("Processing");
+      $("#reg_msg").html('<img src="/static/images/loader.gif"> </img>');
+      $('#myModal').modal('toggle');
+      form.reset()
+      return true;
+
+
+    } else {
+      $('#warning').html('The email address \'' + str1 + '\' and GitHub username \'' + str2 + '\' is not registered with KWoC. If your name is there on the stats board, write an email to kwoc@kossiitkgp.in. Otherwise this means that you did not pass mid-term evaluation.')
+      $('#warning').show()
+    }
+  }
+
+  function hideWarning() {
+    $('#warning').hide()
+  }
+</script>
+</html>
