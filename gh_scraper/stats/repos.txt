@@ -99,7 +99,6 @@ tibrewalpratik17/2048_
 RITESHMOHAPATRA/TIC-TAC-TOE
 cmeher196/TicTacToe
 rahul-da/Statistical_Modelling_Techniques
-dileepsankhla/QuickNotes
 khanchi97/Smvdu-Algos
 git/git
 networkx/networkx
