@@ -7,7 +7,7 @@ KWoC 2017 is almost over!
 
 At this point, you should be done with all your contributions to the projects. Now is a good time to clean up your code, update documentation and follow your mentor’s instructions about getting your code ready for final review.
 
-Be sure to complete your Final Evaluation before Sunday, January 1st at 23:59 IST. You can access it from this link :
+Be sure to complete your Final Evaluation before Sunday, January 7st at 23:59 IST. You can access it from this link :
 
 https://kwoc.kossiitkgp.in/end-term
 
