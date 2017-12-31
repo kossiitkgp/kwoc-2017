@@ -109,4 +109,5 @@ coala/corobo
 coala/gci-leaders
 coala/community
 coala/coala-bears
+coala/coalaCSS
 vivonk/webdb
