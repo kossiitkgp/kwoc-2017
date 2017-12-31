@@ -3,7 +3,7 @@
 <head>
   <link rel="shortcut icon" href="/static/images/kwoc_logo.png">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <title>Mid-Term Evaluation | Students</title>
+  <title>End-Term Evaluation | Students</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="/static/js/lodash.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -12,17 +12,25 @@
 <body>
   <div class="form-wrapper">
     <div class="header">
-      <h1>Mid-Term Evaluation | Students</h1>
+      <h1>End-Term Evaluation | Students</h1>
     </div>
     <div class="instructions">
       <p><b>Please read the instructions before you proceed :</b></p>
       <br>
       <ul>
-        <li><b>If you do not submit this evaluation, you shall not be allowed to continue in the program.</b></li>
-        <li>This form is supposed to be filled by KWoC students only.</li>
-        <li>You have to choose the mentor you have been working with. The mentor you choose, shall be writing feedback for you. If you are working with multiple mentors, use your discretion and choose one.</li>
-        <li>You need to sign up on Kshitij website as well. If you have not already done visit : <a target="_blank" href="http://ktj.in/sign-up">ktj.in/sign-up</a> (If the name of your college does not appear on Kshitij website, choose the first option and write to admin@ktj.in about missing college name)</li>
-        <li><b>Last date to submit the evaluation is December 13, 2017 23:59 IST (GMT +5:30).</b></li>
+        <li><b>If you do not submit this evaluation, your participation will not successful.</b></li>
+        <li>This form is supposed to be filled by KWoC students only, who passed the mid-term evaluation. See <a href="/stats">Stats board</a> to check if you are a part of the program.</li>
+        <li>Regarding "URL for your KWoC report": It has to be a link to either a blog post or a document which will be your final KWoC 2017 report. You can choose any blogging platform you want. Few examples are Medium.com, WordPress, GitHub static pages and Blogspot. The report can be as descriptive as you want, but must contain at least the following points : <ul>
+          <li>List of projects you worked on</li>
+          <li>List of Pull Requests you created or got involved in</li>
+          <li>Summary of your work</li></ul></li>
+        <li>Check out some good examples of end-term reports :
+          <a href="http://www.anirudhmurali.com/kwoc-report" target="_blank">Example 1</a>
+          <a href="https://github.com/kwoc/2016/blob/master/static/files/adityasingh.pdf" target="_blank">Example 2</a>
+          <a href="https://github.com/kwoc/2016/blob/master/static/files/zishan_sami.pdf" target="_blank">Example 3</a>
+          <a href="https://github.com/kwoc/2016/blob/master/static/files/arindam.pdf" target="_blank">Example 4</a>
+        </li>
+        <li><b>Last date to submit the evaluation is January 7, 2017 23:59 IST (GMT +5:30).</b></li>
       </ul>
     </div>
     <div class="form-class">
@@ -32,28 +40,32 @@
           <input id="emailid" type="email" name="email" required="required" placeholder="" autocomplete="off"  onfocus="hideWarning();"></input>
         </div>
         <div class="form-item">
-          <label for="github">Github Username</label>
+          <label for="gitlink">Github Username</label>
           <input id="gh_username" type="text" name="gitlink" required="required" placeholder="" autocomplete="off"  onfocus="hideWarning();"></input>
         </div>
         <div class="form-item">
-          <label for="ktjemail">Email id used for Kshitij registration</label>
-          <input type="email" name="ktjmail" required="required" placeholder="" autocomplete="off"></input>
+          <label for="reporturl">URL for your KWoC report</label>
+          <input type="url" name="reporturl" required placeholder="" autocomplete="off" />
         </div>
         <div class="form-item">
-          <div>
-            <label>Feedback for mentor (Will not be shared with the mentor)</label>
-          </div>
-          <div>
-            <textarea name="mentor_feedback" required="required" placeholder="If you are working with multiple mentors, write feedback for every mentor separately indicating their names."></textarea>
-          </div>
+          <label for="question1">On average, how many hours a week have you spent working on your project(s) in KWoC?</label>
+          <input type="text" name="question1" required placeholder="" autocomplete="off" />
         </div>
         <div class="form-item">
-          <div>
-            <label>Feedback for KWoC</label>
-          </div>
-          <div>
-            <textarea name="kwoc_feedback" required="required"></textarea>
-          </div>
+          <label for="question2">Has KWoC helped improve your programming skills?</label>
+          <input type="text" name="question2" required placeholder="" autocomplete="off" />
+        </div>
+        <div class="form-item">
+          <label for="question3">Would you consider being a mentor for KWoC next year?</label>
+          <input type="text" name="question3" required placeholder="" autocomplete="off" />
+        </div>
+        <div class="form-item">
+          <label for="question4">What advice would you give to students participating in KWoC in the future?</label>
+          <input type="text" name="question4" required placeholder="" autocomplete="off" />
+        </div>
+        <div class="form-item">
+          <label for="question5">Anything else you'd like to tell Kharagpur Open Source Society or suggestions on how to improve the program?</label>
+          <input type="text" name="question5" required placeholder="" autocomplete="off" />
         </div>
         <div>
           <p id="warning"></p>
@@ -103,7 +115,7 @@
 
       var request = new XMLHttpRequest();
       var data = new FormData(form);
-      var url = "https://test-mail-dpd.herokuapp.com/update_student_feedback";
+      var url = "https://script.google.com/macros/s/AKfycbxb3vo_w7zXIrSuD3mAXyqo8pa6VByWMl2O0aozTQQhbanTIVo/exec";
       request.onreadystatechange = function() {
       console.log(request.readyState);
       console.log(request.status);
@@ -111,7 +123,7 @@
       if (request.readyState === 4) {
             if (request.status === 200) {
                 $(".modal-title").html("Submission Successful");
-                $("#reg_msg").html("You have successfully submitted your Mid-Term evaluation.");
+                $("#reg_msg").html("You have successfully submitted your End-Term evaluation. Happy new Year!");
                 $('#myModal').modal('show');
 
                 } else {
@@ -131,7 +143,7 @@
 
 
     } else {
-      $('#warning').html('The email address \'' + str1 + '\' and GitHub username \'' + str2 + '\' is not registered with KWoC. If you think this is an error, write an email to kwoc@kossiitkgp.in')
+      $('#warning').html('The email address \'' + str1 + '\' and GitHub username \'' + str2 + '\' is not registered with KWoC. If your name is there on the stats board, write an email to kwoc@kossiitkgp.in. Otherwise this means that you did not pass mid-term evaluation.')
       $('#warning').show()
     }
   }

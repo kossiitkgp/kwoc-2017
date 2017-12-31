@@ -110,9 +110,9 @@ with open(midterm_hashes_json, 'r') as f:
 @app.route("/mid-term")
 def mid_term():
     return "Mid-term evaluations have now been closed. You can write to us at kwoc@kossiitkgp.in"
-    #     return render_template('mid-term-student.html',
-    #                            list_of_mentors=list_of_mentors,
-    #                            hashes=midterm_hashes)
+    # return render_template('mid-term-student.html',
+    #                        list_of_mentors=list_of_mentors,
+    #                        hashes=midterm_hashes)
 
 
 mentor_ids_json = root_dir + '/secrets/mentor_unique_ids.json'
