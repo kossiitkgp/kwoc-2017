@@ -153,6 +153,11 @@ def end_term():
     return render_template('end-term-student.html',
                            hashes=endterm_hashes)
 
+
+@app.route("/summit")
+def summit():
+    return render_template('summit.html')
+
 # # Lines below should not be needed for Python 3
 # from imp import reload
 # reload(sys)
