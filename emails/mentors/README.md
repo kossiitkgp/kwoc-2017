@@ -10,3 +10,7 @@
 + **4-mideval.txt** : Sent on December 14th, after student evaluation closes and mentor evaluation begins
 
 + **5-ossinvitation.txt** : Sent on December 28th, to invite them for Open Source Summit.
+
++ **6-talkaccept.txt** : Sent on January 5th, to the selected speakers.
+
++ **6-talkdecline.txt** : Sent on January 5th, to the speakers who had submitted a talk but were not selected.
