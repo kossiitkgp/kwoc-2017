@@ -8,7 +8,7 @@ Version: 1.0
 ----------------------------------
 
 Table of contents
-        
+
     01. Google font
     02. Reset
     03. Typography
@@ -82,7 +82,7 @@ ul, ol, dl {list-style-position: outside;}
 ::-moz-selection { color:#000; background:#dcdcdc; }
 ::-webkit-input-placeholder { color: #999; text-overflow: ellipsis; }
 :-moz-placeholder { color: #999 !important; text-overflow: ellipsis; opacity:1; }
-::-moz-placeholder { color: #999 !important; text-overflow: ellipsis; opacity:1; } 
+::-moz-placeholder { color: #999 !important; text-overflow: ellipsis; opacity:1; }
 :-ms-input-placeholder { color: #999 !important; text-overflow: ellipsis; opacity:1; }
 ::-webkit-scrollbar { width:12px }
 ::-webkit-scrollbar-track { -webkit-box-shadow:inset 0 0 6px rgba(0,0,0,.3); -moz-box-shadow:inset 0 0 6px rgba(0,0,0,.3); box-shadow:inset 0 0 6px rgba(0,0,0,.3); }
@@ -225,7 +225,7 @@ i { color: #9a9a9a; margin:0}
 
 /* social icon */
 .social-icon .fa { text-align: center; display: table-cell; vertical-align: middle; width: 30px; height: 30px !important; line-height: 1; font-size: 14px; -webkit-transition: all 0.4s ease; transition: all 0.4s ease; color: #fff; background: none; }
-.social-icon a:hover .fa { opacity:.6} 
+.social-icon a:hover .fa { opacity:.6}
 .social-icon .fa-pinterest { background-color: #cb2027; }
 .social-icon .fa-rss  { background-color: #f26522; }
 .social-icon .fa-facebook  { background-color: #3b5998; }
@@ -753,7 +753,7 @@ section { padding: 130px 0; }
 .background-slider-text { position: absolute; width: 100%}
 #owl-demo-background .owl-item  { cursor: default !important}
 
-/* cursor */ 
+/* cursor */
 .cursor-default {cursor: default !important}
 
 /* ===================================
@@ -826,7 +826,7 @@ nav.sidebar-nav .container { vertical-align: top; padding:60px 40px }
 .header-white.shrink {border-bottom: 1px solid rgba(0,0,0,.1) !important}
 
 /* affix */
-.widget.affix { top: 130px; width: 14%;} 
+.widget.affix { top: 130px; width: 14%;}
 .element-title {display: block; padding-bottom: 20px;}
 .element-title:after {clear: both}
 
@@ -928,7 +928,7 @@ ul.portfolio-filter-tab-style-4 { border-bottom: none;}
 ul.portfolio-filter-tab-style-5 { border-bottom: none;}
 .portfolio-filter-tab-style-5 li { margin: 0; display: table; float: inherit; position: relative; top:1px;}
 .portfolio-filter-tab-style-5 li:last-child {margin:0 !important }
-.portfolio-filter-tab-style-5 li:first-child {margin:0 !important } 
+.portfolio-filter-tab-style-5 li:first-child {margin:0 !important }
 .portfolio-filter-tab-style-5 li a {border: none !important; background: transparent !important; padding: 10px 21px 10px 0; border-radius:0; color: #9b9b9b}
 .portfolio-filter-tab-style-5 li a:hover {color: #000}
 .portfolio-filter-tab-style-5 li.active a:before {border-bottom: 1px solid #ef106e; content: ""; width: 100%; position: absolute; z-index: -1; left: 0; top: 18px; color: #000 }
@@ -1100,7 +1100,7 @@ ul.portfolio-filter-tab-style-6 { margin: 220px 50px 0 0;}
 .tab-style5 li a { margin: 0 32px; padding: 5px 0; border: none;}
 .tab-style5 .nav li a:focus, .tab-style5 .nav li a:hover { text-decoration: none; background-color: transparent;}
 .tab-style5 .nav-tabs li.active a { border-bottom: 1px solid #000; cursor: default; }
-.tab-style5 ul { height: 50px;}     
+.tab-style5 ul { height: 50px;}
 
 /* tab - style 6 */
 .tab-style6 .nav-tabs li{border-color: transparent transparent; border-image: none; border-style: solid solid none; border-width: 1px 1px medium; margin-bottom: -1px !important; margin: 0;}
@@ -1134,7 +1134,7 @@ ul.portfolio-filter-tab-style-6 { margin: 220px 50px 0 0;}
 .tab-style9 .nav-tabs li a{border: medium none; font-size: 42px; margin: 0; outline: medium none; padding: 0 45px;}
 .tab-style9 .nav-tabs li.active a i{color: #000;}
 .tab-style9 .nav-tabs > li.active > a, .tab-style9 .nav-tabs{border: none;}
-.tab-style9 .nav li a:focus, .tab-style9 .nav li a:hover{text-decoration: none; background-color: transparent;} 
+.tab-style9 .nav li a:focus, .tab-style9 .nav li a:hover{text-decoration: none; background-color: transparent;}
 
 
 /* ===================================
@@ -1223,7 +1223,7 @@ ul.list-line li span {min-width:130px; display:inline-block}
     Blog
 ====================================== */
 
-/* blog post - style 1 */ 
+/* blog post - style 1 */
 .blog-post-style1 article {  margin-bottom: 0; position: relative; overflow: hidden; }
 .blog-post-style1 .post-thumbnail { position: absolute; top: 0px; bottom: 0px; opacity: 0; z-index: -1;  }
 .blog-post-style1 article:hover .post-thumbnail {opacity: .8; }
@@ -1238,7 +1238,7 @@ ul.list-line li span {min-width:130px; display:inline-block}
 .blog-post-style1 article:hover .blog-post-number { color: #000}
 .blog-post-style1 article:hover .post-details { -ms-transform: translate(50px,0); -webkit-transform: translate(50px,0); transform: translate(50px,0);}
 
-/* blog post - style 2 */ 
+/* blog post - style 2 */
 .blog-post-style2 article:hover img {transition: all .3s ease; -webkit-transition: all .3s ease; -moz-transition: all .3s ease;  -ms-transform: scale(1.1,1.1); -webkit-transform: scale(1.1,1.1);  transform: scale(1.1,1.1);}
 .blog-post-style2 .post-details { position: absolute; width: 100%; padding: 0 15px; top: 50%; text-align: center; -webkit-transform: translateY(-50%); -ms-transform: translateY(-50%); transform: translateY(-50%); left: 0; padding: 50px 40px  }
 .blog-post-style2 .post-details-arrow { position: absolute; right: 0; top: 50%; }
@@ -1283,7 +1283,7 @@ ul.list-line li span {min-width:130px; display:inline-block}
 
 
 /* ===================================
-    Form controls 
+    Form controls
 ====================================== */
 
 .big-input, .big-textarea, .big-select select { padding: 18px 25px; border:2px solid rgba(0,0,0,.1) !important; font-size: 14px !important}
@@ -1562,7 +1562,7 @@ footer img {max-width: 156px;}
 .employment-year:after {border-bottom: 1px solid #000; content: ""; position: absolute; width: 210%; top: 13px}
 .ajax-popup-title-text {background: #ef106e; padding: 15px 25px;}
 .personal-slider-content {position: absolute; left: 0; right: 0;}
-.personal-slider-content span {z-index: 999; display: table;} 
+.personal-slider-content span {z-index: 999; display: table;}
 .personal-slider-content .slider-typography {z-index: inherit !important}
 
 /* ===================================
@@ -1682,11 +1682,11 @@ footer img {max-width: 156px;}
 
 /* tags */
 .tags a{padding: 2px 10px; display: inline-block; color: #373737; font-family: "Montserrat",sans-serif; margin: 0 8px 10px 0; background-color: #f6f6f6; text-transform: uppercase; font-size: 11px; line-height: 20px;}
-.tags a:hover{background-color: #000; color: #fff !important;} 
+.tags a:hover{background-color: #000; color: #fff !important;}
 
 /* breadcrumb */
 .breadcrumb {padding: 10px 0 7px; border-bottom: 1px solid #e5e5e5; background-color: inherit}
-.breadcrumb ul li {text-transform: uppercase; float: left;font-size: 11px;} 
+.breadcrumb ul li {text-transform: uppercase; float: left;font-size: 11px;}
 .breadcrumb ul li::after { color: #898989; content: "|"; font-size: 11px;  padding: 0 12px;  position: relative;  top: -1px;}
 .breadcrumb ul li:last-child:after { display: none;}
 
@@ -1719,3 +1719,18 @@ footer img {max-width: 156px;}
 .buy-theme:hover span, .quick-question:hover span {opacity: 1}
 .buy-theme a, .quick-question a { color: #fff; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; padding:8px 15px; display: block }
 .quick-question {position:fixed; top:175px; border-radius: 4px; right: -135px; background: url("../images/quick-question.png") no-repeat 14px center rgba(50,50,50,.8); z-index: 10}
+
+
+
+/* Custom */
+
+td:nth-child(odd) {
+    background-color: #fcfcfc;
+}
+td:nth-child(even) {
+    background-color: #fdfdfd;
+}
+
+.modal-body a {
+    color: blue;
+}
