@@ -193,7 +193,7 @@ def summit():
 
 @app.route("/summit/register")
 def summit_register():
-    return "Coming soon!"
+    return render_template('summit_register_form.html')
 
 
 @app.route("/summit/<talk_id>")
