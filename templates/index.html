@@ -34,9 +34,15 @@
                                             <img style="height: 30px" src="/static/images/ktj.png">
                                         </a>
                                     </span>
-                                    <a class="btn highlight-button-home-white-border margin-four no-margin-bottom wow fadeInUp" href="{{ url_for('stats') }}" target="_blank">View Statistics</a>
-                                    <a class="btn highlight-button-home-white-border margin-four no-margin-bottom wow fadeInUp" href="{{ url_for('projects') }}" target="_blank">View Projects</a>
-
+                                    <div style="display: flex; flex-direction: column;">
+                                      <div>
+                                        <a class="btn highlight-button-home-white-border margin-four no-margin-bottom wow fadeInUp" href="/summit" target="_blank">Open Source Summit</a>
+                                      </div>
+                                      <div style="display: flex; justify-content: center;">
+                                        <a class="btn highlight-button-home-white-border margin-four no-margin-bottom wow fadeInUp" href="{{ url_for('stats') }}" target="_blank">View Statistics</a>
+                                        <a class="btn highlight-button-home-white-border margin-four no-margin-bottom wow fadeInUp" href="{{ url_for('projects') }}" target="_blank">View Projects</a>
+                                      </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -496,6 +502,19 @@
                 <span class="cd-date"><span class="cd-date-year">7th</span><span class="cd-date-month">Jan 2018</span></span>
               </div> <!-- cd-timeline-content -->
             </div> <!-- cd-timeline-block -->
+
+            <div class="cd-timeline-block">
+              <div class="cd-timeline-img cd-picture">
+                <span aria-hidden="true" class="fa fa-paper-plane"></span>
+              </div> <!-- cd-timeline-img -->
+
+              <div class="cd-timeline-content">
+                <h2>Open Source Summit</h2>
+                <p>Mentors and Students are invited to present Talks and multiple tracks of Workshops are conducted.<br> <a href="/summit">Read more</a></p>
+                <span class="cd-date"><span class="cd-date-year">20th-21st</span><span class="cd-date-month">Jan 2018</span></span>
+              </div> <!-- cd-timeline-content -->
+            </div> <!-- cd-timeline-block -->
+
 
             <div class="cd-timeline-start cd-final">
               <div class="cd-timeline-start-caption">KWoC Ends</div>

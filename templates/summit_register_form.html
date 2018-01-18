@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+  <link rel="shortcut icon" href="/static/images/kwoc_logo.png">
+  <title>Register for Open Source Summit (KWoC 2017)</title>
+  <style type="text/css">
+    body, html {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: #E5F3F5;
+    }
+
+    .header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 1em;
+      padding-bottom: 0.1em;
+    }
+
+    .header p {
+      font-family: verdana;
+    }
+
+    .spinner {
+      width: 60px;
+      height: 60px;
+
+      position: relative;
+      margin: 100px auto;
+    }
+
+    .double-bounce1, .double-bounce2 {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background-color: #239ace;
+      opacity: 0.2;
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+      animation: sk-bounce 2.0s infinite ease-in-out;
+    }
+
+    .double-bounce2 {
+      -webkit-animation-delay: -1.0s;
+      animation-delay: -1.0s;
+    }
+
+    @-webkit-keyframes sk-bounce {
+      0%, 100% { -webkit-transform: scale(0.0) }
+      50% { -webkit-transform: scale(1.0) }
+    }
+
+    @keyframes sk-bounce {
+      0%, 100% {
+        transform: scale(0.0);
+        -webkit-transform: scale(0.0);
+      } 50% {
+        transform: scale(1.0);
+        -webkit-transform: scale(1.0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <p style="font-size: 2em">Register for Open Source Summit (KWoC 2017)</p>
+    <p>Check Schedule: <a href="/summit">https://kwoc.kossiitkgp.in/summit</a></p>
+    <p>Note: You also have to register on Kshitij (<a target="_blank" href="http://ktj.in">http://ktj.in</a>) to complete the registration</p>
+  </div>
+
+<div class="spinner">
+  <div class="double-bounce1"></div>
+  <div class="double-bounce2"></div>
+</div>
+
+  <iframe allowtransparency="true" id="tellform" src="https://kossiitkgp.tellform.com/#!/forms/5a5ae7536960d9c00145db04" style="width:100%; height:80vh; border: none; background: #E5F3F5; color: #E5F3F5;"></iframe>
+
+
+</body>
+<script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+
+
+<script type="text/javascript">
+  $("#tellform").hide();
+
+  $(document).ready(function () {
+   $('iframe#tellform').load(function () { //The function below executes once the iframe has finished loading
+       $('.spinner').hide();
+       $("#tellform").show();
+     });
+  });
+</script>
+</html>

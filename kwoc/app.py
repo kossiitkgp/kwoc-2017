@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
 import collections
+import csv
 import sys
 import os
 import json
-from flask import render_template, redirect
+from flask import render_template, redirect, Markup
+import markdown
 from . import config
 
 sys.path.append("kwoc")
@@ -152,6 +154,55 @@ with open(endterm_hashes_json, 'r') as f:
 def end_term():
     return render_template('end-term-student.html',
                            hashes=endterm_hashes)
+
+
+schedule_csv = root_dir + '/secrets/schedule.csv'
+schedule = []
+with open(schedule_csv, 'r') as csv_file:
+    raw_reader = csv.reader(csv_file)
+    for row in raw_reader:
+        if row[0] != '':
+            schedule.append([row[0], row[1], row[2], row[3]])
+
+
+talks_csv = root_dir + '/secrets/talks.csv'
+talks = {}
+with open(talks_csv, 'r') as csv_file:
+    raw_reader = csv.reader(csv_file)
+    header = next(raw_reader, None)
+    for row in raw_reader:
+        talk_id = row[10]
+        speaker_name = row[4]
+        speaker_bio = row[5]
+        talk_name = row[7]
+        talk_abstract = row[8]
+        talks[talk_id] = {
+            'speaker_name': speaker_name,
+            'speaker_bio': Markup(markdown.markdown(speaker_bio)),
+            'talk_name': talk_name,
+            'talk_abstract': Markup(markdown.markdown(talk_abstract))
+        }
+
+
+@app.route("/summit")
+def summit():
+    return render_template('summit.html',
+                           schedule=schedule,
+                           talks=talks)
+
+
+@app.route("/summit/register")
+def summit_register():
+    return render_template('summit_register_form.html')
+
+
+@app.route("/summit/<talk_id>")
+def summit_talkid(talk_id):
+    if talk_id in talks:
+        return render_template('summit_talkid.html',
+                               talk=talks[talk_id])
+    else:
+        return redirect('/summit', code=302)
 
 # # Lines below should not be needed for Python 3
 # from imp import reload
