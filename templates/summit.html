@@ -34,14 +34,12 @@
         <![endif]-->
 
     </head>
-    <body style="min-width: 768px">
+    <body>
         <nav class="navbar no-margin-bottom alt-font without-button">
             <div class="container navigation-menu">
                 <div class="row">
                     <div class="col-md-2 pull-left"><a class="logo-dark" href="/"><img alt="" src="/static/images/kwoc_logo.png" class="logo" style="height: 60px;" /></a></div>
                     <!-- Brand and toggle get grouped for better mobile display -->
-                    <div class="col-md-2 navbar-header">
-                    </div>
                         <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse col-md-10">
                             <ul class="nav navbar-nav">
                                 <li><a class="inner-link" href="#about">About</a></li>
@@ -147,12 +145,9 @@
                 <div class="row">
                     <div class="margin-ten no-margin-bottom no-margin-lr clearfix">
                         <div class="col-md-12 col-sm-12 text-center tab-style-4">
-                            <ul class="nav nav-tabs alt-font display-inline-block text-uppercase letter-spacing-1 font-weight-600 xs-width-100 xs-no-border" role="tablist">
-                                <li role="presentation" class="active xs-display-block xs-no-border"><a href="#day1" aria-controls="day1" role="tab" data-toggle="tab" class="xs-display-block" style="line-height: 240%">Day 1: Workshops</a></li>
-                                <li role="presentation" class="xs-display-block xs-no-border"><a href="#day2" aria-controls="day2" role="tab" data-toggle="tab" class="xs-display-block" style="line-height: 240%">Day 2: Talks</a></li>
-                            </ul>
+                            <span class="title-large alt-font font-weight-600 text-uppercase deep-blue-text display-block sm-title-large deep-green-text">Day 1: Tutorials</span>
                             <div class="tab-content clearfix margin-twelve no-margin-lr no-margin-bottom sm-margin-nine sm-no-margin-lr sm-no-margin-bottom">
-                                <div role="tabpanel" class="tab-pane fade in active" id="day1">
+                                <div class="tab-pane fade in active" id="day1">
                                     <div class="col-md-12 col-sm-12 no-padding">
                                         <span class="text-extra-large alt-font display-block font-weight-600">SAT, 20th January</span>
                                         <span class="text-large text-uppercase alt-font light-gray-text">9:30am - 5:00PM</span>
@@ -171,25 +166,26 @@
                                                 </tr>
                                                 <tr>
                                                     <td nowrap class="alt-font text-uppercase xs-display-block"><span class="display-block">9:30AM - 12:30PM</span></td>
-                                                    <td class="alt-font xs-display-block"><span class="font-weight-600 display-block text-uppercase">Introduction to Python</span><span><a data-toggle="modal" data-target="#workshop-modal" href="">View Details</a></span></td>
-                                                    <td class="alt-font xs-display-block"><span class="font-weight-600 display-block text-uppercase">Introduction to Git</span><span><a data-toggle="modal" data-target="#workshop-modal" href="">View Details</a></span></td>
-                                                    <td class="alt-font xs-display-block"><span class="font-weight-600 display-block text-uppercase">Introduction to Javascript and Asynchronous programming</span><span><a data-toggle="modal" data-target="#workshop-modal" href="">View Details</a></span></td>
+                                                    <td class="alt-font xs-display-block"><span class="font-weight-600 display-block text-uppercase">Introduction to Python</span><span><a data-toggle="modal" data-target="#tutorial-modal" href="">View Details</a></span></td>
+                                                    <td class="alt-font xs-display-block"><span class="font-weight-600 display-block text-uppercase">Introduction to Git</span><span><a data-toggle="modal" data-target="#tutorial-modal" href="">View Details</a></span></td>
+                                                    <td class="alt-font xs-display-block"><span class="font-weight-600 display-block text-uppercase">Introduction to Javascript and Asynchronous programming</span><span><a data-toggle="modal" data-target="#tutorial-modal" href="">View Details</a></span></td>
                                                 </tr>
                                                 <tr>
                                                     <td nowrap class="alt-font text-uppercase xs-display-block"><span class="display-block">2:00PM - 5:00PM</span></td>
-                                                    <td class="alt-font xs-display-block"><span class="font-weight-600 display-block text-uppercase">Python Advanced</span><span><a data-toggle="modal" data-target="#workshop-modal" href="">View Details</a></span></td>
-                                                    <td class="alt-font xs-display-block"><span class="font-weight-600 display-block text-uppercase">Pragmatic GoLang</span><span><a data-toggle="modal" data-target="#workshop-modal" href="">View Details</a></span></td>
-                                                    <td class="alt-font xs-display-block"><span class="font-weight-600 display-block text-uppercase">Sprints</span><span><a data-toggle="modal" data-target="#workshop-modal" href="">View Details</a></span></td>
+                                                    <td class="alt-font xs-display-block"><span class="font-weight-600 display-block text-uppercase">Python Advanced</span><span><a data-toggle="modal" data-target="#tutorial-modal" href="">View Details</a></span></td>
+                                                    <td class="alt-font xs-display-block"><span class="font-weight-600 display-block text-uppercase">Pragmatic GoLang</span><span><a data-toggle="modal" data-target="#tutorial-modal" href="">View Details</a></span></td>
+                                                    <td class="alt-font xs-display-block"><span class="font-weight-600 display-block text-uppercase">Sprints</span><span><a data-toggle="modal" data-target="#tutorial-modal" href="">View Details</a></span></td>
                                                 </tr>
                                             </table>
                                         </div>
                                     </div>
                                 </div>
-                                <div role="tabpanel" class="tab-pane fade in" id="day2">
+                                <span class="title-large alt-font font-weight-600 text-uppercase deep-blue-text display-block sm-title-large deep-green-text margin-ten">Day 2: Talks</span>
+                                <div class="tab-pane fade in active" id="day2">
                                     <div class="col-md-12 col-sm-12 no-padding">
                                         <span class="text-extra-large alt-font display-block font-weight-600">SUN, 21st January</span>
                                         <span class="text-large text-uppercase alt-font">9:30am - 5:30PM</span><br>
-                                        <span class="text-large text-uppercase alt-font light-gray-text">Venue: Nalanda Classroom Complex</span>
+                                        <span class="text-large text-uppercase alt-font light-gray-text">Venue: <b>Room NR 222</b><br> <b>Nalanda</b> Classroom Complex</span>
                                         <div class="margin-ten no-margin-lr table">
                                             <table width="100%" border="0">
                                                 <tr>
@@ -284,11 +280,11 @@
                                 </div>
                                 <div class="col-md-4 col-sm-4 col-xs-12 text-center xs-margin-nineteen xs-no-margin-lr xs-no-margin-top">
                                     <i class="icon-phone icon-small display-block margin-seven no-margin-top no-margin-lr"></i>
-                                    <span class="alt-font text-uppercase">Call Pranit Bauva<br>+91 9932433282</span>
+                                    <span class="alt-font text-uppercase">Call Pranit Bauva<br>&#43;&#57;&#49;&#32;&#57;&#57;&#51;&#50;&#52;&#51;&#51;&#50;&#56;&#50;</span>
                                 </div>
                                 <div class="col-md-4 col-sm-4 col-xs-12 text-center xs-margin-nineteen xs-no-margin-lr xs-no-margin-top">
                                     <i class="icon-phone icon-small display-block margin-seven no-margin-top no-margin-lr"></i>
-                                    <span class="alt-font text-uppercase">Call Ayush Goyal<br>+91 8768668885</span>
+                                    <span class="alt-font text-uppercase">Call Himanshu Mishra<br>&#43;&#57;&#49;&#32;&#56;&#56;&#52;&#32;&#48;&#51;&#57;&#32;&#54;&#54;&#53;&#50;</span>
                                 </div>
                             </div>
                         </div>
@@ -310,14 +306,14 @@
         </footer>
 
 
-        <div id="workshop-modal" class="modal fade" role="dialog">
+        <div id="tutorial-modal" class="modal fade" role="dialog">
           <div class="modal-dialog modal-lg">
 
             <!-- Modal content-->
             <div class="modal-content" width="100%">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Workshops</h4>
+                <h4 class="modal-title">Tutorials</h4>
               </div>
               <div class="modal-body">
                 <h5>Introduction to Python</h5>
