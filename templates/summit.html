@@ -191,9 +191,9 @@
                                             <table width="100%" border="0">
                                                 <tr>
                                                     <td nowrap class="alt-font text-uppercase xs-display-block"><span class="display-block">9:30AM - 10:00AM</span></td>
-                                                    <td class="alt-font xs-display-block"><span class="font-weight-600 display-block text-uppercase">Welcome and Registration</span></td>
+                                                    <td class="alt-font xs-display-block"><span class="display-block text-uppercase">Welcome and Registration</span></td>
                                                 </tr>
-                                                {% for row in schedule[:3] %}
+                                                {% for row in schedule[:2] %}
                                                 <tr data-toggle="modal" data-target="#talk-{{ row[0] }}" style="cursor: pointer;">
                                                     <td nowrap class="alt-font text-uppercase xs-display-block"><span class="display-block">{{ row[1] }}</span></td>
                                                     <td class="alt-font xs-display-block"><span class="font-weight-600 display-block text-uppercase">{{ row[2] }}</span><span>{{ row[3] }}</span></td>
@@ -201,17 +201,17 @@
                                                 {% endfor %}
                                                 <tr>
                                                     <td nowrap class="alt-font text-uppercase xs-display-block"><span class="display-block">11:00AM - 11:10AM</span></td>
-                                                    <td class="alt-font xs-display-block"><span class="font-weight-600 display-block text-uppercase">Break</span></td>
+                                                    <td class="alt-font xs-display-block"><span class="display-block text-uppercase">Break</span></td>
                                                 </tr>
-                                                {% for row in schedule[3:6] %}
+                                                {% for row in schedule[2:6] %}
                                                 <tr data-toggle="modal" data-target="#talk-{{ row[0] }}" style="cursor: pointer;">
                                                     <td nowrap class="alt-font text-uppercase xs-display-block"><span class="display-block">{{ row[1] }}</span></td>
                                                     <td class="alt-font xs-display-block"><span class="font-weight-600 display-block text-uppercase">{{ row[2] }}</span><span>{{ row[3] }}</span></td>
                                                 </tr>
                                                 {% endfor %}
                                                 <tr>
-                                                    <td nowrap class="alt-font text-uppercase xs-display-block"><span class="display-block">12:10PM - 01:30PM</span></td>
-                                                    <td class="alt-font xs-display-block"><span class="font-weight-600 display-block text-uppercase">Break</span></td>
+                                                    <td nowrap class="alt-font text-uppercase xs-display-block"><span class="display-block">12:30PM - 02:00PM</span></td>
+                                                    <td class="alt-font xs-display-block"><span class="display-block text-uppercase">Break</span></td>
                                                 </tr>
                                                 {% for row in schedule[6:9] %}
                                                 <tr data-toggle="modal" data-target="#talk-{{ row[0] }}" style="cursor: pointer;">
@@ -220,8 +220,8 @@
                                                 </tr>
                                                 {% endfor %}
                                                 <tr>
-                                                    <td nowrap class="alt-font text-uppercase xs-display-block"><span class="display-block">03:00PM - 03:15PM</span></td>
-                                                    <td class="alt-font xs-display-block"><span class="font-weight-600 display-block text-uppercase">Break</span></td>
+                                                    <td nowrap class="alt-font text-uppercase xs-display-block"><span class="display-block">03:10PM - 03:20PM</span></td>
+                                                    <td class="alt-font xs-display-block"><span class="display-block text-uppercase">Break</span></td>
                                                 </tr>
                                                 {% for row in schedule[9:] %}
                                                 <tr data-toggle="modal" data-target="#talk-{{ row[0] }}" style="cursor: pointer;">
@@ -230,11 +230,11 @@
                                                 </tr>
                                                 {% endfor %}
                                                 <tr>
-                                                    <td nowrap class="alt-font text-uppercase xs-display-block"><span class="display-block">04:30PM - 05:00PM</span></td>
+                                                    <td nowrap class="alt-font text-uppercase xs-display-block"><span class="display-block">04:40PM - 05:10PM</span></td>
                                                     <td class="alt-font xs-display-block"><span class="font-weight-600 display-block text-uppercase">Lightning Talks</span></td>
                                                 </tr>
                                                 <tr>
-                                                    <td nowrap class="alt-font text-uppercase xs-display-block"><span class="display-block">05:00PM - 05:30PM</span></td>
+                                                    <td nowrap class="alt-font text-uppercase xs-display-block"><span class="display-block">05:10PM - 05:30PM</span></td>
                                                     <td class="alt-font xs-display-block"><span class="font-weight-600 display-block text-uppercase">Panel Discussion</span><span></span></td>
                                                 </tr>
                                             </table>
