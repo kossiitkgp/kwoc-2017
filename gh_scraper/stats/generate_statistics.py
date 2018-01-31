@@ -121,6 +121,7 @@ def fetch_all_pages(query, params=None, headers=None):
 
 
 def fetch_all_pull_requests(query, since=None, headers=None):
+    query = query.lstrip('<')
     r = requests.get(query, headers=headers)
     link = r.headers.get('link', None)
     if link is None:
