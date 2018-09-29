@@ -1,3 +1,0 @@
-[submodule "secrets"]
-	path = secrets
-	url = https://github.com/OrkoHunter/kwoc-2017-secrets.git
