@@ -4,9 +4,11 @@ import csv
 import sys
 import os
 import json
-from flask import render_template, redirect, Markup
+from flask import render_template, redirect, Markup, request
 import markdown
-from . import config
+import config
+import oauth
+import requests as rq
 
 sys.path.append("kwoc")
 
@@ -16,6 +18,7 @@ sess.init_app(app)
 # Load stats.json file
 dir_path = os.path.dirname(os.path.realpath(__file__))
 root_dir = '/'.join(dir_path.split('/')[:-1])
+
 stats_json = root_dir + '/gh_scraper/stats/stats.json'
 with open(stats_json, 'r') as f:
     stats_dict = json.load(f)
@@ -41,7 +44,6 @@ non_zero_contributions.update(zero_contributions)
 
 # Final data
 stats_dict = non_zero_contributions
-
 
 # Define routes
 @app.route("/")
@@ -203,6 +205,21 @@ def summit_talkid(talk_id):
                                talk=talks[talk_id])
     else:
         return redirect('/summit', code=302)
+
+@app.route("/auth/<githubHandle>")
+def auth(githubHandle):
+    global user 
+    user = githubHandle
+    return redirect(oauth.ret_auth_url())
+
+@app.route("/token")
+def token():
+    code=request.args.get('code')
+    access_token = oauth.ret_token(code)
+    print(access_token)
+    # user = githubhandle, accesstoken = access_token
+    return redirect("/")
+
 
 # # Lines below should not be needed for Python 3
 # from imp import reload
